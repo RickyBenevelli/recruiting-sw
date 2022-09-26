@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
   28:Core/Src/system_stm32g4xx.c ****   *        System Clock source                    | HSI
   29:Core/Src/system_stm32g4xx.c ****   *-----------------------------------------------------------------------------
   30:Core/Src/system_stm32g4xx.c ****   *        SYSCLK(Hz)                             | 16000000
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 2
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 2
 
 
   31:Core/Src/system_stm32g4xx.c ****   *-----------------------------------------------------------------------------
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
   85:Core/Src/system_stm32g4xx.c ****   #define HSI_VALUE    16000000U /*!< Value of the Internal oscillator in Hz*/
   86:Core/Src/system_stm32g4xx.c **** #endif /* HSI_VALUE */
   87:Core/Src/system_stm32g4xx.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 3
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 3
 
 
   88:Core/Src/system_stm32g4xx.c **** /**
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
  142:Core/Src/system_stm32g4xx.c ****   * @{
  143:Core/Src/system_stm32g4xx.c ****   */
  144:Core/Src/system_stm32g4xx.c ****   /* The SystemCoreClock variable is updated in three ways:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 4
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 4
 
 
  145:Core/Src/system_stm32g4xx.c ****       1) by calling CMSIS function SystemCoreClockUpdate()
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
  188:Core/Src/system_stm32g4xx.c ****   SCB->VTOR = VECT_TAB_BASE_ADDRESS | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM 
  189:Core/Src/system_stm32g4xx.c **** #endif /* USER_VECT_TAB_ADDRESS */
  190:Core/Src/system_stm32g4xx.c **** }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 5
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 5
 
 
   40              		.loc 1 190 1 view .LVU3
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
  229:Core/Src/system_stm32g4xx.c **** {
   58              		.loc 1 229 1 is_stmt 1 view -0
   59              		.cfi_startproc
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 6
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 6
 
 
   60              		@ args = 0, pretend = 0, frame = 0
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
  266:Core/Src/system_stm32g4xx.c ****   /* Get HCLK prescaler */
  267:Core/Src/system_stm32g4xx.c ****   tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> 4)];
   78              		.loc 1 267 3 is_stmt 1 view .LVU10
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 7
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 7
 
 
   79              		.loc 1 267 28 is_stmt 0 view .LVU11
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
  248:Core/Src/system_stm32g4xx.c ****       if (pllsource == 0x02UL) /* HSI used as PLL clock source */
  121              		.loc 1 248 7 is_stmt 1 view .LVU26
  248:Core/Src/system_stm32g4xx.c ****       if (pllsource == 0x02UL) /* HSI used as PLL clock source */
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 8
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 8
 
 
  122              		.loc 1 248 19 is_stmt 0 view .LVU27
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
  259:Core/Src/system_stm32g4xx.c ****       break;
  160              		.loc 1 259 7 is_stmt 1 view .LVU44
  259:Core/Src/system_stm32g4xx.c ****       break;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 9
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 9
 
 
  161              		.loc 1 259 31 is_stmt 0 view .LVU45
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
  210 000d 070809   		.ascii	"\007\010\011"
  211              		.section	.rodata.APBPrescTable,"a"
  212              		.align	2
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 10
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 10
 
 
  215              	APBPrescTable:
@@ -551,22 +551,22 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 1
  221              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
  222              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
  223              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g474xx.h"
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s 			page 11
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 system_stm32g4xx.c
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:20     .text.SystemInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:26     .text.SystemInit:0000000000000000 SystemInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:45     .text.SystemInit:0000000000000010 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:50     .text.SystemCoreClockUpdate:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:56     .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:185    .text.SystemCoreClockUpdate:000000000000007c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:215    .rodata.APBPrescTable:0000000000000000 APBPrescTable
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:208    .rodata.AHBPrescTable:0000000000000000 AHBPrescTable
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:201    .data.SystemCoreClock:0000000000000000 SystemCoreClock
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:197    .data.SystemCoreClock:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:204    .rodata.AHBPrescTable:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccE4YTmh.s:212    .rodata.APBPrescTable:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:20     .text.SystemInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:26     .text.SystemInit:0000000000000000 SystemInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:45     .text.SystemInit:0000000000000010 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:50     .text.SystemCoreClockUpdate:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:56     .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:185    .text.SystemCoreClockUpdate:000000000000007c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:215    .rodata.APBPrescTable:0000000000000000 APBPrescTable
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:208    .rodata.AHBPrescTable:0000000000000000 AHBPrescTable
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:201    .data.SystemCoreClock:0000000000000000 SystemCoreClock
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:197    .data.SystemCoreClock:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:204    .rodata.AHBPrescTable:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccYe1yOe.s:212    .rodata.APBPrescTable:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

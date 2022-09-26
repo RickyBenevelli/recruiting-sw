@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,6 +44,10 @@
 TIM_HandleTypeDef htim16;
 
 /* USER CODE BEGIN PV */
+
+int timer_lap = 0;
+int flag_sensor = 0;
+int flag_tension = 0;
 
 /* USER CODE END PV */
 
@@ -68,9 +72,6 @@ static void MX_TIM16_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  char uart_buff[50];
-  int uar_buff_len;
-  uint16_t  timer_val;
 
   /* USER CODE END 1 */
 
@@ -95,13 +96,10 @@ int main(void)
   MX_LPUART1_UART_Init();
   MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
-  
-  //Say something
-  uar_buff_len = sprintf(uart_buff, "Time test!\r\n");
-  HAL_UART_Transmit(&hlpuart1, (uint8_t*)uart_buff, uar_buff_len, 100);
+
 
   //Start timer
-  HAL_TIM_Base_Start(&htim16);
+  HAL_TIM_Base_Start_IT(&htim16);
 
   /* USER CODE END 2 */
 
@@ -109,48 +107,26 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   { 
-
-    //Get timer value in microseconds
-    timer_val = __HAL_TIM_GET_COUNTER(&htim16);
-
-    if (timer_val == 200)
-    {
-      __HAL_TIM_SET_COUNTER(&htim16, 0);
-      HAL_GPIO_TogglePin (GPIOA, GPIO_PIN_5);
-      uar_buff_len = sprintf(uart_buff, "Time elapsed: %d us\r\n", timer_val);
-      HAL_UART_Transmit(&hlpuart1, (uint8_t*)uart_buff, uar_buff_len, 100);
-      
+    
+    //check flag sensor
+    if(flag_sensor == 1){
+      //read sensor
+      flag_sensor = 0;
+    }
+    
+    //check flag tension
+    if(flag_tension == 1){
+      //read tension
+      flag_tension = 0;
     }
     
 
-    // HAL_ADC_GetValue
-    // adc_val = HAL_ADC_GetValue(&hadc1);
-    // if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)){
-		//   HAL_GPIO_TogglePin (GPIOA, GPIO_PIN_5);
-    //   HAL_Delay (500);
-    //   }
-	  // else
-		//   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
 
-    // HAL_GPIO_TogglePin (GPIOA, GPIO_PIN_5);
-
-
-    /* ESPERIMENTI MIEI: */
-    // HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
-
-    // if(HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin)){
-		//   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-    //   }
-	  // else
-		//   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
-
-    // HAL_GPIO_TogglePin (GPIOA, GPIO_PIN_5);
-    // HAL_Delay (100);
     
+    /* USER CODE END WHILE */
 
-    // HAL_UART_Transmit(&hlpuart1, (uint8_t*)"Hello world \r\n", sizeof("Hello world \r\n"), 100);
-    // HAL_Delay(1000);
-    
+    /* USER CODE BEGIN 3 */
+  
 
     /* USER CODE END WHILE */
 
@@ -270,7 +246,7 @@ static void MX_TIM16_Init(void)
   htim16.Instance = TIM16;
   htim16.Init.Prescaler = 13281-1;
   htim16.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim16.Init.Period = 199;
+  htim16.Init.Period = 99;
   htim16.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim16.Init.RepetitionCounter = 0;
   htim16.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -328,6 +304,23 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+//function that is called every 50 ms
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  if (htim->Instance == TIM16)
+  {
+    timer_lap += 1;
+
+    if ((timer_lap % 25) == 0)
+    {
+      flag_sensor = 1; //flag for checking the sensor
+    }  else if ((timer_lap % 35) == 0)
+    {
+      flag_tension = 1; //flag for checking the tension
+    }
+  }
+}
 
 /* USER CODE END 4 */
 
