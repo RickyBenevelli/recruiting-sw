@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -26,7 +26,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
   23              		.thumb_func
   25              	FLASH_MassErase:
   26              	.LVL0:
-  27              	.LFB139:
+  27              	.LFB336:
   28              		.file 1 "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c"
    1:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /**
    2:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
   28:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****            (++) Lock and Unlock the FLASH interface using HAL_FLASH_Unlock() and
   29:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****                 HAL_FLASH_Lock() functions
   30:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****            (++) Erase function: Erase pages, or mass erase banks
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 2
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 2
 
 
   31:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****            (++) There are two modes of erase :
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
   85:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /* Private define ------------------------------------------------------------*/
   86:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /* Private macro -------------------------------------------------------------*/
   87:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /* Private variables ---------------------------------------------------------*/
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 3
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 3
 
 
   88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /* Private function prototypes -----------------------------------------------*/
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  142:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  143:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   /* Check the parameters */
  144:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   assert_param(IS_FLASH_TYPEERASE(pEraseInit->TypeErase));
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 4
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 4
 
 
  145:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  199:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       /*Initialization of PageError variable*/
  200:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       *PageError = 0xFFFFFFFFU;
  201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 5
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 5
 
 
  202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       for (page_index = pEraseInit->Page; page_index < (pEraseInit->Page + pEraseInit->NbPages); pa
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  256:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       pFlash.CacheToReactivate = FLASH_CACHE_ICACHE_DCACHE_ENABLED;
  257:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     }
  258:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     else
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 6
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 6
 
 
  259:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  313:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  314:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   /* Check the parameters */
  315:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   assert_param(IS_OPTIONBYTE(pOBInit->OptionType));
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 7
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 7
 
 
  316:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  370:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
  371:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       status = HAL_ERROR;
  372:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 8
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 8
 
 
  373:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   }
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  427:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     pOBInit->OptionType |= OPTIONBYTE_PCROP;
  428:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     /* Get the Proprietary code readout protection */
  429:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     FLASH_OB_GetPCROP(&(pOBInit->PCROPConfig), &(pOBInit->PCROPStartAddr), &(pOBInit->PCROPEndAddr)
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 9
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 9
 
 
  430:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   }
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  484:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  485:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   return HAL_OK;
  486:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 10
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 10
 
 
  487:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  536:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   if (READ_BIT(FLASH->OPTR, FLASH_OPTR_DBANK) != 0U)
   34              		.loc 1 536 3 view .LVU1
   35              		.loc 1 536 7 is_stmt 0 view .LVU2
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 11
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 11
 
 
   36 0000 114B     		ldr	r3, .L5
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
   67 0034 43F00403 		orr	r3, r3, #4
   68 0038 5361     		str	r3, [r2, #20]
   69              	.L4:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 12
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 12
 
 
  560:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   }
@@ -679,7 +679,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
   79              	.L5:
   80 0048 00200240 		.word	1073881088
   81              		.cfi_endproc
-  82              	.LFE139:
+  82              	.LFE336:
   84              		.section	.text.FLASH_OB_GetSecMem,"ax",%progbits
   85              		.align	1
   86              		.syntax unified
@@ -687,7 +687,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
   88              		.thumb_func
   90              	FLASH_OB_GetSecMem:
   91              	.LVL1:
-  92              	.LFB148:
+  92              	.LFB345:
  566:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  567:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /**
  568:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   * @brief  Erase the specified FLASH memory page.
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  593:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
  594:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       CLEAR_BIT(FLASH->CR, FLASH_CR_BKER);
  595:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 13
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 13
 
 
  596:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     else
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  650:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   *         cleared with the call of HAL_FLASH_OB_Unlock() function.
  651:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   * @note   New option bytes configuration will be taken into account in two cases:
  652:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   *         - after an option bytes launch through the call of HAL_FLASH_OB_Launch()
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 14
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 14
 
 
  653:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   *         - after a power reset (BOR reset or exit from Standby/Shutdown modes)
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  707:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  708:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     /* Wait for last operation to be completed */
  709:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     status = FLASH_WaitForLastOperation((uint32_t)FLASH_TIMEOUT_VALUE);
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 15
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 15
 
 
  710:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   }
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  764:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   * @param  UserType The FLASH User Option Bytes to be modified.
  765:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   *         This parameter can be a combination of @ref FLASH_OB_USER_Type.
  766:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   * @param  UserConfig The selected User Option Bytes values:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 16
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 16
 
 
  767:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   *         This parameter can be a combination of @ref FLASH_OB_USER_BOR_LEVEL,
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  821:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     }
  822:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  823:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     if ((UserType & OB_USER_nRST_SHDW) != 0U)
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 17
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 17
 
 
  824:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  878:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  879:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       /* Set value and mask for BFB2 option byte */
  880:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       optr_reg_val |= (UserConfig & FLASH_OPTR_BFB2);
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 18
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 18
 
 
  881:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       optr_reg_mask |= FLASH_OPTR_BFB2;
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  935:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     if ((UserType & OB_USER_NRST_MODE) != 0U)
  936:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
  937:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       /* Reset Configuration option byte should be modified */
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 19
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 19
 
 
  938:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       assert_param(IS_OB_USER_NRST_MODE(UserConfig & FLASH_OPTR_NRST_MODE));
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  992:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** #endif
  993:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  994:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   /* Check the parameters */
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 20
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 20
 
 
  995:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   assert_param(IS_FLASH_BANK_EXCLUSIVE(PCROPConfig & FLASH_BANK_BOTH));
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
 1049:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       /* Configure the Proprietary code readout protection */
 1050:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       if ((PCROPConfig & FLASH_BANK_BOTH) == FLASH_BANK_1)
 1051:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       {
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 21
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 21
 
 
 1052:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****         reg_value = ((PCROPStartAddr - bank1_addr) >> 3);
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
 1106:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
 1107:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   /* Check the parameters */
 1108:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   assert_param(IS_FLASH_BANK_EXCLUSIVE(SecBank));
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 22
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 22
 
 
 1109:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   assert_param(IS_OB_SECMEM_SIZE(SecSize));
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
 1163:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   /* Wait for last operation to be completed */
 1164:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   status = FLASH_WaitForLastOperation((uint32_t)FLASH_TIMEOUT_VALUE);
 1165:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 23
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 23
 
 
 1166:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   if (status == HAL_OK)
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
 1206:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   }
 1207:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** #endif
 1208:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 24
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 24
 
 
  107              		.loc 1 1208 1 view .LVU19
@@ -1415,14 +1415,14 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  131              	.L12:
  132 0020 00200240 		.word	1073881088
  133              		.cfi_endproc
- 134              	.LFE148:
+ 134              	.LFE345:
  136              		.section	.text.FLASH_OB_GetBootLock,"ax",%progbits
  137              		.align	1
  138              		.syntax unified
  139              		.thumb
  140              		.thumb_func
  142              	FLASH_OB_GetBootLock:
- 143              	.LFB149:
+ 143              	.LFB346:
 1209:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
 1210:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /**
 1211:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   * @brief  Return the Boot Lock configuration into Option Byte.
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  146              		@ args = 0, pretend = 0, frame = 0
  147              		@ frame_needed = 0, uses_anonymous_args = 0
  148              		@ link register save eliminated.
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 25
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 25
 
 
 1219:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   return (READ_REG(FLASH->SEC1R) & FLASH_SEC1R_BOOT_LOCK);
@@ -1455,7 +1455,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  158              	.L15:
  159 000c 00200240 		.word	1073881088
  160              		.cfi_endproc
- 161              	.LFE149:
+ 161              	.LFE346:
  163              		.section	.text.FLASH_OB_GetWRP,"ax",%progbits
  164              		.align	1
  165              		.syntax unified
@@ -1463,7 +1463,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  167              		.thumb_func
  169              	FLASH_OB_GetWRP:
  170              	.LVL2:
- 171              	.LFB150:
+ 171              	.LFB347:
 1221:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
 1222:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /**
 1223:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   * @brief  Return the Write Protection configuration into Option Bytes.
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  184 000a 17       		.byte	(.L21-.L20)/2
  185 000b 2A       		.byte	(.L17-.L20)/2
  186 000c 21       		.byte	(.L19-.L20)/2
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 26
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 26
 
 
  187 000d 00       		.p2align 1
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  228              		.loc 1 1252 23 is_stmt 0 view .LVU51
  229 0036 0A48     		ldr	r0, .L25
  230              	.LVL7:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 27
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 27
 
 
  231              		.loc 1 1252 23 view .LVU52
@@ -1614,17 +1614,17 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  268              	.L25:
  269 0060 00200240 		.word	1073881088
  270              		.cfi_endproc
- 271              	.LFE150:
+ 271              	.LFE347:
  273              		.section	.text.FLASH_OB_GetRDP,"ax",%progbits
  274              		.align	1
  275              		.syntax unified
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 28
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 28
 
 
  276              		.thumb
  277              		.thumb_func
  279              	FLASH_OB_GetRDP:
- 280              	.LFB151:
+ 280              	.LFB348:
 1266:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
 1267:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /**
 1268:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   * @brief  Return the FLASH Read Protection level into Option Bytes.
@@ -1677,8 +1677,8 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  308              	.L30:
  309 0014 00200240 		.word	1073881088
  310              		.cfi_endproc
- 311              	.LFE151:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 29
+ 311              	.LFE348:
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 29
 
 
  313              		.section	.text.FLASH_OB_GetUser,"ax",%progbits
@@ -1687,7 +1687,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  316              		.thumb
  317              		.thumb_func
  319              	FLASH_OB_GetUser:
- 320              	.LFB152:
+ 320              	.LFB349:
 1288:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
 1289:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /**
 1290:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   * @brief  Return the FLASH User Option Byte value.
@@ -1732,18 +1732,18 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  340              	.L33:
  341 000c 00200240 		.word	1073881088
  342              		.cfi_endproc
- 343              	.LFE152:
+ 343              	.LFE349:
  345              		.section	.text.FLASH_OB_GetPCROP,"ax",%progbits
  346              		.align	1
  347              		.syntax unified
  348              		.thumb
  349              		.thumb_func
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 30
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 30
 
 
  351              	FLASH_OB_GetPCROP:
  352              	.LVL14:
- 353              	.LFB153:
+ 353              	.LFB350:
 1310:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
 1311:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** /**
 1312:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   * @brief  Return the FLASH PCROP configuration into Option Bytes.
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  381              		.loc 1 1333 29 view .LVU95
  382 0012 4FF6FF73 		movw	r3, #65535
  383 0016 9C42     		cmp	r4, r3
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 31
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 31
 
 
  384 0018 30D0     		beq	.L42
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  415 0044 31D0     		beq	.L46
  416              	.LVL18:
  417              	.L40:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 32
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 32
 
 
 1356:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  431 0054 70BC     		pop	{r4, r5, r6}
  432              		.cfi_remember_state
  433              		.cfi_restore 6
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 33
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 33
 
 
  434              		.cfi_restore 5
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  476              		.loc 1 1349 26 is_stmt 0 view .LVU125
  477 008c 244D     		ldr	r5, .L48+16
  478 008e 6C6A     		ldr	r4, [r5, #36]
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 34
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 34
 
 
  479              	.LVL24:
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
 1360:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       *PCROPEndAddr = (reg_value << 4) + FLASH_BASE;
  517              		.loc 1 1360 7 is_stmt 1 view .LVU142
 1360:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       *PCROPEndAddr = (reg_value << 4) + FLASH_BASE;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 35
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 35
 
 
  518              		.loc 1 1360 24 is_stmt 0 view .LVU143
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  556              		.loc 1 1383 23 view .LVU159
  557 00e6 0D60     		str	r5, [r1]
 1385:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       *PCROPEndAddr = (reg_value << 3) + bank2_addr;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 36
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 36
 
 
  558              		.loc 1 1385 7 is_stmt 1 view .LVU160
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  595              		.loc 1 1377 40 view .LVU177
  596 0108 1C44     		add	r4, r4, r3
 1377:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 37
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 37
 
 
  597              		.loc 1 1377 21 view .LVU178
@@ -2176,7 +2176,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  609 0128 F0FF0700 		.word	524272
  610 012c F8FF0300 		.word	262136
  611              		.cfi_endproc
- 612              	.LFE153:
+ 612              	.LFE350:
  614              		.section	.text.FLASH_OB_WRPConfig,"ax",%progbits
  615              		.align	1
  616              		.syntax unified
@@ -2184,7 +2184,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  618              		.thumb_func
  620              	FLASH_OB_WRPConfig:
  621              	.LVL41:
- 622              	.LFB142:
+ 622              	.LFB339:
  668:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
  623              		.loc 1 668 1 is_stmt 1 view -0
  624              		.cfi_startproc
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  677:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  645              		.loc 1 677 12 view .LVU187
  646 000c FFF7FEFF 		bl	FLASH_WaitForLastOperation
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 38
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 38
 
 
  647              	.LVL43:
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  688              		.loc 1 688 7 is_stmt 1 view .LVU200
  688:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     }
  689              		.loc 1 688 70 is_stmt 0 view .LVU201
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 39
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 39
 
 
  690 003c 44EA0644 		orr	r4, r4, r6, lsl #16
@@ -2319,7 +2319,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  718              	.L60:
  719 005c 00200240 		.word	1073881088
  720              		.cfi_endproc
- 721              	.LFE142:
+ 721              	.LFE339:
  723              		.section	.text.FLASH_OB_RDPConfig,"ax",%progbits
  724              		.align	1
  725              		.syntax unified
@@ -2327,7 +2327,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  727              		.thumb_func
  729              	FLASH_OB_RDPConfig:
  730              	.LVL52:
- 731              	.LFB143:
+ 731              	.LFB340:
  733:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
  732              		.loc 1 733 1 is_stmt 1 view -0
  733              		.cfi_startproc
@@ -2338,7 +2338,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  737 0000 10B5     		push	{r4, lr}
  738              		.cfi_def_cfa_offset 8
  739              		.cfi_offset 4, -8
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 40
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 40
 
 
  740              		.cfi_offset 14, -4
@@ -2398,10 +2398,10 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  780              	.L66:
  781 0030 00200240 		.word	1073881088
  782              		.cfi_endproc
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 41
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 41
 
 
- 783              	.LFE143:
+ 783              	.LFE340:
  785              		.section	.text.FLASH_OB_UserConfig,"ax",%progbits
  786              		.align	1
  787              		.syntax unified
@@ -2409,7 +2409,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  789              		.thumb_func
  791              	FLASH_OB_UserConfig:
  792              	.LVL58:
- 793              	.LFB144:
+ 793              	.LFB341:
  780:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   uint32_t optr_reg_val = 0;
  794              		.loc 1 780 1 is_stmt 1 view -0
  795              		.cfi_startproc
@@ -2458,7 +2458,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  826 0018 04D0     		beq	.L86
  796:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  827              		.loc 1 796 7 is_stmt 1 view .LVU238
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 42
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 42
 
 
  799:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       optr_reg_mask |= FLASH_OPTR_BOR_LEV;
@@ -2518,7 +2518,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  864              		.loc 1 819 35 is_stmt 0 view .LVU256
  865 003c 05F40051 		and	r1, r5, #8192
  819:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       optr_reg_mask |= FLASH_OPTR_nRST_STDBY;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 43
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 43
 
 
  866              		.loc 1 819 20 view .LVU257
@@ -2578,7 +2578,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  902              		.loc 1 840 21 is_stmt 0 view .LVU275
  903 0062 42F48032 		orr	r2, r2, #65536
  904              	.LVL72:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 44
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 44
 
 
  905              	.L74:
@@ -2638,7 +2638,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  941 008a 04D0     		beq	.L77
  866:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  942              		.loc 1 866 7 is_stmt 1 view .LVU294
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 45
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 45
 
 
  869:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       optr_reg_mask |= FLASH_OPTR_WWDG_SW;
@@ -2698,7 +2698,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  978              		.loc 1 891 20 view .LVU313
  979 00b0 0B43     		orrs	r3, r3, r1
  980              	.LVL81:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 46
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 46
 
 
  892:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     }
@@ -2758,7 +2758,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1017              	.L81:
  915:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
  1018              		.loc 1 915 5 is_stmt 1 view .LVU332
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 47
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 47
 
 
  915:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
@@ -2818,7 +2818,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  941:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       optr_reg_mask |= FLASH_OPTR_NRST_MODE;
  1055              		.loc 1 941 7 view .LVU351
  941:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       optr_reg_mask |= FLASH_OPTR_NRST_MODE;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 48
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 48
 
 
  1056              		.loc 1 941 35 is_stmt 0 view .LVU352
@@ -2878,7 +2878,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1095 0124 43F40033 		orr	r3, r3, #131072
  1096 0128 4361     		str	r3, [r0, #20]
  962:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 49
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 49
 
 
  1097              		.loc 1 962 5 view .LVU368
@@ -2901,7 +2901,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1110              	.L88:
  1111 0134 00200240 		.word	1073881088
  1112              		.cfi_endproc
- 1113              	.LFE144:
+ 1113              	.LFE341:
  1115              		.section	.text.FLASH_OB_PCROPConfig,"ax",%progbits
  1116              		.align	1
  1117              		.syntax unified
@@ -2909,7 +2909,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1119              		.thumb_func
  1121              	FLASH_OB_PCROPConfig:
  1122              	.LVL100:
- 1123              	.LFB145:
+ 1123              	.LFB342:
  986:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
  1124              		.loc 1 986 1 is_stmt 1 view -0
  1125              		.cfi_startproc
@@ -2938,7 +2938,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1142              		.loc 1 995 3 view .LVU379
  996:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   assert_param(IS_FLASH_MAIN_MEM_ADDRESS(PCROPStartAddr));
  1143              		.loc 1 996 3 view .LVU380
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 50
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 50
 
 
  997:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   assert_param(IS_FLASH_MAIN_MEM_ADDRESS(PCROPEndAddr));
@@ -2998,7 +2998,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1181 003a 4FF00063 		mov	r3, #134217728
  1182              	.LVL104:
  1183              	.L93:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 51
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 51
 
 
 1022:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
@@ -3058,7 +3058,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
 1083:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** }
  1224              		.loc 1 1083 3 is_stmt 1 view .LVU412
 1084:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 52
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 52
 
 
  1225              		.loc 1 1084 1 is_stmt 0 view .LVU413
@@ -3118,7 +3118,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
 1028:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  1267              		.loc 1 1028 9 is_stmt 1 view .LVU426
  1268 00ae 3048     		ldr	r0, .L104+16
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 53
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 53
 
 
  1269 00b0 436A     		ldr	r3, [r0, #36]
@@ -3178,7 +3178,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1312              		.loc 1 1050 24 is_stmt 0 view .LVU437
  1313 0102 04F00301 		and	r1, r4, #3
 1050:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****       {
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 54
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 54
 
 
  1314              		.loc 1 1050 10 view .LVU438
@@ -3238,7 +3238,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1355              		.loc 1 1053 9 is_stmt 0 view .LVU451
  1356 013c 22F4FF42 		bic	r2, r2, #32640
  1357 0140 22F07F02 		bic	r2, r2, #127
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 55
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 55
 
 
  1358 0144 42EAD102 		orr	r2, r2, r1, lsr #3
@@ -3267,7 +3267,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1378 0170 00200240 		.word	1073881088
  1379 0174 00000408 		.word	134479872
  1380              		.cfi_endproc
- 1381              	.LFE145:
+ 1381              	.LFE342:
  1383              		.section	.text.FLASH_OB_SecMemConfig,"ax",%progbits
  1384              		.align	1
  1385              		.syntax unified
@@ -3275,7 +3275,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1387              		.thumb_func
  1389              	FLASH_OB_SecMemConfig:
  1390              	.LVL126:
- 1391              	.LFB146:
+ 1391              	.LFB343:
 1104:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
  1392              		.loc 1 1104 1 view -0
  1393              		.cfi_startproc
@@ -3298,7 +3298,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
 1109:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  1407              		.loc 1 1109 3 view .LVU459
 1112:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 56
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 56
 
 
  1408              		.loc 1 1112 3 view .LVU460
@@ -3358,7 +3358,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1447 0030 23F0FF03 		bic	r3, r3, #255
  1448 0034 2B43     		orrs	r3, r3, r5
  1449 0036 1367     		str	r3, [r2, #112]
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 57
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 57
 
 
  1450 0038 EEE7     		b	.L109
@@ -3376,7 +3376,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1461              	.L113:
  1462 0048 00200240 		.word	1073881088
  1463              		.cfi_endproc
- 1464              	.LFE146:
+ 1464              	.LFE343:
  1466              		.section	.text.FLASH_OB_BootLockConfig,"ax",%progbits
  1467              		.align	1
  1468              		.syntax unified
@@ -3384,7 +3384,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1470              		.thumb_func
  1472              	FLASH_OB_BootLockConfig:
  1473              	.LVL131:
- 1474              	.LFB147:
+ 1474              	.LFB344:
 1157:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
  1475              		.loc 1 1157 1 view -0
  1476              		.cfi_startproc
@@ -3418,7 +3418,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1496 000c 00B1     		cbz	r0, .L118
  1497              	.L116:
  1498              	.LVL134:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 58
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 58
 
 
 1177:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** }
@@ -3455,7 +3455,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1523              	.L119:
  1524 0030 00200240 		.word	1073881088
  1525              		.cfi_endproc
- 1526              	.LFE147:
+ 1526              	.LFE344:
  1528              		.section	.text.HAL_FLASHEx_OBProgram,"ax",%progbits
  1529              		.align	1
  1530              		.global	HAL_FLASHEx_OBProgram
@@ -3464,7 +3464,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1533              		.thumb_func
  1535              	HAL_FLASHEx_OBProgram:
  1536              	.LVL137:
- 1537              	.LFB134:
+ 1537              	.LFB331:
  311:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
  1538              		.loc 1 311 1 is_stmt 1 view -0
  1539              		.cfi_startproc
@@ -3478,7 +3478,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1546              		.cfi_offset 4, -12
  1547              		.cfi_offset 5, -8
  1548              		.cfi_offset 14, -4
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 59
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 59
 
 
  312:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
@@ -3538,7 +3538,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  343:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   {
  1587              		.loc 1 343 15 is_stmt 0 view .LVU511
  1588 0028 2368     		ldr	r3, [r4]
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 60
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 60
 
 
  343:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   {
@@ -3598,7 +3598,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1627              		.loc 1 386 3 view .LVU527
  1628 0050 1A4B     		ldr	r3, .L144
  1629 0052 0022     		movs	r2, #0
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 61
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 61
 
 
  1630 0054 1A70     		strb	r2, [r3]
@@ -3658,7 +3658,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1671              	.LVL152:
  1672              	.L140:
  346:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 62
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 62
 
 
  1673              		.loc 1 346 5 is_stmt 1 view .LVU541
@@ -3718,7 +3718,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1714 00a6 0125     		movs	r5, #1
  1715              	.LVL160:
  371:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 63
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 63
 
 
  1716              		.loc 1 371 14 view .LVU555
@@ -3754,7 +3754,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1740              	.L144:
  1741 00bc 00000000 		.word	pFlash
  1742              		.cfi_endproc
- 1743              	.LFE134:
+ 1743              	.LFE331:
  1745              		.section	.text.HAL_FLASHEx_OBGetConfig,"ax",%progbits
  1746              		.align	1
  1747              		.global	HAL_FLASHEx_OBGetConfig
@@ -3763,7 +3763,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1750              		.thumb_func
  1752              	HAL_FLASHEx_OBGetConfig:
  1753              	.LVL165:
- 1754              	.LFB135:
+ 1754              	.LFB332:
  400:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   pOBInit->OptionType = (OPTIONBYTE_RDP | OPTIONBYTE_USER);
  1755              		.loc 1 400 1 is_stmt 1 view -0
  1756              		.cfi_startproc
@@ -3778,7 +3778,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1764 0002 0446     		mov	r4, r0
  401:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  1765              		.loc 1 401 3 is_stmt 1 view .LVU564
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 64
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 64
 
 
  401:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
@@ -3838,7 +3838,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1804 002e E369     		ldr	r3, [r4, #28]
  422:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** #else
  1805              		.loc 1 422 46 view .LVU581
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 65
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 65
 
 
  1806 0030 013B     		subs	r3, r3, #1
@@ -3898,7 +3898,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1846 0066 E6E7     		b	.L149
  1847              	.L153:
  444:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     FLASH_OB_GetSecMem(pOBInit->SecBank, &(pOBInit->SecSize));
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 66
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 66
 
 
  1848              		.loc 1 444 5 view .LVU596
@@ -3916,7 +3916,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1857              		.loc 1 447 1 is_stmt 0 view .LVU599
  1858 0078 E8E7     		b	.L146
  1859              		.cfi_endproc
- 1860              	.LFE135:
+ 1860              	.LFE332:
  1862              		.section	.text.HAL_FLASHEx_EnableSecMemProtection,"ax",%progbits
  1863              		.align	1
  1864              		.global	HAL_FLASHEx_EnableSecMemProtection
@@ -3925,7 +3925,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1867              		.thumb_func
  1869              	HAL_FLASHEx_EnableSecMemProtection:
  1870              	.LVL174:
- 1871              	.LFB136:
+ 1871              	.LFB333:
  460:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** #if defined (FLASH_OPTR_DBANK)
  1872              		.loc 1 460 1 is_stmt 1 view -0
  1873              		.cfi_startproc
@@ -3958,7 +3958,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1893 0018 5361     		str	r3, [r2, #20]
  1894              	.L156:
  474:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     {
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 67
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 67
 
 
  1895              		.loc 1 474 5 view .LVU608
@@ -3995,7 +3995,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1920              	.L158:
  1921 003c 00200240 		.word	1073881088
  1922              		.cfi_endproc
- 1923              	.LFE136:
+ 1923              	.LFE333:
  1925              		.section	.text.HAL_FLASHEx_EnableDebugger,"ax",%progbits
  1926              		.align	1
  1927              		.global	HAL_FLASHEx_EnableDebugger
@@ -4003,7 +4003,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1929              		.thumb
  1930              		.thumb_func
  1932              	HAL_FLASHEx_EnableDebugger:
- 1933              	.LFB137:
+ 1933              	.LFB334:
  494:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   FLASH->ACR |= FLASH_ACR_DBG_SWEN;
  1934              		.loc 1 494 1 is_stmt 1 view -0
  1935              		.cfi_startproc
@@ -4018,7 +4018,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1942 0002 1368     		ldr	r3, [r2]
  1943 0004 43F48023 		orr	r3, r3, #262144
  1944 0008 1360     		str	r3, [r2]
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 68
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 68
 
 
  496:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
@@ -4029,7 +4029,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1949              	.L161:
  1950 000c 00200240 		.word	1073881088
  1951              		.cfi_endproc
- 1952              	.LFE137:
+ 1952              	.LFE334:
  1954              		.section	.text.HAL_FLASHEx_DisableDebugger,"ax",%progbits
  1955              		.align	1
  1956              		.global	HAL_FLASHEx_DisableDebugger
@@ -4037,7 +4037,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1958              		.thumb
  1959              		.thumb_func
  1961              	HAL_FLASHEx_DisableDebugger:
- 1962              	.LFB138:
+ 1962              	.LFB335:
  506:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   FLASH->ACR &= ~FLASH_ACR_DBG_SWEN;
  1963              		.loc 1 506 1 is_stmt 1 view -0
  1964              		.cfi_startproc
@@ -4060,7 +4060,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1978              	.L164:
  1979 000c 00200240 		.word	1073881088
  1980              		.cfi_endproc
- 1981              	.LFE138:
+ 1981              	.LFE335:
  1983              		.section	.text.FLASH_PageErase,"ax",%progbits
  1984              		.align	1
  1985              		.global	FLASH_PageErase
@@ -4069,7 +4069,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1988              		.thumb_func
  1990              	FLASH_PageErase:
  1991              	.LVL176:
- 1992              	.LFB140:
+ 1992              	.LFB337:
  579:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   /* Check the parameters */
  1993              		.loc 1 579 1 is_stmt 1 view -0
  1994              		.cfi_startproc
@@ -4078,7 +4078,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  1997              		@ link register save eliminated.
  581:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  1998              		.loc 1 581 3 view .LVU624
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 69
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 69
 
 
  584:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   {
@@ -4138,7 +4138,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2040 003e 064A     		ldr	r2, .L170
  2041 0040 5369     		ldr	r3, [r2, #20]
  2042 0042 23F40063 		bic	r3, r3, #2048
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 70
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 70
 
 
  2043 0046 5361     		str	r3, [r2, #20]
@@ -4156,7 +4156,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2054              	.L170:
  2055 0058 00200240 		.word	1073881088
  2056              		.cfi_endproc
- 2057              	.LFE140:
+ 2057              	.LFE337:
  2059              		.section	.text.HAL_FLASHEx_Erase_IT,"ax",%progbits
  2060              		.align	1
  2061              		.global	HAL_FLASHEx_Erase_IT
@@ -4165,7 +4165,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2064              		.thumb_func
  2066              	HAL_FLASHEx_Erase_IT:
  2067              	.LVL179:
- 2068              	.LFB133:
+ 2068              	.LFB330:
  238:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
  2069              		.loc 1 238 1 view -0
  2070              		.cfi_startproc
@@ -4198,7 +4198,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  245:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  2091              		.loc 1 245 3 discriminator 2 view .LVU646
  247:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 71
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 71
 
 
  2092              		.loc 1 247 3 discriminator 2 view .LVU647
@@ -4258,7 +4258,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2130              		.loc 1 277 3 discriminator 4 view .LVU663
  277:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  2131              		.loc 1 277 27 is_stmt 0 discriminator 4 view .LVU664
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 72
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 72
 
 
  2132 0044 5968     		ldr	r1, [r3, #4]
@@ -4318,7 +4318,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  260:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     }
  2170              		.loc 1 260 32 is_stmt 0 view .LVU681
  2171 0068 0F4A     		ldr	r2, .L185
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 73
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 73
 
 
  2172 006a 0121     		movs	r1, #1
@@ -4378,7 +4378,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2213              		.loc 1 296 10 view .LVU694
  2214 00a0 0020     		movs	r0, #0
  2215 00a2 E0E7     		b	.L173
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 74
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 74
 
 
  2216              	.LVL185:
@@ -4399,7 +4399,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2229 00a8 00000000 		.word	pFlash
  2230 00ac 00200240 		.word	1073881088
  2231              		.cfi_endproc
- 2232              	.LFE133:
+ 2232              	.LFE330:
  2234              		.section	.text.FLASH_FlushCaches,"ax",%progbits
  2235              		.align	1
  2236              		.global	FLASH_FlushCaches
@@ -4407,7 +4407,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2238              		.thumb
  2239              		.thumb_func
  2241              	FLASH_FlushCaches:
- 2242              	.LFB141:
+ 2242              	.LFB338:
  614:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   FLASH_CacheTypeDef cache = pFlash.CacheToReactivate;
  2243              		.loc 1 614 1 is_stmt 1 view -0
  2244              		.cfi_startproc
@@ -4438,7 +4438,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2263 000e 144A     		ldr	r2, .L192+4
  2264 0010 1168     		ldr	r1, [r2]
  2265 0012 21F40071 		bic	r1, r1, #512
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 75
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 75
 
 
  2266 0016 1160     		str	r1, [r2]
@@ -4498,7 +4498,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2306 0048 1A60     		str	r2, [r3]
  634:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****     /* Enable data cache */
  2307              		.loc 1 634 5 view .LVU718
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 76
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 76
 
 
  2308 004a 1A68     		ldr	r2, [r3]
@@ -4518,7 +4518,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2320 005c 00000000 		.word	pFlash
  2321 0060 00200240 		.word	1073881088
  2322              		.cfi_endproc
- 2323              	.LFE141:
+ 2323              	.LFE338:
  2325              		.section	.text.HAL_FLASHEx_Erase,"ax",%progbits
  2326              		.align	1
  2327              		.global	HAL_FLASHEx_Erase
@@ -4527,7 +4527,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2330              		.thumb_func
  2332              	HAL_FLASHEx_Erase:
  2333              	.LVL190:
- 2334              	.LFB132:
+ 2334              	.LFB329:
  139:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
  2335              		.loc 1 139 1 view -0
  2336              		.cfi_startproc
@@ -4558,7 +4558,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2355 0006 012B     		cmp	r3, #1
  2356 0008 6DD0     		beq	.L206
  2357 000a 0446     		mov	r4, r0
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 77
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 77
 
 
  2358 000c 0E46     		mov	r6, r1
@@ -4618,7 +4618,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2396 003c 2C4A     		ldr	r2, .L210+4
  2397 003e 1368     		ldr	r3, [r2]
  2398 0040 23F48063 		bic	r3, r3, #1024
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 78
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 78
 
 
  2399 0044 1360     		str	r3, [r2]
@@ -4678,7 +4678,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  207:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c **** 
  2437              		.loc 1 207 18 is_stmt 0 view .LVU760
  2438 006c 4FF47A70 		mov	r0, #1000
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 79
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 79
 
 
  2439 0070 FFF7FEFF 		bl	FLASH_WaitForLastOperation
@@ -4738,7 +4738,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2480 00a8 0222     		movs	r2, #2
  2481 00aa 1A77     		strb	r2, [r3, #28]
  2482 00ac CEE7     		b	.L199
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 80
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 80
 
 
  2483              	.L200:
@@ -4798,7 +4798,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2524              		.loc 1 226 3 view .LVU786
  2525 00dc 034B     		ldr	r3, .L210
  2526 00de 0022     		movs	r2, #0
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 81
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 81
 
 
  2527 00e0 1A70     		strb	r2, [r3]
@@ -4824,7 +4824,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2543 00ec 00000000 		.word	pFlash
  2544 00f0 00200240 		.word	1073881088
  2545              		.cfi_endproc
- 2546              	.LFE132:
+ 2546              	.LFE329:
  2548              		.text
  2549              	.Letext0:
  2550              		.file 2 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-fo
@@ -4832,85 +4832,85 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 1
  2552              		.file 4 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g474xx.h"
  2553              		.file 5 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
  2554              		.file 6 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 82
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 82
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32g4xx_hal_flash_ex.c
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:20     .text.FLASH_MassErase:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:25     .text.FLASH_MassErase:0000000000000000 FLASH_MassErase
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:80     .text.FLASH_MassErase:0000000000000048 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:85     .text.FLASH_OB_GetSecMem:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:90     .text.FLASH_OB_GetSecMem:0000000000000000 FLASH_OB_GetSecMem
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:132    .text.FLASH_OB_GetSecMem:0000000000000020 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:137    .text.FLASH_OB_GetBootLock:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:142    .text.FLASH_OB_GetBootLock:0000000000000000 FLASH_OB_GetBootLock
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:159    .text.FLASH_OB_GetBootLock:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:164    .text.FLASH_OB_GetWRP:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:169    .text.FLASH_OB_GetWRP:0000000000000000 FLASH_OB_GetWRP
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:182    .text.FLASH_OB_GetWRP:0000000000000008 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:269    .text.FLASH_OB_GetWRP:0000000000000060 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:274    .text.FLASH_OB_GetRDP:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:279    .text.FLASH_OB_GetRDP:0000000000000000 FLASH_OB_GetRDP
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:309    .text.FLASH_OB_GetRDP:0000000000000014 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:314    .text.FLASH_OB_GetUser:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:319    .text.FLASH_OB_GetUser:0000000000000000 FLASH_OB_GetUser
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:341    .text.FLASH_OB_GetUser:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:346    .text.FLASH_OB_GetPCROP:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:351    .text.FLASH_OB_GetPCROP:0000000000000000 FLASH_OB_GetPCROP
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:603    .text.FLASH_OB_GetPCROP:0000000000000110 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:615    .text.FLASH_OB_WRPConfig:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:620    .text.FLASH_OB_WRPConfig:0000000000000000 FLASH_OB_WRPConfig
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:656    .text.FLASH_OB_WRPConfig:000000000000001a $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:719    .text.FLASH_OB_WRPConfig:000000000000005c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:724    .text.FLASH_OB_RDPConfig:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:729    .text.FLASH_OB_RDPConfig:0000000000000000 FLASH_OB_RDPConfig
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:781    .text.FLASH_OB_RDPConfig:0000000000000030 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:786    .text.FLASH_OB_UserConfig:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:791    .text.FLASH_OB_UserConfig:0000000000000000 FLASH_OB_UserConfig
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1111   .text.FLASH_OB_UserConfig:0000000000000134 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1116   .text.FLASH_OB_PCROPConfig:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1121   .text.FLASH_OB_PCROPConfig:0000000000000000 FLASH_OB_PCROPConfig
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1374   .text.FLASH_OB_PCROPConfig:0000000000000160 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1384   .text.FLASH_OB_SecMemConfig:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1389   .text.FLASH_OB_SecMemConfig:0000000000000000 FLASH_OB_SecMemConfig
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1462   .text.FLASH_OB_SecMemConfig:0000000000000048 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1467   .text.FLASH_OB_BootLockConfig:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1472   .text.FLASH_OB_BootLockConfig:0000000000000000 FLASH_OB_BootLockConfig
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1524   .text.FLASH_OB_BootLockConfig:0000000000000030 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1529   .text.HAL_FLASHEx_OBProgram:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1535   .text.HAL_FLASHEx_OBProgram:0000000000000000 HAL_FLASHEx_OBProgram
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1741   .text.HAL_FLASHEx_OBProgram:00000000000000bc $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1746   .text.HAL_FLASHEx_OBGetConfig:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1752   .text.HAL_FLASHEx_OBGetConfig:0000000000000000 HAL_FLASHEx_OBGetConfig
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1863   .text.HAL_FLASHEx_EnableSecMemProtection:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1869   .text.HAL_FLASHEx_EnableSecMemProtection:0000000000000000 HAL_FLASHEx_EnableSecMemProtection
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1921   .text.HAL_FLASHEx_EnableSecMemProtection:000000000000003c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1926   .text.HAL_FLASHEx_EnableDebugger:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1932   .text.HAL_FLASHEx_EnableDebugger:0000000000000000 HAL_FLASHEx_EnableDebugger
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1950   .text.HAL_FLASHEx_EnableDebugger:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1955   .text.HAL_FLASHEx_DisableDebugger:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1961   .text.HAL_FLASHEx_DisableDebugger:0000000000000000 HAL_FLASHEx_DisableDebugger
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1979   .text.HAL_FLASHEx_DisableDebugger:000000000000000c $d
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s 			page 83
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:20     .text.FLASH_MassErase:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:25     .text.FLASH_MassErase:0000000000000000 FLASH_MassErase
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:80     .text.FLASH_MassErase:0000000000000048 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:85     .text.FLASH_OB_GetSecMem:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:90     .text.FLASH_OB_GetSecMem:0000000000000000 FLASH_OB_GetSecMem
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:132    .text.FLASH_OB_GetSecMem:0000000000000020 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:137    .text.FLASH_OB_GetBootLock:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:142    .text.FLASH_OB_GetBootLock:0000000000000000 FLASH_OB_GetBootLock
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:159    .text.FLASH_OB_GetBootLock:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:164    .text.FLASH_OB_GetWRP:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:169    .text.FLASH_OB_GetWRP:0000000000000000 FLASH_OB_GetWRP
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:182    .text.FLASH_OB_GetWRP:0000000000000008 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:269    .text.FLASH_OB_GetWRP:0000000000000060 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:274    .text.FLASH_OB_GetRDP:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:279    .text.FLASH_OB_GetRDP:0000000000000000 FLASH_OB_GetRDP
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:309    .text.FLASH_OB_GetRDP:0000000000000014 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:314    .text.FLASH_OB_GetUser:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:319    .text.FLASH_OB_GetUser:0000000000000000 FLASH_OB_GetUser
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:341    .text.FLASH_OB_GetUser:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:346    .text.FLASH_OB_GetPCROP:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:351    .text.FLASH_OB_GetPCROP:0000000000000000 FLASH_OB_GetPCROP
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:603    .text.FLASH_OB_GetPCROP:0000000000000110 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:615    .text.FLASH_OB_WRPConfig:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:620    .text.FLASH_OB_WRPConfig:0000000000000000 FLASH_OB_WRPConfig
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:656    .text.FLASH_OB_WRPConfig:000000000000001a $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:719    .text.FLASH_OB_WRPConfig:000000000000005c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:724    .text.FLASH_OB_RDPConfig:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:729    .text.FLASH_OB_RDPConfig:0000000000000000 FLASH_OB_RDPConfig
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:781    .text.FLASH_OB_RDPConfig:0000000000000030 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:786    .text.FLASH_OB_UserConfig:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:791    .text.FLASH_OB_UserConfig:0000000000000000 FLASH_OB_UserConfig
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1111   .text.FLASH_OB_UserConfig:0000000000000134 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1116   .text.FLASH_OB_PCROPConfig:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1121   .text.FLASH_OB_PCROPConfig:0000000000000000 FLASH_OB_PCROPConfig
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1374   .text.FLASH_OB_PCROPConfig:0000000000000160 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1384   .text.FLASH_OB_SecMemConfig:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1389   .text.FLASH_OB_SecMemConfig:0000000000000000 FLASH_OB_SecMemConfig
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1462   .text.FLASH_OB_SecMemConfig:0000000000000048 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1467   .text.FLASH_OB_BootLockConfig:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1472   .text.FLASH_OB_BootLockConfig:0000000000000000 FLASH_OB_BootLockConfig
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1524   .text.FLASH_OB_BootLockConfig:0000000000000030 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1529   .text.HAL_FLASHEx_OBProgram:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1535   .text.HAL_FLASHEx_OBProgram:0000000000000000 HAL_FLASHEx_OBProgram
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1741   .text.HAL_FLASHEx_OBProgram:00000000000000bc $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1746   .text.HAL_FLASHEx_OBGetConfig:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1752   .text.HAL_FLASHEx_OBGetConfig:0000000000000000 HAL_FLASHEx_OBGetConfig
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1863   .text.HAL_FLASHEx_EnableSecMemProtection:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1869   .text.HAL_FLASHEx_EnableSecMemProtection:0000000000000000 HAL_FLASHEx_EnableSecMemProtection
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1921   .text.HAL_FLASHEx_EnableSecMemProtection:000000000000003c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1926   .text.HAL_FLASHEx_EnableDebugger:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1932   .text.HAL_FLASHEx_EnableDebugger:0000000000000000 HAL_FLASHEx_EnableDebugger
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1950   .text.HAL_FLASHEx_EnableDebugger:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1955   .text.HAL_FLASHEx_DisableDebugger:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1961   .text.HAL_FLASHEx_DisableDebugger:0000000000000000 HAL_FLASHEx_DisableDebugger
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1979   .text.HAL_FLASHEx_DisableDebugger:000000000000000c $d
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s 			page 83
 
 
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1984   .text.FLASH_PageErase:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:1990   .text.FLASH_PageErase:0000000000000000 FLASH_PageErase
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:2055   .text.FLASH_PageErase:0000000000000058 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:2060   .text.HAL_FLASHEx_Erase_IT:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:2066   .text.HAL_FLASHEx_Erase_IT:0000000000000000 HAL_FLASHEx_Erase_IT
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:2229   .text.HAL_FLASHEx_Erase_IT:00000000000000a8 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:2235   .text.FLASH_FlushCaches:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:2241   .text.FLASH_FlushCaches:0000000000000000 FLASH_FlushCaches
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:2320   .text.FLASH_FlushCaches:000000000000005c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:2326   .text.HAL_FLASHEx_Erase:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:2332   .text.HAL_FLASHEx_Erase:0000000000000000 HAL_FLASHEx_Erase
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:2543   .text.HAL_FLASHEx_Erase:00000000000000ec $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:187    .text.FLASH_OB_GetWRP:000000000000000d $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:187    .text.FLASH_OB_GetWRP:000000000000000e $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:661    .text.FLASH_OB_WRPConfig:000000000000001f $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccntGoRd.s:661    .text.FLASH_OB_WRPConfig:0000000000000020 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1984   .text.FLASH_PageErase:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:1990   .text.FLASH_PageErase:0000000000000000 FLASH_PageErase
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:2055   .text.FLASH_PageErase:0000000000000058 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:2060   .text.HAL_FLASHEx_Erase_IT:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:2066   .text.HAL_FLASHEx_Erase_IT:0000000000000000 HAL_FLASHEx_Erase_IT
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:2229   .text.HAL_FLASHEx_Erase_IT:00000000000000a8 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:2235   .text.FLASH_FlushCaches:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:2241   .text.FLASH_FlushCaches:0000000000000000 FLASH_FlushCaches
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:2320   .text.FLASH_FlushCaches:000000000000005c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:2326   .text.HAL_FLASHEx_Erase:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:2332   .text.HAL_FLASHEx_Erase:0000000000000000 HAL_FLASHEx_Erase
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:2543   .text.HAL_FLASHEx_Erase:00000000000000ec $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:187    .text.FLASH_OB_GetWRP:000000000000000d $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:187    .text.FLASH_OB_GetWRP:000000000000000e $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:661    .text.FLASH_OB_WRPConfig:000000000000001f $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc0JuZav.s:661    .text.FLASH_OB_WRPConfig:0000000000000020 $t
 
 UNDEFINED SYMBOLS
 FLASH_WaitForLastOperation

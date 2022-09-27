@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -26,7 +26,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
   23              		.thumb
   24              		.thumb_func
   26              	HAL_MspInit:
-  27              	.LFB134:
+  27              	.LFB331:
   28              		.file 1 "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c"
    1:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
    2:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   ******************************************************************************
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
   28:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****          (+) Services HAL APIs
   29:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
   30:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   @endverbatim
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 2
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 2
 
 
   31:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   ******************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
   85:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** __IO uint32_t uwTick;
   86:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** uint32_t uwTickPrio = (1UL << __NVIC_PRIO_BITS); /* Invalid PRIO */
   87:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** uint32_t uwTickFreq = HAL_TICK_FREQ_DEFAULT;  /* 1KHz */
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 3
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 3
 
 
   88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  142:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   *         used after a system Reset and the NVIC configuration is set to Priority group 4.
  143:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   *         Once done, time base tick starts incrementing: the tick variable counter is incremented
  144:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   *         each 1ms in the SysTick_Handler() interrupt handler.
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 4
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 4
 
 
  145:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   *
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  199:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   __HAL_RCC_APB2_RELEASE_RESET();
  200:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   __HAL_RCC_AHB1_FORCE_RESET();
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 5
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 5
 
 
  202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   __HAL_RCC_AHB1_RELEASE_RESET();
@@ -274,7 +274,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
   34              		.loc 1 226 1 view .LVU1
   35 0000 7047     		bx	lr
   36              		.cfi_endproc
-  37              	.LFE134:
+  37              	.LFE331:
   39              		.section	.text.HAL_MspDeInit,"ax",%progbits
   40              		.align	1
   41              		.weak	HAL_MspDeInit
@@ -282,7 +282,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
   43              		.thumb
   44              		.thumb_func
   46              	HAL_MspDeInit:
-  47              	.LFB135:
+  47              	.LFB332:
  227:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  228:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  229:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  DeInitializes the MSP.
@@ -298,14 +298,14 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  234:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   /* NOTE : This function should not be modified, when the callback is needed,
  235:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****             the HAL_MspDeInit could be implemented in the user file
  236:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****    */
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 6
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 6
 
 
  237:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** }
   53              		.loc 1 237 1 view .LVU3
   54 0000 7047     		bx	lr
   55              		.cfi_endproc
-  56              	.LFE135:
+  56              	.LFE332:
   58              		.section	.text.HAL_DeInit,"ax",%progbits
   59              		.align	1
   60              		.global	HAL_DeInit
@@ -313,7 +313,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
   62              		.thumb
   63              		.thumb_func
   65              	HAL_DeInit:
-  66              	.LFB133:
+  66              	.LFB330:
  193:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   /* Reset of all peripherals */
   67              		.loc 1 193 1 view -0
   68              		.cfi_startproc
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
   97 001c 1C63     		str	r4, [r3, #48]
  211:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
   98              		.loc 1 211 3 view .LVU15
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 7
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 7
 
 
   99 001e FFF7FEFF 		bl	HAL_MspDeInit
@@ -374,7 +374,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  107              	.L5:
  108 0028 00100240 		.word	1073876992
  109              		.cfi_endproc
- 110              	.LFE133:
+ 110              	.LFE330:
  112              		.section	.text.HAL_InitTick,"ax",%progbits
  113              		.align	1
  114              		.weak	HAL_InitTick
@@ -383,7 +383,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  117              		.thumb_func
  119              	HAL_InitTick:
  120              	.LVL1:
- 121              	.LFB136:
+ 121              	.LFB333:
  238:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  239:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  240:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief This function configures the source of the time base:
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  131              		.loc 1 259 6 view .LVU22
  132 0004 0BB9     		cbnz	r3, .L16
  260:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   {
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 8
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 8
 
 
  261:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****     /* Configure the SysTick to have interrupt in 1ms time basis*/
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  155 0018 1068     		ldr	r0, [r2]
  156 001a B0FBF3F0 		udiv	r0, r0, r3
  157 001e FFF7FEFF 		bl	HAL_SYSTICK_Config
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 9
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 9
 
 
  158              	.LVL5:
@@ -532,18 +532,18 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  196 0048 00000000 		.word	SystemCoreClock
  197 004c 00000000 		.word	.LANCHOR1
  198              		.cfi_endproc
- 199              	.LFE136:
+ 199              	.LFE333:
  201              		.section	.text.HAL_Init,"ax",%progbits
  202              		.align	1
  203              		.global	HAL_Init
  204              		.syntax unified
  205              		.thumb
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 10
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 10
 
 
  206              		.thumb_func
  208              	HAL_Init:
- 209              	.LFB132:
+ 209              	.LFB329:
  149:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   HAL_StatusTypeDef  status = HAL_OK;
  210              		.loc 1 149 1 is_stmt 1 view -0
  211              		.cfi_startproc
@@ -593,18 +593,18 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  245              	.LVL14:
  246 001c F9E7     		b	.L21
  247              		.cfi_endproc
- 248              	.LFE132:
+ 248              	.LFE329:
  250              		.section	.text.HAL_IncTick,"ax",%progbits
  251              		.align	1
  252              		.weak	HAL_IncTick
  253              		.syntax unified
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 11
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 11
 
 
  254              		.thumb
  255              		.thumb_func
  257              	HAL_IncTick:
- 258              	.LFB137:
+ 258              	.LFB334:
  288:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  289:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  290:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @}
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  325:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** }
  272              		.loc 1 325 1 view .LVU57
  273 000c 7047     		bx	lr
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 12
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 12
 
 
  274              	.L27:
@@ -667,7 +667,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  277 0010 00000000 		.word	.LANCHOR2
  278 0014 00000000 		.word	.LANCHOR0
  279              		.cfi_endproc
- 280              	.LFE137:
+ 280              	.LFE334:
  282              		.section	.text.HAL_GetTick,"ax",%progbits
  283              		.align	1
  284              		.weak	HAL_GetTick
@@ -675,7 +675,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  286              		.thumb
  287              		.thumb_func
  289              	HAL_GetTick:
- 290              	.LFB138:
+ 290              	.LFB335:
  326:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  327:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  328:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief Provides a tick value in millisecond.
@@ -703,7 +703,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  304              	.L29:
  305 0008 00000000 		.word	.LANCHOR2
  306              		.cfi_endproc
- 307              	.LFE138:
+ 307              	.LFE335:
  309              		.section	.text.HAL_GetTickPrio,"ax",%progbits
  310              		.align	1
  311              		.global	HAL_GetTickPrio
@@ -711,14 +711,14 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  313              		.thumb
  314              		.thumb_func
  316              	HAL_GetTickPrio:
- 317              	.LFB139:
+ 317              	.LFB336:
  337:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  338:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  339:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief This function returns a tick priority.
  340:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @retval tick priority
  341:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   */
  342:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** uint32_t HAL_GetTickPrio(void)
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 13
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 13
 
 
  343:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** {
@@ -739,7 +739,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  330              	.L32:
  331 0008 00000000 		.word	.LANCHOR1
  332              		.cfi_endproc
- 333              	.LFE139:
+ 333              	.LFE336:
  335              		.section	.text.HAL_SetTickFreq,"ax",%progbits
  336              		.align	1
  337              		.global	HAL_SetTickFreq
@@ -748,7 +748,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  340              		.thumb_func
  342              	HAL_SetTickFreq:
  343              	.LVL15:
- 344              	.LFB140:
+ 344              	.LFB337:
  346:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  347:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  348:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief Set new tick Freq.
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  358              		.loc 1 358 3 view .LVU70
  359              		.loc 1 358 18 is_stmt 0 view .LVU71
  360 0002 084B     		ldr	r3, .L39
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 14
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 14
 
 
  361 0004 1C68     		ldr	r4, [r3]
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  387              		.loc 1 369 8 is_stmt 0 view .LVU83
  388 0018 0028     		cmp	r0, #0
  389 001a F7D0     		beq	.L35
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 15
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 15
 
 
  372:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****     }
@@ -854,7 +854,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  398 0024 00000000 		.word	.LANCHOR0
  399 0028 00000000 		.word	.LANCHOR1
  400              		.cfi_endproc
- 401              	.LFE140:
+ 401              	.LFE337:
  403              		.section	.text.HAL_GetTickFreq,"ax",%progbits
  404              		.align	1
  405              		.global	HAL_GetTickFreq
@@ -862,7 +862,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  407              		.thumb
  408              		.thumb_func
  410              	HAL_GetTickFreq:
- 411              	.LFB141:
+ 411              	.LFB338:
  378:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  379:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  380:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief Returns tick frequency.
@@ -887,7 +887,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  424              	.L42:
  425 0008 00000000 		.word	.LANCHOR0
  426              		.cfi_endproc
- 427              	.LFE141:
+ 427              	.LFE338:
  429              		.section	.text.HAL_Delay,"ax",%progbits
  430              		.align	1
  431              		.weak	HAL_Delay
@@ -896,9 +896,9 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  434              		.thumb_func
  436              	HAL_Delay:
  437              	.LVL21:
- 438              	.LFB142:
+ 438              	.LFB339:
  387:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 16
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 16
 
 
  388:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  410:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   while ((HAL_GetTick() - tickstart) < wait)
  411:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   {
  412:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 17
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 17
 
 
  471              		.loc 1 412 3 is_stmt 1 discriminator 1 view .LVU100
@@ -985,7 +985,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  487              	.L48:
  488 0024 00000000 		.word	.LANCHOR0
  489              		.cfi_endproc
- 490              	.LFE142:
+ 490              	.LFE339:
  492              		.section	.text.HAL_SuspendTick,"ax",%progbits
  493              		.align	1
  494              		.weak	HAL_SuspendTick
@@ -993,7 +993,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  496              		.thumb
  497              		.thumb_func
  499              	HAL_SuspendTick:
- 500              	.LFB143:
+ 500              	.LFB340:
  414:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  415:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  416:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief Suspends Tick increment.
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  507 0000 4FF0E022 		mov	r2, #-536813568
  508 0004 1369     		ldr	r3, [r2, #16]
  509 0006 23F00203 		bic	r3, r3, #2
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 18
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 18
 
 
  510 000a 1361     		str	r3, [r2, #16]
@@ -1026,7 +1026,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  511              		.loc 1 429 1 is_stmt 0 view .LVU109
  512 000c 7047     		bx	lr
  513              		.cfi_endproc
- 514              	.LFE143:
+ 514              	.LFE340:
  516              		.section	.text.HAL_ResumeTick,"ax",%progbits
  517              		.align	1
  518              		.weak	HAL_ResumeTick
@@ -1034,7 +1034,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  520              		.thumb
  521              		.thumb_func
  523              	HAL_ResumeTick:
- 524              	.LFB144:
+ 524              	.LFB341:
  430:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  431:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  432:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief Resume Tick increment.
@@ -1064,7 +1064,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  535              		.loc 1 445 1 is_stmt 0 view .LVU112
  536 000c 7047     		bx	lr
  537              		.cfi_endproc
- 538              	.LFE144:
+ 538              	.LFE341:
  540              		.section	.text.HAL_GetHalVersion,"ax",%progbits
  541              		.align	1
  542              		.global	HAL_GetHalVersion
@@ -1072,13 +1072,13 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  544              		.thumb
  545              		.thumb_func
  547              	HAL_GetHalVersion:
- 548              	.LFB145:
+ 548              	.LFB342:
  446:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  447:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  448:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Returns the HAL revision.
  449:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @retval version : 0xXYZR (8bits for each decimal, R for RC)
  450:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   */
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 19
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 19
 
 
  451:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** uint32_t HAL_GetHalVersion(void)
@@ -1099,7 +1099,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  560              	.L53:
  561 0004 00020201 		.word	16908800
  562              		.cfi_endproc
- 563              	.LFE145:
+ 563              	.LFE342:
  565              		.section	.text.HAL_GetREVID,"ax",%progbits
  566              		.align	1
  567              		.global	HAL_GetREVID
@@ -1107,7 +1107,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  569              		.thumb
  570              		.thumb_func
  572              	HAL_GetREVID:
- 573              	.LFB146:
+ 573              	.LFB343:
  455:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  456:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  457:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Returns the device revision identifier.
@@ -1134,18 +1134,18 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  588              	.L56:
  589 0008 002004E0 		.word	-536600576
  590              		.cfi_endproc
- 591              	.LFE146:
+ 591              	.LFE343:
  593              		.section	.text.HAL_GetDEVID,"ax",%progbits
  594              		.align	1
  595              		.global	HAL_GetDEVID
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 20
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 20
 
 
  596              		.syntax unified
  597              		.thumb
  598              		.thumb_func
  600              	HAL_GetDEVID:
- 601              	.LFB147:
+ 601              	.LFB344:
  464:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  465:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  466:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Returns the device identifier.
@@ -1172,7 +1172,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  616              	.L59:
  617 000c 002004E0 		.word	-536600576
  618              		.cfi_endproc
- 619              	.LFE147:
+ 619              	.LFE344:
  621              		.section	.text.HAL_DBGMCU_EnableDBGSleepMode,"ax",%progbits
  622              		.align	1
  623              		.global	HAL_DBGMCU_EnableDBGSleepMode
@@ -1180,7 +1180,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  625              		.thumb
  626              		.thumb_func
  628              	HAL_DBGMCU_EnableDBGSleepMode:
- 629              	.LFB148:
+ 629              	.LFB345:
  473:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  474:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  475:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @}
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  487:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****       (+) Enable/Disable Debug module during STOP0/STOP1/STOP2 modes
  488:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****       (+) Enable/Disable Debug module during STANDBY mode
  489:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 21
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 21
 
 
  490:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** @endverbatim
@@ -1230,7 +1230,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  644              	.L62:
  645 000c 002004E0 		.word	-536600576
  646              		.cfi_endproc
- 647              	.LFE148:
+ 647              	.LFE345:
  649              		.section	.text.HAL_DBGMCU_DisableDBGSleepMode,"ax",%progbits
  650              		.align	1
  651              		.global	HAL_DBGMCU_DisableDBGSleepMode
@@ -1238,7 +1238,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  653              		.thumb
  654              		.thumb_func
  656              	HAL_DBGMCU_DisableDBGSleepMode:
- 657              	.LFB149:
+ 657              	.LFB346:
  502:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  503:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  504:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Disable the Debug Module during SLEEP mode.
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  666 0004 23F00103 		bic	r3, r3, #1
  667 0008 5360     		str	r3, [r2, #4]
  510:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 22
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 22
 
 
  668              		.loc 1 510 1 is_stmt 0 view .LVU129
@@ -1268,7 +1268,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  672              	.L65:
  673 000c 002004E0 		.word	-536600576
  674              		.cfi_endproc
- 675              	.LFE149:
+ 675              	.LFE346:
  677              		.section	.text.HAL_DBGMCU_EnableDBGStopMode,"ax",%progbits
  678              		.align	1
  679              		.global	HAL_DBGMCU_EnableDBGStopMode
@@ -1276,7 +1276,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  681              		.thumb
  682              		.thumb_func
  684              	HAL_DBGMCU_EnableDBGStopMode:
- 685              	.LFB150:
+ 685              	.LFB347:
  511:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  512:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  513:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Enable the Debug Module during STOP0/STOP1/STOP2 modes.
@@ -1303,7 +1303,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  700              	.L68:
  701 000c 002004E0 		.word	-536600576
  702              		.cfi_endproc
- 703              	.LFE150:
+ 703              	.LFE347:
  705              		.section	.text.HAL_DBGMCU_DisableDBGStopMode,"ax",%progbits
  706              		.align	1
  707              		.global	HAL_DBGMCU_DisableDBGStopMode
@@ -1311,14 +1311,14 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  709              		.thumb
  710              		.thumb_func
  712              	HAL_DBGMCU_DisableDBGStopMode:
- 713              	.LFB151:
+ 713              	.LFB348:
  520:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  521:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  522:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Disable the Debug Module during STOP0/STOP1/STOP2 modes.
  523:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @retval None
  524:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   */
  525:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** void HAL_DBGMCU_DisableDBGStopMode(void)
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 23
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 23
 
 
  526:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** {
@@ -1341,7 +1341,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  728              	.L71:
  729 000c 002004E0 		.word	-536600576
  730              		.cfi_endproc
- 731              	.LFE151:
+ 731              	.LFE348:
  733              		.section	.text.HAL_DBGMCU_EnableDBGStandbyMode,"ax",%progbits
  734              		.align	1
  735              		.global	HAL_DBGMCU_EnableDBGStandbyMode
@@ -1349,7 +1349,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  737              		.thumb
  738              		.thumb_func
  740              	HAL_DBGMCU_EnableDBGStandbyMode:
- 741              	.LFB152:
+ 741              	.LFB349:
  529:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  530:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  531:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Enable the Debug Module during STANDBY mode.
@@ -1376,9 +1376,9 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  756              	.L74:
  757 000c 002004E0 		.word	-536600576
  758              		.cfi_endproc
- 759              	.LFE152:
+ 759              	.LFE349:
  761              		.section	.text.HAL_DBGMCU_DisableDBGStandbyMode,"ax",%progbits
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 24
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 24
 
 
  762              		.align	1
@@ -1387,7 +1387,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  765              		.thumb
  766              		.thumb_func
  768              	HAL_DBGMCU_DisableDBGStandbyMode:
- 769              	.LFB153:
+ 769              	.LFB350:
  538:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  539:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  540:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Disable the Debug Module during STANDBY mode.
@@ -1414,7 +1414,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  784              	.L77:
  785 000c 002004E0 		.word	-536600576
  786              		.cfi_endproc
- 787              	.LFE153:
+ 787              	.LFE350:
  789              		.section	.text.HAL_SYSCFG_CCMSRAMErase,"ax",%progbits
  790              		.align	1
  791              		.global	HAL_SYSCFG_CCMSRAMErase
@@ -1422,7 +1422,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  793              		.thumb
  794              		.thumb_func
  796              	HAL_SYSCFG_CCMSRAMErase:
- 797              	.LFB154:
+ 797              	.LFB351:
  547:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  548:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  549:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @}
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  559:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****     [..]  This section provides functions allowing to:
  560:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****       (+) Start a hardware CCMSRAM erase operation
  561:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****       (+) Enable/Disable the Internal FLASH Bank Swapping
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 25
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 25
 
 
  562:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****       (+) Configure the Voltage reference buffer
@@ -1488,7 +1488,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  820              	.L80:
  821 0014 00000140 		.word	1073807360
  822              		.cfi_endproc
- 823              	.LFE154:
+ 823              	.LFE351:
  825              		.section	.text.HAL_SYSCFG_EnableMemorySwappingBank,"ax",%progbits
  826              		.align	1
  827              		.global	HAL_SYSCFG_EnableMemorySwappingBank
@@ -1496,9 +1496,9 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  829              		.thumb
  830              		.thumb_func
  832              	HAL_SYSCFG_EnableMemorySwappingBank:
- 833              	.LFB155:
+ 833              	.LFB352:
  584:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 26
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 26
 
 
  585:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
@@ -1532,7 +1532,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  848              	.L83:
  849 000c 00000140 		.word	1073807360
  850              		.cfi_endproc
- 851              	.LFE155:
+ 851              	.LFE352:
  853              		.section	.text.HAL_SYSCFG_DisableMemorySwappingBank,"ax",%progbits
  854              		.align	1
  855              		.global	HAL_SYSCFG_DisableMemorySwappingBank
@@ -1540,7 +1540,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  857              		.thumb
  858              		.thumb_func
  860              	HAL_SYSCFG_DisableMemorySwappingBank:
- 861              	.LFB156:
+ 861              	.LFB353:
  599:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  600:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  601:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Disable the Internal FLASH Bank Swapping.
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  863              		.cfi_startproc
  864              		@ args = 0, pretend = 0, frame = 0
  865              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 27
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 27
 
 
  866              		@ link register save eliminated.
@@ -1576,7 +1576,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  876              	.L86:
  877 000c 00000140 		.word	1073807360
  878              		.cfi_endproc
- 879              	.LFE156:
+ 879              	.LFE353:
  881              		.section	.text.HAL_SYSCFG_VREFBUF_VoltageScalingConfig,"ax",%progbits
  882              		.align	1
  883              		.global	HAL_SYSCFG_VREFBUF_VoltageScalingConfig
@@ -1585,7 +1585,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  886              		.thumb_func
  888              	HAL_SYSCFG_VREFBUF_VoltageScalingConfig:
  889              	.LVL27:
- 890              	.LFB157:
+ 890              	.LFB354:
  614:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  615:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** #if defined(VREFBUF)
  616:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  900 0004 23F03003 		bic	r3, r3, #48
  901 0008 0343     		orrs	r3, r3, r0
  902 000a 1363     		str	r3, [r2, #48]
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 28
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 28
 
 
  634:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** }
@@ -1629,7 +1629,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  907              	.L89:
  908 0010 00000140 		.word	1073807360
  909              		.cfi_endproc
- 910              	.LFE157:
+ 910              	.LFE354:
  912              		.section	.text.HAL_SYSCFG_VREFBUF_HighImpedanceConfig,"ax",%progbits
  913              		.align	1
  914              		.global	HAL_SYSCFG_VREFBUF_HighImpedanceConfig
@@ -1638,7 +1638,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  917              		.thumb_func
  919              	HAL_SYSCFG_VREFBUF_HighImpedanceConfig:
  920              	.LVL28:
- 921              	.LFB158:
+ 921              	.LFB355:
  635:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  636:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  637:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief Configure the internal voltage reference buffer high impedance mode.
@@ -1674,11 +1674,11 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  938              	.L92:
  939 0010 00000140 		.word	1073807360
  940              		.cfi_endproc
- 941              	.LFE158:
+ 941              	.LFE355:
  943              		.section	.text.HAL_SYSCFG_VREFBUF_TrimmingConfig,"ax",%progbits
  944              		.align	1
  945              		.global	HAL_SYSCFG_VREFBUF_TrimmingConfig
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 29
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 29
 
 
  946              		.syntax unified
@@ -1686,7 +1686,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  948              		.thumb_func
  950              	HAL_SYSCFG_VREFBUF_TrimmingConfig:
  951              	.LVL29:
- 952              	.LFB159:
+ 952              	.LFB356:
  651:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  652:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  653:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief Tune the Internal Voltage Reference buffer (VREFBUF).
@@ -1720,7 +1720,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  969              	.L95:
  970 0010 00000140 		.word	1073807360
  971              		.cfi_endproc
- 972              	.LFE159:
+ 972              	.LFE356:
  974              		.section	.text.HAL_SYSCFG_EnableVREFBUF,"ax",%progbits
  975              		.align	1
  976              		.global	HAL_SYSCFG_EnableVREFBUF
@@ -1728,7 +1728,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  978              		.thumb
  979              		.thumb_func
  981              	HAL_SYSCFG_EnableVREFBUF:
- 982              	.LFB160:
+ 982              	.LFB357:
  665:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  666:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  667:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Enable the Internal Voltage Reference buffer (VREFBUF).
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  671:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** {
  983              		.loc 1 671 1 is_stmt 1 view -0
  984              		.cfi_startproc
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 30
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 30
 
 
  985              		@ args = 0, pretend = 0, frame = 0
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  686:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   }
  687:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  688:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   return HAL_OK;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 31
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 31
 
 
  1025              		.loc 1 688 10 view .LVU181
@@ -1814,7 +1814,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1034              	.L104:
  1035 0030 00000140 		.word	1073807360
  1036              		.cfi_endproc
- 1037              	.LFE160:
+ 1037              	.LFE357:
  1039              		.section	.text.HAL_SYSCFG_DisableVREFBUF,"ax",%progbits
  1040              		.align	1
  1041              		.global	HAL_SYSCFG_DisableVREFBUF
@@ -1822,7 +1822,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1043              		.thumb
  1044              		.thumb_func
  1046              	HAL_SYSCFG_DisableVREFBUF:
- 1047              	.LFB161:
+ 1047              	.LFB358:
  690:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  691:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  692:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Disable the Internal Voltage Reference buffer (VREFBUF).
@@ -1850,7 +1850,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1062              	.L107:
  1063 000c 00000140 		.word	1073807360
  1064              		.cfi_endproc
- 1065              	.LFE161:
+ 1065              	.LFE358:
  1067              		.section	.text.HAL_SYSCFG_EnableIOSwitchBooster,"ax",%progbits
  1068              		.align	1
  1069              		.global	HAL_SYSCFG_EnableIOSwitchBooster
@@ -1858,10 +1858,10 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1071              		.thumb
  1072              		.thumb_func
  1074              	HAL_SYSCFG_EnableIOSwitchBooster:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 32
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 32
 
 
- 1075              	.LFB162:
+ 1075              	.LFB359:
  700:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** #endif /* VREFBUF */
  701:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  702:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
@@ -1890,7 +1890,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1090              	.L110:
  1091 000c 00000140 		.word	1073807360
  1092              		.cfi_endproc
- 1093              	.LFE162:
+ 1093              	.LFE359:
  1095              		.section	.text.HAL_SYSCFG_DisableIOSwitchBooster,"ax",%progbits
  1096              		.align	1
  1097              		.global	HAL_SYSCFG_DisableIOSwitchBooster
@@ -1898,7 +1898,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1099              		.thumb
  1100              		.thumb_func
  1102              	HAL_SYSCFG_DisableIOSwitchBooster:
- 1103              	.LFB163:
+ 1103              	.LFB360:
  711:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  712:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  713:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Disable the I/O analog switch voltage booster
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1111 0002 5368     		ldr	r3, [r2, #4]
  1112 0004 23F48073 		bic	r3, r3, #256
  1113 0008 5360     		str	r3, [r2, #4]
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 33
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 33
 
 
  720:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** }
@@ -1929,7 +1929,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1118              	.L113:
  1119 000c 00000140 		.word	1073807360
  1120              		.cfi_endproc
- 1121              	.LFE163:
+ 1121              	.LFE360:
  1123              		.section	.text.HAL_SYSCFG_EnableIOSwitchVDD,"ax",%progbits
  1124              		.align	1
  1125              		.global	HAL_SYSCFG_EnableIOSwitchVDD
@@ -1937,7 +1937,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1127              		.thumb
  1128              		.thumb_func
  1130              	HAL_SYSCFG_EnableIOSwitchVDD:
- 1131              	.LFB164:
+ 1131              	.LFB361:
  721:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  722:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  723:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Enable the I/O analog switch voltage by VDD
@@ -1965,7 +1965,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1146              	.L116:
  1147 000c 00000140 		.word	1073807360
  1148              		.cfi_endproc
- 1149              	.LFE164:
+ 1149              	.LFE361:
  1151              		.section	.text.HAL_SYSCFG_DisableIOSwitchVDD,"ax",%progbits
  1152              		.align	1
  1153              		.global	HAL_SYSCFG_DisableIOSwitchVDD
@@ -1973,12 +1973,12 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1155              		.thumb
  1156              		.thumb_func
  1158              	HAL_SYSCFG_DisableIOSwitchVDD:
- 1159              	.LFB165:
+ 1159              	.LFB362:
  731:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  732:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /**
  733:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @brief  Disable the I/O analog switch voltage by VDD
  734:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   *
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 34
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 34
 
 
  735:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c ****   * @retval None
@@ -2004,7 +2004,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1174              	.L119:
  1175 000c 00000140 		.word	1073807360
  1176              		.cfi_endproc
- 1177              	.LFE165:
+ 1177              	.LFE362:
  1179              		.section	.text.HAL_SYSCFG_CCMSRAM_WriteProtectionEnable,"ax",%progbits
  1180              		.align	1
  1181              		.global	HAL_SYSCFG_CCMSRAM_WriteProtectionEnable
@@ -2013,7 +2013,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1184              		.thumb_func
  1186              	HAL_SYSCFG_CCMSRAM_WriteProtectionEnable:
  1187              	.LVL34:
- 1188              	.LFB166:
+ 1188              	.LFB363:
  741:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  742:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** 
  743:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** /** @brief  CCMSRAM page write protection enable
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1198 0004 0343     		orrs	r3, r3, r0
  1199 0006 1362     		str	r3, [r2, #32]
  753:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c **** }
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 35
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 35
 
 
  1200              		.loc 1 753 1 is_stmt 0 view .LVU202
@@ -2048,7 +2048,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1204              	.L122:
  1205 000c 00000140 		.word	1073807360
  1206              		.cfi_endproc
- 1207              	.LFE166:
+ 1207              	.LFE363:
  1209              		.global	uwTickFreq
  1210              		.global	uwTickPrio
  1211              		.global	uwTick
@@ -2077,126 +2077,126 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 1
  1240              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
  1241              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
  1242              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h"
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 36
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 36
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32g4xx_hal.c
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:20     .text.HAL_MspInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:40     .text.HAL_MspDeInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:46     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:59     .text.HAL_DeInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:65     .text.HAL_DeInit:0000000000000000 HAL_DeInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:108    .text.HAL_DeInit:0000000000000028 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:113    .text.HAL_InitTick:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:119    .text.HAL_InitTick:0000000000000000 HAL_InitTick
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:195    .text.HAL_InitTick:0000000000000044 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:202    .text.HAL_Init:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:208    .text.HAL_Init:0000000000000000 HAL_Init
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:251    .text.HAL_IncTick:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:257    .text.HAL_IncTick:0000000000000000 HAL_IncTick
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:277    .text.HAL_IncTick:0000000000000010 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:283    .text.HAL_GetTick:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:289    .text.HAL_GetTick:0000000000000000 HAL_GetTick
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:305    .text.HAL_GetTick:0000000000000008 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:310    .text.HAL_GetTickPrio:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:316    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:331    .text.HAL_GetTickPrio:0000000000000008 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:336    .text.HAL_SetTickFreq:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:342    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:398    .text.HAL_SetTickFreq:0000000000000024 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:404    .text.HAL_GetTickFreq:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:410    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:425    .text.HAL_GetTickFreq:0000000000000008 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:430    .text.HAL_Delay:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:436    .text.HAL_Delay:0000000000000000 HAL_Delay
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:488    .text.HAL_Delay:0000000000000024 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:493    .text.HAL_SuspendTick:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:499    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:517    .text.HAL_ResumeTick:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:523    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:541    .text.HAL_GetHalVersion:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:547    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:561    .text.HAL_GetHalVersion:0000000000000004 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:566    .text.HAL_GetREVID:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:572    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:589    .text.HAL_GetREVID:0000000000000008 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:594    .text.HAL_GetDEVID:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:600    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:617    .text.HAL_GetDEVID:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:622    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:628    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:645    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:650    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:656    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:673    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:678    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:684    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:701    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:706    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:712    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:729    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 37
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:20     .text.HAL_MspInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:40     .text.HAL_MspDeInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:46     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:59     .text.HAL_DeInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:65     .text.HAL_DeInit:0000000000000000 HAL_DeInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:108    .text.HAL_DeInit:0000000000000028 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:113    .text.HAL_InitTick:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:119    .text.HAL_InitTick:0000000000000000 HAL_InitTick
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:195    .text.HAL_InitTick:0000000000000044 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:202    .text.HAL_Init:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:208    .text.HAL_Init:0000000000000000 HAL_Init
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:251    .text.HAL_IncTick:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:257    .text.HAL_IncTick:0000000000000000 HAL_IncTick
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:277    .text.HAL_IncTick:0000000000000010 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:283    .text.HAL_GetTick:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:289    .text.HAL_GetTick:0000000000000000 HAL_GetTick
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:305    .text.HAL_GetTick:0000000000000008 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:310    .text.HAL_GetTickPrio:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:316    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:331    .text.HAL_GetTickPrio:0000000000000008 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:336    .text.HAL_SetTickFreq:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:342    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:398    .text.HAL_SetTickFreq:0000000000000024 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:404    .text.HAL_GetTickFreq:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:410    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:425    .text.HAL_GetTickFreq:0000000000000008 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:430    .text.HAL_Delay:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:436    .text.HAL_Delay:0000000000000000 HAL_Delay
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:488    .text.HAL_Delay:0000000000000024 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:493    .text.HAL_SuspendTick:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:499    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:517    .text.HAL_ResumeTick:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:523    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:541    .text.HAL_GetHalVersion:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:547    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:561    .text.HAL_GetHalVersion:0000000000000004 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:566    .text.HAL_GetREVID:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:572    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:589    .text.HAL_GetREVID:0000000000000008 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:594    .text.HAL_GetDEVID:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:600    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:617    .text.HAL_GetDEVID:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:622    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:628    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:645    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:650    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:656    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:673    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:678    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:684    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:701    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:706    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:712    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:729    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 37
 
 
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:734    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:740    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:757    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:762    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:768    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:785    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:790    .text.HAL_SYSCFG_CCMSRAMErase:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:796    .text.HAL_SYSCFG_CCMSRAMErase:0000000000000000 HAL_SYSCFG_CCMSRAMErase
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:821    .text.HAL_SYSCFG_CCMSRAMErase:0000000000000014 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:826    .text.HAL_SYSCFG_EnableMemorySwappingBank:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:832    .text.HAL_SYSCFG_EnableMemorySwappingBank:0000000000000000 HAL_SYSCFG_EnableMemorySwappingBank
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:849    .text.HAL_SYSCFG_EnableMemorySwappingBank:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:854    .text.HAL_SYSCFG_DisableMemorySwappingBank:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:860    .text.HAL_SYSCFG_DisableMemorySwappingBank:0000000000000000 HAL_SYSCFG_DisableMemorySwappingBank
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:877    .text.HAL_SYSCFG_DisableMemorySwappingBank:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:882    .text.HAL_SYSCFG_VREFBUF_VoltageScalingConfig:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:888    .text.HAL_SYSCFG_VREFBUF_VoltageScalingConfig:0000000000000000 HAL_SYSCFG_VREFBUF_VoltageScalingConfig
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:908    .text.HAL_SYSCFG_VREFBUF_VoltageScalingConfig:0000000000000010 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:913    .text.HAL_SYSCFG_VREFBUF_HighImpedanceConfig:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:919    .text.HAL_SYSCFG_VREFBUF_HighImpedanceConfig:0000000000000000 HAL_SYSCFG_VREFBUF_HighImpedanceConfig
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:939    .text.HAL_SYSCFG_VREFBUF_HighImpedanceConfig:0000000000000010 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:944    .text.HAL_SYSCFG_VREFBUF_TrimmingConfig:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:950    .text.HAL_SYSCFG_VREFBUF_TrimmingConfig:0000000000000000 HAL_SYSCFG_VREFBUF_TrimmingConfig
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:970    .text.HAL_SYSCFG_VREFBUF_TrimmingConfig:0000000000000010 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:975    .text.HAL_SYSCFG_EnableVREFBUF:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:981    .text.HAL_SYSCFG_EnableVREFBUF:0000000000000000 HAL_SYSCFG_EnableVREFBUF
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1035   .text.HAL_SYSCFG_EnableVREFBUF:0000000000000030 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1040   .text.HAL_SYSCFG_DisableVREFBUF:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1046   .text.HAL_SYSCFG_DisableVREFBUF:0000000000000000 HAL_SYSCFG_DisableVREFBUF
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1063   .text.HAL_SYSCFG_DisableVREFBUF:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1068   .text.HAL_SYSCFG_EnableIOSwitchBooster:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1074   .text.HAL_SYSCFG_EnableIOSwitchBooster:0000000000000000 HAL_SYSCFG_EnableIOSwitchBooster
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1091   .text.HAL_SYSCFG_EnableIOSwitchBooster:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1096   .text.HAL_SYSCFG_DisableIOSwitchBooster:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1102   .text.HAL_SYSCFG_DisableIOSwitchBooster:0000000000000000 HAL_SYSCFG_DisableIOSwitchBooster
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1119   .text.HAL_SYSCFG_DisableIOSwitchBooster:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1124   .text.HAL_SYSCFG_EnableIOSwitchVDD:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1130   .text.HAL_SYSCFG_EnableIOSwitchVDD:0000000000000000 HAL_SYSCFG_EnableIOSwitchVDD
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1147   .text.HAL_SYSCFG_EnableIOSwitchVDD:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1152   .text.HAL_SYSCFG_DisableIOSwitchVDD:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1158   .text.HAL_SYSCFG_DisableIOSwitchVDD:0000000000000000 HAL_SYSCFG_DisableIOSwitchVDD
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1175   .text.HAL_SYSCFG_DisableIOSwitchVDD:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1180   .text.HAL_SYSCFG_CCMSRAM_WriteProtectionEnable:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1186   .text.HAL_SYSCFG_CCMSRAM_WriteProtectionEnable:0000000000000000 HAL_SYSCFG_CCMSRAM_WriteProtectionEnable
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1205   .text.HAL_SYSCFG_CCMSRAM_WriteProtectionEnable:000000000000000c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1224   .data.uwTickFreq:0000000000000000 uwTickFreq
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1231   .data.uwTickPrio:0000000000000000 uwTickPrio
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1217   .bss.uwTick:0000000000000000 uwTick
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1213   .bss.uwTick:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1220   .data.uwTickFreq:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s:1227   .data.uwTickPrio:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:734    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:740    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:757    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:762    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:768    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:785    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:790    .text.HAL_SYSCFG_CCMSRAMErase:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:796    .text.HAL_SYSCFG_CCMSRAMErase:0000000000000000 HAL_SYSCFG_CCMSRAMErase
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:821    .text.HAL_SYSCFG_CCMSRAMErase:0000000000000014 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:826    .text.HAL_SYSCFG_EnableMemorySwappingBank:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:832    .text.HAL_SYSCFG_EnableMemorySwappingBank:0000000000000000 HAL_SYSCFG_EnableMemorySwappingBank
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:849    .text.HAL_SYSCFG_EnableMemorySwappingBank:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:854    .text.HAL_SYSCFG_DisableMemorySwappingBank:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:860    .text.HAL_SYSCFG_DisableMemorySwappingBank:0000000000000000 HAL_SYSCFG_DisableMemorySwappingBank
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:877    .text.HAL_SYSCFG_DisableMemorySwappingBank:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:882    .text.HAL_SYSCFG_VREFBUF_VoltageScalingConfig:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:888    .text.HAL_SYSCFG_VREFBUF_VoltageScalingConfig:0000000000000000 HAL_SYSCFG_VREFBUF_VoltageScalingConfig
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:908    .text.HAL_SYSCFG_VREFBUF_VoltageScalingConfig:0000000000000010 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:913    .text.HAL_SYSCFG_VREFBUF_HighImpedanceConfig:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:919    .text.HAL_SYSCFG_VREFBUF_HighImpedanceConfig:0000000000000000 HAL_SYSCFG_VREFBUF_HighImpedanceConfig
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:939    .text.HAL_SYSCFG_VREFBUF_HighImpedanceConfig:0000000000000010 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:944    .text.HAL_SYSCFG_VREFBUF_TrimmingConfig:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:950    .text.HAL_SYSCFG_VREFBUF_TrimmingConfig:0000000000000000 HAL_SYSCFG_VREFBUF_TrimmingConfig
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:970    .text.HAL_SYSCFG_VREFBUF_TrimmingConfig:0000000000000010 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:975    .text.HAL_SYSCFG_EnableVREFBUF:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:981    .text.HAL_SYSCFG_EnableVREFBUF:0000000000000000 HAL_SYSCFG_EnableVREFBUF
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1035   .text.HAL_SYSCFG_EnableVREFBUF:0000000000000030 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1040   .text.HAL_SYSCFG_DisableVREFBUF:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1046   .text.HAL_SYSCFG_DisableVREFBUF:0000000000000000 HAL_SYSCFG_DisableVREFBUF
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1063   .text.HAL_SYSCFG_DisableVREFBUF:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1068   .text.HAL_SYSCFG_EnableIOSwitchBooster:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1074   .text.HAL_SYSCFG_EnableIOSwitchBooster:0000000000000000 HAL_SYSCFG_EnableIOSwitchBooster
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1091   .text.HAL_SYSCFG_EnableIOSwitchBooster:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1096   .text.HAL_SYSCFG_DisableIOSwitchBooster:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1102   .text.HAL_SYSCFG_DisableIOSwitchBooster:0000000000000000 HAL_SYSCFG_DisableIOSwitchBooster
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1119   .text.HAL_SYSCFG_DisableIOSwitchBooster:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1124   .text.HAL_SYSCFG_EnableIOSwitchVDD:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1130   .text.HAL_SYSCFG_EnableIOSwitchVDD:0000000000000000 HAL_SYSCFG_EnableIOSwitchVDD
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1147   .text.HAL_SYSCFG_EnableIOSwitchVDD:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1152   .text.HAL_SYSCFG_DisableIOSwitchVDD:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1158   .text.HAL_SYSCFG_DisableIOSwitchVDD:0000000000000000 HAL_SYSCFG_DisableIOSwitchVDD
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1175   .text.HAL_SYSCFG_DisableIOSwitchVDD:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1180   .text.HAL_SYSCFG_CCMSRAM_WriteProtectionEnable:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1186   .text.HAL_SYSCFG_CCMSRAM_WriteProtectionEnable:0000000000000000 HAL_SYSCFG_CCMSRAM_WriteProtectionEnable
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1205   .text.HAL_SYSCFG_CCMSRAM_WriteProtectionEnable:000000000000000c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1224   .data.uwTickFreq:0000000000000000 uwTickFreq
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1231   .data.uwTickPrio:0000000000000000 uwTickPrio
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1217   .bss.uwTick:0000000000000000 uwTick
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1213   .bss.uwTick:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1220   .data.uwTickFreq:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s:1227   .data.uwTickPrio:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SYSTICK_Config
 HAL_NVIC_SetPriority
 SystemCoreClock
 HAL_NVIC_SetPriorityGrouping
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccu3p1yi.s 			page 38
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cciI77Zi.s 			page 38
 
 
