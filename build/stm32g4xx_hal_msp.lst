@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
   28:Core/Src/stm32g4xx_hal_msp.c **** /* USER CODE BEGIN TD */
   29:Core/Src/stm32g4xx_hal_msp.c **** 
   30:Core/Src/stm32g4xx_hal_msp.c **** /* USER CODE END TD */
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 2
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 2
 
 
   31:Core/Src/stm32g4xx_hal_msp.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
   44 0008 42F00102 		orr	r2, r2, #1
   45 000c 1A66     		str	r2, [r3, #96]
   46              		.loc 1 69 3 view .LVU4
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 3
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 3
 
 
   47 000e 1A6E     		ldr	r2, [r3, #96]
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
   91              	HAL_ADC_MspInit:
   92              	.LVL1:
   93              	.LFB330:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 4
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 4
 
 
   82:Core/Src/stm32g4xx_hal_msp.c **** 
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  101:Core/Src/stm32g4xx_hal_msp.c ****     PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC12;
  102:Core/Src/stm32g4xx_hal_msp.c ****     PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_SYSCLK;
  103:Core/Src/stm32g4xx_hal_msp.c ****     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 5
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 5
 
 
  104:Core/Src/stm32g4xx_hal_msp.c ****     {
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  109:Core/Src/stm32g4xx_hal_msp.c **** 
  154              		.loc 1 109 5 is_stmt 1 view .LVU33
  155              	.LBB4:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 6
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 6
 
 
  109:Core/Src/stm32g4xx_hal_msp.c **** 
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  117:Core/Src/stm32g4xx_hal_msp.c ****     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
  194              		.loc 1 117 26 is_stmt 0 view .LVU50
  195 0068 0023     		movs	r3, #0
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 7
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 7
 
 
  196 006a 1993     		str	r3, [sp, #100]
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  240 0008 00D0     		beq	.L16
  241              	.LVL9:
  242              	.L13:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 8
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 8
 
 
  136:Core/Src/stm32g4xx_hal_msp.c ****   {
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  154:Core/Src/stm32g4xx_hal_msp.c **** 
  155:Core/Src/stm32g4xx_hal_msp.c **** /**
  156:Core/Src/stm32g4xx_hal_msp.c **** * @brief UART MSP Initialization
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 9
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 9
 
 
  157:Core/Src/stm32g4xx_hal_msp.c **** * This function configures the hardware resources used in this example
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  175:Core/Src/stm32g4xx_hal_msp.c ****     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
  176:Core/Src/stm32g4xx_hal_msp.c ****     {
  177:Core/Src/stm32g4xx_hal_msp.c ****       Error_Handler();
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 10
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 10
 
 
  178:Core/Src/stm32g4xx_hal_msp.c ****     }
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  181:Core/Src/stm32g4xx_hal_msp.c **** 
  338              		.loc 1 181 5 view .LVU82
  181:Core/Src/stm32g4xx_hal_msp.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 11
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 11
 
 
  339              		.loc 1 181 5 view .LVU83
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  378 0062 1992     		str	r2, [sp, #100]
  191:Core/Src/stm32g4xx_hal_msp.c ****     GPIO_InitStruct.Alternate = GPIO_AF12_LPUART1;
  379              		.loc 1 191 5 is_stmt 1 view .LVU99
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 12
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 12
 
 
  191:Core/Src/stm32g4xx_hal_msp.c ****     GPIO_InitStruct.Alternate = GPIO_AF12_LPUART1;
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  422              		.cfi_offset 3, -8
  423              		.cfi_offset 14, -4
  210:Core/Src/stm32g4xx_hal_msp.c ****   if(huart->Instance==LPUART1)
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 13
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 13
 
 
  424              		.loc 1 210 3 is_stmt 1 view .LVU108
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  456              		.cfi_endproc
  457              	.LFE333:
  459              		.section	.text.HAL_TIM_Base_MspInit,"ax",%progbits
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 14
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 14
 
 
  460              		.align	1
@@ -802,7 +802,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  470              		.cfi_startproc
  471              		@ args = 0, pretend = 0, frame = 8
  472              		@ frame_needed = 0, uses_anonymous_args = 0
- 239:Core/Src/stm32g4xx_hal_msp.c ****   if(htim_base->Instance==TIM16)
+ 239:Core/Src/stm32g4xx_hal_msp.c ****   if(htim_base->Instance==TIM6)
  473              		.loc 1 239 3 view .LVU117
  474              		.loc 1 239 15 is_stmt 0 view .LVU118
  475 0000 0268     		ldr	r2, [r0]
@@ -812,7 +812,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  479 0006 00D0     		beq	.L39
  480 0008 7047     		bx	lr
  481              	.L39:
- 238:Core/Src/stm32g4xx_hal_msp.c ****   if(htim_base->Instance==TIM16)
+ 238:Core/Src/stm32g4xx_hal_msp.c ****   if(htim_base->Instance==TIM6)
  482              		.loc 1 238 1 view .LVU120
  483 000a 00B5     		push	{lr}
  484              		.cfi_def_cfa_offset 4
@@ -820,48 +820,48 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  486 000c 83B0     		sub	sp, sp, #12
  487              		.cfi_def_cfa_offset 16
  240:Core/Src/stm32g4xx_hal_msp.c ****   {
- 241:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM16_MspInit 0 */
+ 241:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM6_MspInit 0 */
  242:Core/Src/stm32g4xx_hal_msp.c **** 
- 243:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE END TIM16_MspInit 0 */
+ 243:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE END TIM6_MspInit 0 */
  244:Core/Src/stm32g4xx_hal_msp.c ****     /* Peripheral clock enable */
- 245:Core/Src/stm32g4xx_hal_msp.c ****     __HAL_RCC_TIM16_CLK_ENABLE();
+ 245:Core/Src/stm32g4xx_hal_msp.c ****     __HAL_RCC_TIM6_CLK_ENABLE();
  488              		.loc 1 245 5 is_stmt 1 view .LVU121
  489              	.LBB8:
  490              		.loc 1 245 5 view .LVU122
  491              		.loc 1 245 5 view .LVU123
- 492 000e 03F54C43 		add	r3, r3, #52224
- 493 0012 1A6E     		ldr	r2, [r3, #96]
- 494 0014 42F40032 		orr	r2, r2, #131072
- 495 0018 1A66     		str	r2, [r3, #96]
+ 492 000e 03F50033 		add	r3, r3, #131072
+ 493 0012 9A6D     		ldr	r2, [r3, #88]
+ 494 0014 42F01002 		orr	r2, r2, #16
+ 495 0018 9A65     		str	r2, [r3, #88]
  496              		.loc 1 245 5 view .LVU124
- 497 001a 1B6E     		ldr	r3, [r3, #96]
- 498 001c 03F40033 		and	r3, r3, #131072
+ 497 001a 9B6D     		ldr	r3, [r3, #88]
+ 498 001c 03F01003 		and	r3, r3, #16
  499 0020 0193     		str	r3, [sp, #4]
  500              		.loc 1 245 5 view .LVU125
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 15
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 15
 
 
  501 0022 019B     		ldr	r3, [sp, #4]
  502              	.LBE8:
  503              		.loc 1 245 5 view .LVU126
- 246:Core/Src/stm32g4xx_hal_msp.c ****     /* TIM16 interrupt Init */
- 247:Core/Src/stm32g4xx_hal_msp.c ****     HAL_NVIC_SetPriority(TIM1_UP_TIM16_IRQn, 0, 0);
+ 246:Core/Src/stm32g4xx_hal_msp.c ****     /* TIM6 interrupt Init */
+ 247:Core/Src/stm32g4xx_hal_msp.c ****     HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 0, 0);
  504              		.loc 1 247 5 view .LVU127
  505 0024 0022     		movs	r2, #0
  506 0026 1146     		mov	r1, r2
- 507 0028 1920     		movs	r0, #25
+ 507 0028 3620     		movs	r0, #54
  508              	.LVL26:
  509              		.loc 1 247 5 is_stmt 0 view .LVU128
  510 002a FFF7FEFF 		bl	HAL_NVIC_SetPriority
  511              	.LVL27:
- 248:Core/Src/stm32g4xx_hal_msp.c ****     HAL_NVIC_EnableIRQ(TIM1_UP_TIM16_IRQn);
+ 248:Core/Src/stm32g4xx_hal_msp.c ****     HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
  512              		.loc 1 248 5 is_stmt 1 view .LVU129
- 513 002e 1920     		movs	r0, #25
+ 513 002e 3620     		movs	r0, #54
  514 0030 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
  515              	.LVL28:
- 249:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM16_MspInit 1 */
+ 249:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM6_MspInit 1 */
  250:Core/Src/stm32g4xx_hal_msp.c **** 
- 251:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE END TIM16_MspInit 1 */
+ 251:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE END TIM6_MspInit 1 */
  252:Core/Src/stm32g4xx_hal_msp.c ****   }
  253:Core/Src/stm32g4xx_hal_msp.c **** 
  254:Core/Src/stm32g4xx_hal_msp.c **** }
@@ -873,7 +873,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  521              	.L41:
  522 003a 00BF     		.align	2
  523              	.L40:
- 524 003c 00440140 		.word	1073824768
+ 524 003c 00100040 		.word	1073745920
  525              		.cfi_endproc
  526              	.LFE334:
  528              		.section	.text.HAL_TIM_Base_MspDeInit,"ax",%progbits
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  539              		.cfi_startproc
  540              		@ args = 0, pretend = 0, frame = 0
  541              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 16
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 16
 
 
  542              		.loc 1 263 1 is_stmt 0 view .LVU132
@@ -906,7 +906,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  544              		.cfi_def_cfa_offset 8
  545              		.cfi_offset 3, -8
  546              		.cfi_offset 14, -4
- 264:Core/Src/stm32g4xx_hal_msp.c ****   if(htim_base->Instance==TIM16)
+ 264:Core/Src/stm32g4xx_hal_msp.c ****   if(htim_base->Instance==TIM6)
  547              		.loc 1 264 3 is_stmt 1 view .LVU133
  548              		.loc 1 264 15 is_stmt 0 view .LVU134
  549 0002 0268     		ldr	r2, [r0]
@@ -917,17 +917,17 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  554              	.LVL30:
  555              	.L42:
  265:Core/Src/stm32g4xx_hal_msp.c ****   {
- 266:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM16_MspDeInit 0 */
+ 266:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM6_MspDeInit 0 */
  267:Core/Src/stm32g4xx_hal_msp.c **** 
- 268:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE END TIM16_MspDeInit 0 */
+ 268:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE END TIM6_MspDeInit 0 */
  269:Core/Src/stm32g4xx_hal_msp.c ****     /* Peripheral clock disable */
- 270:Core/Src/stm32g4xx_hal_msp.c ****     __HAL_RCC_TIM16_CLK_DISABLE();
+ 270:Core/Src/stm32g4xx_hal_msp.c ****     __HAL_RCC_TIM6_CLK_DISABLE();
  271:Core/Src/stm32g4xx_hal_msp.c **** 
- 272:Core/Src/stm32g4xx_hal_msp.c ****     /* TIM16 interrupt DeInit */
- 273:Core/Src/stm32g4xx_hal_msp.c ****     HAL_NVIC_DisableIRQ(TIM1_UP_TIM16_IRQn);
- 274:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM16_MspDeInit 1 */
+ 272:Core/Src/stm32g4xx_hal_msp.c ****     /* TIM6 interrupt DeInit */
+ 273:Core/Src/stm32g4xx_hal_msp.c ****     HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn);
+ 274:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM6_MspDeInit 1 */
  275:Core/Src/stm32g4xx_hal_msp.c **** 
- 276:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE END TIM16_MspDeInit 1 */
+ 276:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE END TIM6_MspDeInit 1 */
  277:Core/Src/stm32g4xx_hal_msp.c ****   }
  278:Core/Src/stm32g4xx_hal_msp.c **** 
  279:Core/Src/stm32g4xx_hal_msp.c **** }
@@ -938,14 +938,14 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  270:Core/Src/stm32g4xx_hal_msp.c **** 
  560              		.loc 1 270 5 is_stmt 1 view .LVU137
  561 000c 054A     		ldr	r2, .L46+4
- 562 000e 136E     		ldr	r3, [r2, #96]
- 563 0010 23F40033 		bic	r3, r3, #131072
- 564 0014 1366     		str	r3, [r2, #96]
- 273:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM16_MspDeInit 1 */
+ 562 000e 936D     		ldr	r3, [r2, #88]
+ 563 0010 23F01003 		bic	r3, r3, #16
+ 564 0014 9365     		str	r3, [r2, #88]
+ 273:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM6_MspDeInit 1 */
  565              		.loc 1 273 5 view .LVU138
- 566 0016 1920     		movs	r0, #25
+ 566 0016 3620     		movs	r0, #54
  567              	.LVL32:
- 273:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM16_MspDeInit 1 */
+ 273:Core/Src/stm32g4xx_hal_msp.c ****   /* USER CODE BEGIN TIM6_MspDeInit 1 */
  568              		.loc 1 273 5 is_stmt 0 view .LVU139
  569 0018 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
  570              	.LVL33:
@@ -954,11 +954,11 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  573              	.L47:
  574 001e 00BF     		.align	2
  575              	.L46:
- 576 0020 00440140 		.word	1073824768
+ 576 0020 00100040 		.word	1073745920
  577 0024 00100240 		.word	1073876992
  578              		.cfi_endproc
  579              	.LFE335:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 17
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 17
 
 
  581              		.text
@@ -978,32 +978,32 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 1
  595              		.file 14 "Core/Inc/main.h"
  596              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h"
  597              		.file 16 "<built-in>"
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s 			page 18
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32g4xx_hal_msp.c
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:20     .text.HAL_MspInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:80     .text.HAL_MspInit:0000000000000034 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:85     .text.HAL_ADC_MspInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:91     .text.HAL_ADC_MspInit:0000000000000000 HAL_ADC_MspInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:212    .text.HAL_ADC_MspInit:0000000000000080 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:217    .text.HAL_ADC_MspDeInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:223    .text.HAL_ADC_MspDeInit:0000000000000000 HAL_ADC_MspDeInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:264    .text.HAL_ADC_MspDeInit:0000000000000024 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:269    .text.HAL_UART_MspInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:275    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:400    .text.HAL_UART_MspInit:000000000000007c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:406    .text.HAL_UART_MspDeInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:412    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:454    .text.HAL_UART_MspDeInit:0000000000000024 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:460    .text.HAL_TIM_Base_MspInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:466    .text.HAL_TIM_Base_MspInit:0000000000000000 HAL_TIM_Base_MspInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:524    .text.HAL_TIM_Base_MspInit:000000000000003c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:529    .text.HAL_TIM_Base_MspDeInit:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:535    .text.HAL_TIM_Base_MspDeInit:0000000000000000 HAL_TIM_Base_MspDeInit
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc3fu52Y.s:576    .text.HAL_TIM_Base_MspDeInit:0000000000000020 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:20     .text.HAL_MspInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:26     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:80     .text.HAL_MspInit:0000000000000034 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:85     .text.HAL_ADC_MspInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:91     .text.HAL_ADC_MspInit:0000000000000000 HAL_ADC_MspInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:212    .text.HAL_ADC_MspInit:0000000000000080 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:217    .text.HAL_ADC_MspDeInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:223    .text.HAL_ADC_MspDeInit:0000000000000000 HAL_ADC_MspDeInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:264    .text.HAL_ADC_MspDeInit:0000000000000024 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:269    .text.HAL_UART_MspInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:275    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:400    .text.HAL_UART_MspInit:000000000000007c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:406    .text.HAL_UART_MspDeInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:412    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:454    .text.HAL_UART_MspDeInit:0000000000000024 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:460    .text.HAL_TIM_Base_MspInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:466    .text.HAL_TIM_Base_MspInit:0000000000000000 HAL_TIM_Base_MspInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:524    .text.HAL_TIM_Base_MspInit:000000000000003c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:529    .text.HAL_TIM_Base_MspDeInit:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:535    .text.HAL_TIM_Base_MspDeInit:0000000000000000 HAL_TIM_Base_MspDeInit
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccTEZkGN.s:576    .text.HAL_TIM_Base_MspDeInit:0000000000000020 $d
 
 UNDEFINED SYMBOLS
 HAL_PWREx_DisableUCPDDeadBattery

@@ -79,6 +79,7 @@ int main(void)
   
   uint16_t raw;
   char msg[10];
+  float raw_to_volt;
 
   /* USER CODE END 1 */
 
@@ -133,11 +134,12 @@ int main(void)
 
     HAL_ADC_Start(&hadc1);
     HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-    raw = (HAL_ADC_GetValue(&hadc1)/4096)*3.3; //conversion to voltage
+    raw = HAL_ADC_GetValue(&hadc1);
+    raw_to_volt = (raw * 3.3) / 4095;
     // HAL_ADC_Stop(&hadc1);
 
     // Convert to string and print
-    sprintf(msg, "%hu\r\n", raw);
+    sprintf(msg, "%.2f\r\n", raw_to_volt);
     HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
     HAL_Delay(1);
@@ -365,6 +367,9 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
@@ -378,6 +383,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PC10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
@@ -389,8 +401,8 @@ static void MX_GPIO_Init(void)
 //function that is called every 50 ms
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-  //toggle a pin
-  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+  //toggle a pin 
+  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_10);
   if (htim->Instance == TIM16)
   {
     timer_lap += 1;
