@@ -133,7 +133,8 @@ int main(void)
 
     HAL_ADC_Start(&hadc1);
     HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-    raw = HAL_ADC_GetValue(&hadc1);
+    raw = (HAL_ADC_GetValue(&hadc1)/4096)*3.3; //conversion to voltage
+    // HAL_ADC_Stop(&hadc1);
 
     // Convert to string and print
     sprintf(msg, "%hu\r\n", raw);
@@ -364,6 +365,9 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
@@ -377,6 +381,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PC10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_10;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
@@ -388,14 +399,16 @@ static void MX_GPIO_Init(void)
 //function that is called every 50 ms
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
+  //toggle a pin 
+  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_10);
   if (htim->Instance == TIM16)
   {
     timer_lap += 1;
 
-    if ((timer_lap % 25) == 0)
+    if ((timer_lap % 4) == 0)
     {
       flag_sensor = 1; //flag for checking the sensor
-    }  else if ((timer_lap % 35) == 0)
+    }  else if ((timer_lap % 7) == 0)
     {
       flag_tension = 1; //flag for checking the tension
     }
