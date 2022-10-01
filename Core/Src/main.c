@@ -135,6 +135,8 @@ int main(void)
     //check flag tension
     if(flag_tension == 1){
       //read tension
+      HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_SET); //enable undervoltage led
+      HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //enable overvoltage led
       flag_tension = 0;
     }
     
@@ -371,7 +373,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10|LED_undervoltage_Pin|LED_overvoltage_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;
@@ -386,8 +388,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PC10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_10;
+  /*Configure GPIO pins : PC10 LED_undervoltage_Pin LED_overvoltage_Pin */
+  GPIO_InitStruct.Pin = GPIO_PIN_10|LED_undervoltage_Pin|LED_overvoltage_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -418,6 +420,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       flag_tension = 1; //flag for checking the tension
     }
   }
+}
+
+//button interrupt
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if(GPIO_Pin == GPIO_PIN_13) 
+    { //TODO: set the correct value of flag and delete led toggle
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); // Toggle The Output (LED) Pin 
+    }
 }
 
 /* USER CODE END 4 */
