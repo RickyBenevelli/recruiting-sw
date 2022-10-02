@@ -18,4 +18,4 @@ Every 200 ms the sensor input is read, every 350 ms the voltage value is read. I
 
 If the button is pressed the WAITING state is activated and the waiting message is transmitted every 500 ms until the button is pressed again
 
-![flowchart](./media/flowchart.png)
+![flowchart](./media/Flowchart.png)
