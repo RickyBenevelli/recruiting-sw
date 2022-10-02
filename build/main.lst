@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
   29:Core/Src/main.c **** /* USER CODE BEGIN PTD */
   30:Core/Src/main.c **** 
   31:Core/Src/main.c **** /* USER CODE END PTD */
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 2
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 2
 
 
   32:Core/Src/main.c **** 
@@ -83,7 +83,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
   51:Core/Src/main.c **** 
   52:Core/Src/main.c **** int timer_lap = 0;
   53:Core/Src/main.c **** int flag_sensor = 0;
-  54:Core/Src/main.c **** int flag_tension = 0;
+  54:Core/Src/main.c **** int flag_voltage = 0;
   55:Core/Src/main.c **** int flag_button = 0;
   56:Core/Src/main.c **** int flag_waiting_message = 0;
   57:Core/Src/main.c **** int flag_undervoltage = 0;
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
   86:Core/Src/main.c ****   * @retval int
   87:Core/Src/main.c ****   */
   88:Core/Src/main.c **** int main(void)
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 3
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 3
 
 
   89:Core/Src/main.c **** {
@@ -130,8 +130,8 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
   95:Core/Src/main.c ****   float raw_to_gauss;
   96:Core/Src/main.c ****   state = INIT_STATE;
   97:Core/Src/main.c **** 
-  98:Core/Src/main.c ****   uint16_t raw_tension;
-  99:Core/Src/main.c ****   float raw_tension_volt;
+  98:Core/Src/main.c ****   uint16_t raw_voltage;
+  99:Core/Src/main.c ****   float raw_voltage_volt;
  100:Core/Src/main.c **** 
  101:Core/Src/main.c ****   uint8_t waiting_message[100] = "Board in waiting state - please press the emergency button\r\n";
  102:Core/Src/main.c **** 
@@ -178,36 +178,36 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  143:Core/Src/main.c ****       //check if sensor is to be read
  144:Core/Src/main.c ****       if(flag_sensor == 1){
  145:Core/Src/main.c ****       
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 4
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 4
 
 
  146:Core/Src/main.c ****         HAL_ADC_Start(&hadc1);
  147:Core/Src/main.c ****         HAL_ADC_PollForConversion(&hadc1, 1); 
  148:Core/Src/main.c ****         raw = HAL_ADC_GetValue(&hadc1);
- 149:Core/Src/main.c ****         raw_to_gauss = ((raw * 3.3*1000) / 4095)/1.6; //convert to gauss
+ 149:Core/Src/main.c ****         raw_to_gauss = (((raw * 3.3)/ 4095) - 1.60)*1000/1.6; //TODO: change sensibility according 
  150:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
  151:Core/Src/main.c **** 
  152:Core/Src/main.c ****         // Convert to string and print
- 153:Core/Src/main.c ****         sprintf(msg, "(%lu) Hall sensor:  %.4f [GS]\r\n", HAL_GetTick()/100, raw_to_gauss);
+ 153:Core/Src/main.c ****         sprintf(msg, "(%lu) Hall sensor:  %4.2f [GS]\r\n", HAL_GetTick()/100, raw_to_gauss);
  154:Core/Src/main.c ****         HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), 10);
  155:Core/Src/main.c ****         flag_sensor = 0;
  156:Core/Src/main.c ****         }
  157:Core/Src/main.c ****         
- 158:Core/Src/main.c ****       //check if tension is to be read
- 159:Core/Src/main.c ****       if(flag_tension == 1){
- 160:Core/Src/main.c ****         //read tension
+ 158:Core/Src/main.c ****       //check if voltage is to be read
+ 159:Core/Src/main.c ****       if(flag_voltage == 1){
+ 160:Core/Src/main.c ****         //read voltage
  161:Core/Src/main.c ****         HAL_ADC_Start(&hadc2);
  162:Core/Src/main.c ****         HAL_ADC_PollForConversion(&hadc2, 1); 
- 163:Core/Src/main.c ****         raw_tension = HAL_ADC_GetValue(&hadc2);
- 164:Core/Src/main.c ****         raw_tension_volt = (raw_tension * 3.3) / 4095; //convert to volt
+ 163:Core/Src/main.c ****         raw_voltage = HAL_ADC_GetValue(&hadc2);
+ 164:Core/Src/main.c ****         raw_voltage_volt = (raw_voltage * 3.3) / 4095; //convert to volt
  165:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
  166:Core/Src/main.c ****         
- 167:Core/Src/main.c ****         if(raw_tension_volt < 1.8){
+ 167:Core/Src/main.c ****         if(raw_voltage_volt < 1.8){
  168:Core/Src/main.c ****           state = DANGER_STATE;
  169:Core/Src/main.c ****           flag_undervoltage = 1;
  170:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_SET); //enable undervoltage led
  171:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //disable overvoltage led
- 172:Core/Src/main.c ****         } else if (raw_tension_volt > 2.7){
+ 172:Core/Src/main.c ****         } else if (raw_voltage_volt > 2.7){
  173:Core/Src/main.c ****           state = DANGER_STATE;
  174:Core/Src/main.c ****           flag_overvoltage = 1;
  175:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //enable overvoltage led
@@ -218,7 +218,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  180:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_RESET); //disable undervoltage led
  181:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //disable overvoltage led
  182:Core/Src/main.c ****         }
- 183:Core/Src/main.c ****         flag_tension = 0;
+ 183:Core/Src/main.c ****         flag_voltage = 0;
  184:Core/Src/main.c ****       }
  185:Core/Src/main.c **** 
  186:Core/Src/main.c ****       state = RUNNING_STATE;
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  200:Core/Src/main.c **** 
  201:Core/Src/main.c ****     case DANGER_STATE:
  202:Core/Src/main.c ****         if (flag_undervoltage){
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 5
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 5
 
 
  203:Core/Src/main.c ****           sprintf(danger_message, "DANGER STATE: undervoltage\r\n"); //TODO: controllare che funzio
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  257:Core/Src/main.c ****   /** Initializes the CPU, AHB and APB buses clocks
  258:Core/Src/main.c ****   */
  259:Core/Src/main.c ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 6
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 6
 
 
  260:Core/Src/main.c ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  314:Core/Src/main.c ****   /** Configure the ADC multi-mode
  315:Core/Src/main.c ****   */
  316:Core/Src/main.c ****   multimode.Mode = ADC_MODE_INDEPENDENT;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 7
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 7
 
 
  317:Core/Src/main.c ****   if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  371:Core/Src/main.c ****   hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
  372:Core/Src/main.c ****   hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
  373:Core/Src/main.c ****   hadc2.Init.DMAContinuousRequests = DISABLE;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 8
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 8
 
 
  374:Core/Src/main.c ****   hadc2.Init.Overrun = ADC_OVR_DATA_PRESERVED;
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  428:Core/Src/main.c ****   if (HAL_UARTEx_SetTxFifoThreshold(&hlpuart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
  429:Core/Src/main.c ****   {
  430:Core/Src/main.c ****     Error_Handler();
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 9
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 9
 
 
  431:Core/Src/main.c ****   }
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  485:Core/Src/main.c ****   * @brief GPIO Initialization Function
  486:Core/Src/main.c ****   * @param None
  487:Core/Src/main.c ****   * @retval None
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 10
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 10
 
 
  488:Core/Src/main.c ****   */
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
   74 0032 0292     		str	r2, [sp, #8]
   75              		.loc 1 495 3 view .LVU13
   76 0034 029A     		ldr	r2, [sp, #8]
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 11
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 11
 
 
   77              	.LBE5:
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  505:Core/Src/main.c ****   /*Configure GPIO pin : B1_Pin */
  506:Core/Src/main.c ****   GPIO_InitStruct.Pin = B1_Pin;
  122              		.loc 1 506 3 view .LVU29
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 12
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 12
 
 
  123              		.loc 1 506 23 is_stmt 0 view .LVU30
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  163 00a6 0696     		str	r6, [sp, #24]
  521:Core/Src/main.c ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
  164              		.loc 1 521 3 is_stmt 1 view .LVU49
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 13
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 13
 
 
  165              		.loc 1 521 24 is_stmt 0 view .LVU50
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  535:Core/Src/main.c **** {
  208              		.loc 1 535 1 is_stmt 1 view -0
  209              		.cfi_startproc
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 14
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 14
 
 
  210              		@ args = 0, pretend = 0, frame = 0
@@ -801,7 +801,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  542:Core/Src/main.c ****       flag_sensor = 1; //flag for checking the sensor
  543:Core/Src/main.c ****       state = READING_STATE;
  544:Core/Src/main.c ****     }  else if (((timer_lap % 7) == 0) && flag_button == 0){
- 545:Core/Src/main.c ****       flag_tension = 1; //flag for checking the tension
+ 545:Core/Src/main.c ****       flag_voltage = 1; //flag for checking the voltage
  546:Core/Src/main.c ****       state = READING_STATE;
  547:Core/Src/main.c ****     } else if (flag_button == 1 && ((timer_lap % 10) == 0)){
  548:Core/Src/main.c ****       flag_waiting_message = 1; //flag for sending the waiting message
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  240              		.loc 1 542 19 is_stmt 0 view .LVU69
  241 001e 1A4B     		ldr	r3, .L10+12
  242 0020 0122     		movs	r2, #1
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 15
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 15
 
 
  243 0022 1A60     		str	r2, [r3]
@@ -851,9 +851,9 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  248 0028 1A70     		strb	r2, [r3]
  249 002a 7047     		bx	lr
  250              	.L7:
- 544:Core/Src/main.c ****       flag_tension = 1; //flag for checking the tension
+ 544:Core/Src/main.c ****       flag_voltage = 1; //flag for checking the voltage
  251              		.loc 1 544 13 is_stmt 1 view .LVU72
- 544:Core/Src/main.c ****       flag_tension = 1; //flag for checking the tension
+ 544:Core/Src/main.c ****       flag_voltage = 1; //flag for checking the voltage
  252              		.loc 1 544 29 is_stmt 0 view .LVU73
  253 002c 1849     		ldr	r1, .L10+20
  254 002e 81FB0321 		smull	r2, r1, r1, r3
@@ -861,15 +861,15 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  256 0034 DA17     		asrs	r2, r3, #31
  257 0036 C2EBA102 		rsb	r2, r2, r1, asr #2
  258 003a C2EBC202 		rsb	r2, r2, r2, lsl #3
- 544:Core/Src/main.c ****       flag_tension = 1; //flag for checking the tension
+ 544:Core/Src/main.c ****       flag_voltage = 1; //flag for checking the voltage
  259              		.loc 1 544 16 view .LVU74
  260 003e 9342     		cmp	r3, r2
  261 0040 09D1     		bne	.L8
- 544:Core/Src/main.c ****       flag_tension = 1; //flag for checking the tension
+ 544:Core/Src/main.c ****       flag_voltage = 1; //flag for checking the voltage
  262              		.loc 1 544 55 discriminator 1 view .LVU75
  263 0042 104A     		ldr	r2, .L10+8
  264 0044 1268     		ldr	r2, [r2]
- 544:Core/Src/main.c ****       flag_tension = 1; //flag for checking the tension
+ 544:Core/Src/main.c ****       flag_voltage = 1; //flag for checking the voltage
  265              		.loc 1 544 40 discriminator 1 view .LVU76
  266 0046 32B9     		cbnz	r2, .L8
  545:Core/Src/main.c ****       state = READING_STATE;
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  283              		.loc 1 547 15 view .LVU83
  284 005a 012A     		cmp	r2, #1
  285 005c D4D1     		bne	.L5
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 16
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 16
 
 
  547:Core/Src/main.c ****       flag_waiting_message = 1; //flag for sending the waiting message
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  334 0004 00D0     		beq	.L20
  335 0006 7047     		bx	lr
  336              	.L20:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 17
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 17
 
 
  554:Core/Src/main.c ****     if(GPIO_Pin == GPIO_PIN_13) {
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  383              	.LFE340:
  385              		.section	.text.Error_Handler,"ax",%progbits
  386              		.align	1
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 18
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 18
 
 
  387              		.global	Error_Handler
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
   27:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   28:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ignore some GCC warnings */
   29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 19
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 19
 
 
   30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
   84:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
   85:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 20
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 20
 
 
   87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  141:Drivers/CMSIS/Include/cmsis_gcc.h ****   typedef struct {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t* dest;
  143:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t  wlen;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 21
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 21
 
 
  144:Drivers/CMSIS/Include/cmsis_gcc.h ****   } __zero_table_t;
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  198:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
  199:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  200:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 22
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 22
 
 
  201:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  415:Core/Src/main.c ****   hlpuart1.Init.WordLength = UART_WORDLENGTH_8B;
  444              		.loc 1 415 3 is_stmt 1 view .LVU115
  415:Core/Src/main.c ****   hlpuart1.Init.WordLength = UART_WORDLENGTH_8B;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 23
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 23
 
 
  445              		.loc 1 415 26 is_stmt 0 view .LVU116
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  428:Core/Src/main.c ****   {
  480              		.loc 1 428 3 is_stmt 1 view .LVU136
  428:Core/Src/main.c ****   {
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 24
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 24
 
 
  481              		.loc 1 428 7 is_stmt 0 view .LVU137
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  523              	.L35:
  524 0058 00000000 		.word	.LANCHOR6
  525 005c 00800040 		.word	1073774592
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 25
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 25
 
 
  526              		.cfi_endproc
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  571 0024 8460     		str	r4, [r0, #8]
  296:Core/Src/main.c ****   hadc1.Init.GainCompensation = 0;
  572              		.loc 1 296 3 is_stmt 1 view .LVU161
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 26
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 26
 
 
  296:Core/Src/main.c ****   hadc1.Init.GainCompensation = 0;
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  606 0040 80F83840 		strb	r4, [r0, #56]
  307:Core/Src/main.c ****   hadc1.Init.OversamplingMode = DISABLE;
  607              		.loc 1 307 3 is_stmt 1 view .LVU183
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 27
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 27
 
 
  307:Core/Src/main.c ****   hadc1.Init.OversamplingMode = DISABLE;
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  327:Core/Src/main.c ****   sConfig.OffsetNumber = ADC_OFFSET_NONE;
  644              		.loc 1 327 22 is_stmt 0 view .LVU202
  645 006a 7F22     		movs	r2, #127
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 28
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 28
 
 
  646 006c 0492     		str	r2, [sp, #16]
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  690              		.align	1
  691              		.syntax unified
  692              		.thumb
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 29
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 29
 
 
  693              		.thumb_func
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  733 0022 FFF7FEFF 		bl	HAL_TIM_Base_Init
  734              	.LVL26:
  468:Core/Src/main.c ****   {
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 30
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 30
 
 
  735              		.loc 1 468 6 view .LVU229
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  781              	MX_ADC2_Init:
  782              	.LFB335:
  346:Core/Src/main.c **** 
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 31
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 31
 
 
  783              		.loc 1 346 1 view -0
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  366:Core/Src/main.c ****   hadc2.Init.LowPowerAutoWait = DISABLE;
  822              		.loc 1 366 27 is_stmt 0 view .LVU256
  823 0024 0422     		movs	r2, #4
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 32
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 32
 
 
  824 0026 8261     		str	r2, [r0, #24]
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  857              		.loc 1 376 6 view .LVU277
  858 0046 90B9     		cbnz	r0, .L59
  383:Core/Src/main.c ****   sConfig.Rank = ADC_REGULAR_RANK_1;
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 33
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 33
 
 
  859              		.loc 1 383 3 is_stmt 1 view .LVU278
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  378:Core/Src/main.c ****   }
  898              		.loc 1 378 5 is_stmt 1 view .LVU294
  899 006e FFF7FEFF 		bl	Error_Handler
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 34
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 34
 
 
  900              	.LVL33:
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  949              	.LVL36:
  242:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
  950              		.loc 1 242 3 view .LVU302
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 35
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 35
 
 
  242:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  985              		.loc 1 252 3 is_stmt 1 view .LVU322
  252:Core/Src/main.c ****   {
  986              		.loc 1 252 7 is_stmt 0 view .LVU323
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 36
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 36
 
 
  987 003e 06A8     		add	r0, sp, #24
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  1026              		.cfi_restore_state
  254:Core/Src/main.c ****   }
  1027              		.loc 1 254 5 is_stmt 1 view .LVU339
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 37
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 37
 
 
  1028 006c FFF7FEFF 		bl	Error_Handler
@@ -2173,804 +2173,810 @@ ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 1
  1037              		.global	__aeabi_i2d
  1038              		.global	__aeabi_dmul
  1039              		.global	__aeabi_ddiv
- 1040              		.global	__aeabi_d2f
- 1041              		.section	.rodata.main.str1.4,"aMS",%progbits,1
- 1042              		.align	2
- 1043              	.LC1:
- 1044 0000 28256C75 		.ascii	"(%lu) Hall sensor:  %.4f [GS]\015\012\000"
- 1044      29204861 
- 1044      6C6C2073 
- 1044      656E736F 
- 1044      723A2020 
- 1045              		.global	__aeabi_f2d
- 1046              		.global	__aeabi_dcmplt
- 1047              		.global	__aeabi_dcmpgt
- 1048              		.align	2
- 1049              	.LC2:
- 1050 0020 44414E47 		.ascii	"DANGER STATE: undervoltage\015\012\000"
- 1050      45522053 
- 1050      54415445 
- 1050      3A20756E 
- 1050      64657276 
- 1051 003d 000000   		.align	2
- 1052              	.LC3:
- 1053 0040 44414E47 		.ascii	"DANGER STATE: overvoltage\015\012\000"
- 1053      45522053 
- 1053      54415445 
- 1053      3A206F76 
- 1053      6572766F 
- 1054              		.align	2
- 1055              	.LC0:
- 1056 005c 426F6172 		.ascii	"Board in waiting state - please press the emergency"
- 1056      6420696E 
- 1056      20776169 
- 1056      74696E67 
- 1056      20737461 
- 1057 008f 20627574 		.ascii	" button\015\012\000"
- 1057      746F6E0D 
- 1057      0A00
- 1058              		.section	.text.main,"ax",%progbits
- 1059              		.align	1
- 1060              		.global	main
- 1061              		.syntax unified
- 1062              		.thumb
- 1063              		.thumb_func
- 1065              	main:
- 1066              	.LFB332:
+ 1040              		.global	__aeabi_dsub
+ 1041              		.global	__aeabi_d2f
+ 1042              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+ 1043              		.align	2
+ 1044              	.LC1:
+ 1045 0000 28256C75 		.ascii	"(%lu) Hall sensor:  %4.2f [GS]\015\012\000"
+ 1045      29204861 
+ 1045      6C6C2073 
+ 1045      656E736F 
+ 1045      723A2020 
+ 1046              		.global	__aeabi_f2d
+ 1047              		.global	__aeabi_dcmplt
+ 1048              		.global	__aeabi_dcmpgt
+ 1049 0021 000000   		.align	2
+ 1050              	.LC2:
+ 1051 0024 44414E47 		.ascii	"DANGER STATE: undervoltage\015\012\000"
+ 1051      45522053 
+ 1051      54415445 
+ 1051      3A20756E 
+ 1051      64657276 
+ 1052 0041 000000   		.align	2
+ 1053              	.LC3:
+ 1054 0044 44414E47 		.ascii	"DANGER STATE: overvoltage\015\012\000"
+ 1054      45522053 
+ 1054      54415445 
+ 1054      3A206F76 
+ 1054      6572766F 
+ 1055              		.align	2
+ 1056              	.LC0:
+ 1057 0060 426F6172 		.ascii	"Board in waiting state - please press the emergency"
+ 1057      6420696E 
+ 1057      20776169 
+ 1057      74696E67 
+ 1057      20737461 
+ 1058 0093 20627574 		.ascii	" button\015\012\000"
+ 1058      746F6E0D 
+ 1058      0A00
+ 1059              		.section	.text.main,"ax",%progbits
+ 1060              		.align	1
+ 1061              		.global	main
+ 1062              		.syntax unified
+ 1063              		.thumb
+ 1064              		.thumb_func
+ 1066              	main:
+ 1067              	.LFB332:
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 38
+
+
   89:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 38
-
-
- 1067              		.loc 1 89 1 view -0
- 1068              		.cfi_startproc
- 1069              		@ args = 0, pretend = 0, frame = 208
- 1070              		@ frame_needed = 0, uses_anonymous_args = 0
- 1071 0000 30B5     		push	{r4, r5, lr}
- 1072              		.cfi_def_cfa_offset 12
- 1073              		.cfi_offset 4, -12
- 1074              		.cfi_offset 5, -8
- 1075              		.cfi_offset 14, -4
- 1076 0002 B7B0     		sub	sp, sp, #220
- 1077              		.cfi_def_cfa_offset 232
+ 1068              		.loc 1 89 1 view -0
+ 1069              		.cfi_startproc
+ 1070              		@ args = 0, pretend = 0, frame = 208
+ 1071              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1072 0000 30B5     		push	{r4, r5, lr}
+ 1073              		.cfi_def_cfa_offset 12
+ 1074              		.cfi_offset 4, -12
+ 1075              		.cfi_offset 5, -8
+ 1076              		.cfi_offset 14, -4
+ 1077 0002 B7B0     		sub	sp, sp, #220
+ 1078              		.cfi_def_cfa_offset 232
   92:Core/Src/main.c ****   char msg[50];
- 1078              		.loc 1 92 3 view .LVU342
+ 1079              		.loc 1 92 3 view .LVU342
   93:Core/Src/main.c ****   char danger_message[50];
- 1079              		.loc 1 93 3 view .LVU343
+ 1080              		.loc 1 93 3 view .LVU343
   94:Core/Src/main.c ****   float raw_to_gauss;
- 1080              		.loc 1 94 3 view .LVU344
+ 1081              		.loc 1 94 3 view .LVU344
   95:Core/Src/main.c ****   state = INIT_STATE;
- 1081              		.loc 1 95 3 view .LVU345
+ 1082              		.loc 1 95 3 view .LVU345
   96:Core/Src/main.c **** 
- 1082              		.loc 1 96 3 view .LVU346
+ 1083              		.loc 1 96 3 view .LVU346
   96:Core/Src/main.c **** 
- 1083              		.loc 1 96 9 is_stmt 0 view .LVU347
- 1084 0004 A04B     		ldr	r3, .L92+40
- 1085 0006 0022     		movs	r2, #0
- 1086 0008 1A70     		strb	r2, [r3]
-  98:Core/Src/main.c ****   float raw_tension_volt;
- 1087              		.loc 1 98 3 is_stmt 1 view .LVU348
+ 1084              		.loc 1 96 9 is_stmt 0 view .LVU347
+ 1085 0004 A24B     		ldr	r3, .L92+40
+ 1086 0006 0022     		movs	r2, #0
+ 1087 0008 1A70     		strb	r2, [r3]
+  98:Core/Src/main.c ****   float raw_voltage_volt;
+ 1088              		.loc 1 98 3 is_stmt 1 view .LVU348
   99:Core/Src/main.c **** 
- 1088              		.loc 1 99 3 view .LVU349
+ 1089              		.loc 1 99 3 view .LVU349
  101:Core/Src/main.c **** 
- 1089              		.loc 1 101 3 view .LVU350
+ 1090              		.loc 1 101 3 view .LVU350
  101:Core/Src/main.c **** 
- 1090              		.loc 1 101 11 is_stmt 0 view .LVU351
- 1091 000a A04C     		ldr	r4, .L92+44
- 1092 000c 0DF10C0C 		add	ip, sp, #12
- 1093 0010 04F1300E 		add	lr, r4, #48
- 1094              	.L70:
- 1095 0014 6546     		mov	r5, ip
- 1096 0016 2068     		ldr	r0, [r4]	@ unaligned
- 1097 0018 6168     		ldr	r1, [r4, #4]	@ unaligned
- 1098 001a A268     		ldr	r2, [r4, #8]	@ unaligned
- 1099 001c E368     		ldr	r3, [r4, #12]	@ unaligned
- 1100 001e 0FC5     		stmia	r5!, {r0, r1, r2, r3}
- 1101 0020 1034     		adds	r4, r4, #16
- 1102 0022 AC46     		mov	ip, r5
- 1103 0024 7445     		cmp	r4, lr
- 1104 0026 F5D1     		bne	.L70
- 1105 0028 2068     		ldr	r0, [r4]	@ unaligned
- 1106 002a 6168     		ldr	r1, [r4, #4]	@ unaligned
- 1107 002c A268     		ldr	r2, [r4, #8]	@ unaligned
- 1108 002e ACE80700 		stmia	ip!, {r0, r1, r2}
- 1109 0032 237B     		ldrb	r3, [r4, #12]	@ zero_extendqisi2
- 1110 0034 8CF80030 		strb	r3, [ip]
- 1111 0038 2722     		movs	r2, #39
- 1112 003a 0021     		movs	r1, #0
- 1113 003c 0DF14900 		add	r0, sp, #73
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 39
+ 1091              		.loc 1 101 11 is_stmt 0 view .LVU351
+ 1092 000a A24C     		ldr	r4, .L92+44
+ 1093 000c 0DF10C0C 		add	ip, sp, #12
+ 1094 0010 04F1300E 		add	lr, r4, #48
+ 1095              	.L70:
+ 1096 0014 6546     		mov	r5, ip
+ 1097 0016 2068     		ldr	r0, [r4]	@ unaligned
+ 1098 0018 6168     		ldr	r1, [r4, #4]	@ unaligned
+ 1099 001a A268     		ldr	r2, [r4, #8]	@ unaligned
+ 1100 001c E368     		ldr	r3, [r4, #12]	@ unaligned
+ 1101 001e 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 1102 0020 1034     		adds	r4, r4, #16
+ 1103 0022 AC46     		mov	ip, r5
+ 1104 0024 7445     		cmp	r4, lr
+ 1105 0026 F5D1     		bne	.L70
+ 1106 0028 2068     		ldr	r0, [r4]	@ unaligned
+ 1107 002a 6168     		ldr	r1, [r4, #4]	@ unaligned
+ 1108 002c A268     		ldr	r2, [r4, #8]	@ unaligned
+ 1109 002e ACE80700 		stmia	ip!, {r0, r1, r2}
+ 1110 0032 237B     		ldrb	r3, [r4, #12]	@ zero_extendqisi2
+ 1111 0034 8CF80030 		strb	r3, [ip]
+ 1112 0038 2722     		movs	r2, #39
+ 1113 003a 0021     		movs	r1, #0
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 39
 
 
- 1114 0040 FFF7FEFF 		bl	memset
- 1115              	.LVL41:
+ 1114 003c 0DF14900 		add	r0, sp, #73
+ 1115 0040 FFF7FEFF 		bl	memset
+ 1116              	.LVL41:
  108:Core/Src/main.c **** 
- 1116              		.loc 1 108 3 is_stmt 1 view .LVU352
- 1117 0044 FFF7FEFF 		bl	HAL_Init
- 1118              	.LVL42:
+ 1117              		.loc 1 108 3 is_stmt 1 view .LVU352
+ 1118 0044 FFF7FEFF 		bl	HAL_Init
+ 1119              	.LVL42:
  115:Core/Src/main.c **** 
- 1119              		.loc 1 115 3 view .LVU353
- 1120 0048 FFF7FEFF 		bl	SystemClock_Config
- 1121              	.LVL43:
+ 1120              		.loc 1 115 3 view .LVU353
+ 1121 0048 FFF7FEFF 		bl	SystemClock_Config
+ 1122              	.LVL43:
  122:Core/Src/main.c ****   MX_LPUART1_UART_Init();
- 1122              		.loc 1 122 3 view .LVU354
- 1123 004c FFF7FEFF 		bl	MX_GPIO_Init
- 1124              	.LVL44:
+ 1123              		.loc 1 122 3 view .LVU354
+ 1124 004c FFF7FEFF 		bl	MX_GPIO_Init
+ 1125              	.LVL44:
  123:Core/Src/main.c ****   MX_ADC1_Init();
- 1125              		.loc 1 123 3 view .LVU355
- 1126 0050 FFF7FEFF 		bl	MX_LPUART1_UART_Init
- 1127              	.LVL45:
+ 1126              		.loc 1 123 3 view .LVU355
+ 1127 0050 FFF7FEFF 		bl	MX_LPUART1_UART_Init
+ 1128              	.LVL45:
  124:Core/Src/main.c ****   MX_TIM6_Init();
- 1128              		.loc 1 124 3 view .LVU356
- 1129 0054 FFF7FEFF 		bl	MX_ADC1_Init
- 1130              	.LVL46:
+ 1129              		.loc 1 124 3 view .LVU356
+ 1130 0054 FFF7FEFF 		bl	MX_ADC1_Init
+ 1131              	.LVL46:
  125:Core/Src/main.c ****   MX_ADC2_Init();
- 1131              		.loc 1 125 3 view .LVU357
- 1132 0058 FFF7FEFF 		bl	MX_TIM6_Init
- 1133              	.LVL47:
+ 1132              		.loc 1 125 3 view .LVU357
+ 1133 0058 FFF7FEFF 		bl	MX_TIM6_Init
+ 1134              	.LVL47:
  126:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
- 1134              		.loc 1 126 3 view .LVU358
- 1135 005c FFF7FEFF 		bl	MX_ADC2_Init
- 1136              	.LVL48:
+ 1135              		.loc 1 126 3 view .LVU358
+ 1136 005c FFF7FEFF 		bl	MX_ADC2_Init
+ 1137              	.LVL48:
  131:Core/Src/main.c **** 
- 1137              		.loc 1 131 3 view .LVU359
- 1138 0060 8B48     		ldr	r0, .L92+48
- 1139 0062 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
- 1140              	.LVL49:
- 1141 0066 6EE0     		b	.L74
- 1142              	.L90:
+ 1138              		.loc 1 131 3 view .LVU359
+ 1139 0060 8D48     		ldr	r0, .L92+48
+ 1140 0062 FFF7FEFF 		bl	HAL_TIM_Base_Start_IT
+ 1141              	.LVL49:
+ 1142 0066 73E0     		b	.L74
+ 1143              	.L90:
  146:Core/Src/main.c ****         HAL_ADC_PollForConversion(&hadc1, 1); 
- 1143              		.loc 1 146 9 view .LVU360
- 1144 0068 8A4C     		ldr	r4, .L92+52
- 1145 006a 2046     		mov	r0, r4
- 1146 006c FFF7FEFF 		bl	HAL_ADC_Start
- 1147              	.LVL50:
+ 1144              		.loc 1 146 9 view .LVU360
+ 1145 0068 8C4C     		ldr	r4, .L92+52
+ 1146 006a 2046     		mov	r0, r4
+ 1147 006c FFF7FEFF 		bl	HAL_ADC_Start
+ 1148              	.LVL50:
  147:Core/Src/main.c ****         raw = HAL_ADC_GetValue(&hadc1);
- 1148              		.loc 1 147 9 view .LVU361
- 1149 0070 0121     		movs	r1, #1
- 1150 0072 2046     		mov	r0, r4
- 1151 0074 FFF7FEFF 		bl	HAL_ADC_PollForConversion
- 1152              	.LVL51:
- 148:Core/Src/main.c ****         raw_to_gauss = ((raw * 3.3*1000) / 4095)/1.6; //convert to gauss
- 1153              		.loc 1 148 9 view .LVU362
- 148:Core/Src/main.c ****         raw_to_gauss = ((raw * 3.3*1000) / 4095)/1.6; //convert to gauss
- 1154              		.loc 1 148 15 is_stmt 0 view .LVU363
- 1155 0078 2046     		mov	r0, r4
- 1156 007a FFF7FEFF 		bl	HAL_ADC_GetValue
- 1157              	.LVL52:
- 149:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 40
+ 1149              		.loc 1 147 9 view .LVU361
+ 1150 0070 0121     		movs	r1, #1
+ 1151 0072 2046     		mov	r0, r4
+ 1152 0074 FFF7FEFF 		bl	HAL_ADC_PollForConversion
+ 1153              	.LVL51:
+ 148:Core/Src/main.c ****         raw_to_gauss = (((raw * 3.3)/ 4095) - 1.60)*1000/1.6; //TODO: change sensibility according 
+ 1154              		.loc 1 148 9 view .LVU362
+ 148:Core/Src/main.c ****         raw_to_gauss = (((raw * 3.3)/ 4095) - 1.60)*1000/1.6; //TODO: change sensibility according 
+ 1155              		.loc 1 148 15 is_stmt 0 view .LVU363
+ 1156 0078 2046     		mov	r0, r4
+ 1157 007a FFF7FEFF 		bl	HAL_ADC_GetValue
+ 1158              	.LVL52:
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 40
 
 
- 1158              		.loc 1 149 9 is_stmt 1 view .LVU364
  149:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
- 1159              		.loc 1 149 30 is_stmt 0 view .LVU365
- 1160 007e 80B2     		uxth	r0, r0
+ 1159              		.loc 1 149 9 is_stmt 1 view .LVU364
  149:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
- 1161              		.loc 1 149 30 view .LVU366
- 1162 0080 FFF7FEFF 		bl	__aeabi_i2d
- 1163              	.LVL53:
+ 1160              		.loc 1 149 31 is_stmt 0 view .LVU365
+ 1161 007e 80B2     		uxth	r0, r0
  149:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
- 1164              		.loc 1 149 30 view .LVU367
- 1165 0084 76A3     		adr	r3, .L92
- 1166 0086 D3E90023 		ldrd	r2, [r3]
- 1167 008a FFF7FEFF 		bl	__aeabi_dmul
- 1168              	.LVL54:
+ 1162              		.loc 1 149 31 view .LVU366
+ 1163 0080 FFF7FEFF 		bl	__aeabi_i2d
+ 1164              	.LVL53:
  149:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
- 1169              		.loc 1 149 35 view .LVU368
- 1170 008e 0022     		movs	r2, #0
- 1171 0090 814B     		ldr	r3, .L92+56
- 1172 0092 FFF7FEFF 		bl	__aeabi_dmul
- 1173              	.LVL55:
+ 1165              		.loc 1 149 31 view .LVU367
+ 1166 0084 78A3     		adr	r3, .L92
+ 1167 0086 D3E90023 		ldrd	r2, [r3]
+ 1168 008a FFF7FEFF 		bl	__aeabi_dmul
+ 1169              	.LVL54:
  149:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
- 1174              		.loc 1 149 42 view .LVU369
- 1175 0096 74A3     		adr	r3, .L92+8
- 1176 0098 D3E90023 		ldrd	r2, [r3]
- 1177 009c FFF7FEFF 		bl	__aeabi_ddiv
- 1178              	.LVL56:
+ 1170              		.loc 1 149 37 view .LVU368
+ 1171 008e 78A3     		adr	r3, .L92+8
+ 1172 0090 D3E90023 		ldrd	r2, [r3]
+ 1173 0094 FFF7FEFF 		bl	__aeabi_ddiv
+ 1174              	.LVL55:
  149:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
- 1179              		.loc 1 149 49 view .LVU370
- 1180 00a0 73A3     		adr	r3, .L92+16
- 1181 00a2 D3E90023 		ldrd	r2, [r3]
- 1182 00a6 FFF7FEFF 		bl	__aeabi_ddiv
- 1183              	.LVL57:
+ 1175              		.loc 1 149 45 view .LVU369
+ 1176 0098 77A3     		adr	r3, .L92+16
+ 1177 009a D3E90023 		ldrd	r2, [r3]
+ 1178 009e FFF7FEFF 		bl	__aeabi_dsub
+ 1179              	.LVL56:
  149:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
- 1184              		.loc 1 149 22 view .LVU371
- 1185 00aa FFF7FEFF 		bl	__aeabi_d2f
- 1186              	.LVL58:
- 1187 00ae 0546     		mov	r5, r0	@ float
- 1188              	.LVL59:
+ 1180              		.loc 1 149 52 view .LVU370
+ 1181 00a2 0022     		movs	r2, #0
+ 1182 00a4 7E4B     		ldr	r3, .L92+56
+ 1183 00a6 FFF7FEFF 		bl	__aeabi_dmul
+ 1184              	.LVL57:
+ 149:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
+ 1185              		.loc 1 149 57 view .LVU371
+ 1186 00aa 73A3     		adr	r3, .L92+16
+ 1187 00ac D3E90023 		ldrd	r2, [r3]
+ 1188 00b0 FFF7FEFF 		bl	__aeabi_ddiv
+ 1189              	.LVL58:
+ 149:Core/Src/main.c ****         HAL_ADC_Stop(&hadc1);
+ 1190              		.loc 1 149 22 view .LVU372
+ 1191 00b4 FFF7FEFF 		bl	__aeabi_d2f
+ 1192              	.LVL59:
+ 1193 00b8 0546     		mov	r5, r0	@ float
+ 1194              	.LVL60:
  150:Core/Src/main.c **** 
- 1189              		.loc 1 150 9 is_stmt 1 view .LVU372
- 1190 00b0 2046     		mov	r0, r4
- 1191              	.LVL60:
+ 1195              		.loc 1 150 9 is_stmt 1 view .LVU373
+ 1196 00ba 2046     		mov	r0, r4
+ 1197              	.LVL61:
  150:Core/Src/main.c **** 
- 1192              		.loc 1 150 9 is_stmt 0 view .LVU373
- 1193 00b2 FFF7FEFF 		bl	HAL_ADC_Stop
- 1194              	.LVL61:
+ 1198              		.loc 1 150 9 is_stmt 0 view .LVU374
+ 1199 00bc FFF7FEFF 		bl	HAL_ADC_Stop
+ 1200              	.LVL62:
  153:Core/Src/main.c ****         HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), 10);
- 1195              		.loc 1 153 9 is_stmt 1 view .LVU374
+ 1201              		.loc 1 153 9 is_stmt 1 view .LVU375
  153:Core/Src/main.c ****         HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), 10);
- 1196              		.loc 1 153 59 is_stmt 0 view .LVU375
- 1197 00b6 FFF7FEFF 		bl	HAL_GetTick
- 1198              	.LVL62:
- 153:Core/Src/main.c ****         HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), 10);
- 1199              		.loc 1 153 9 view .LVU376
- 1200 00ba 784B     		ldr	r3, .L92+60
- 1201 00bc A3FB0034 		umull	r3, r4, r3, r0
- 1202 00c0 6409     		lsrs	r4, r4, #5
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 41
+ 1202              		.loc 1 153 60 is_stmt 0 view .LVU376
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 41
 
 
- 1203 00c2 2846     		mov	r0, r5	@ float
- 1204 00c4 FFF7FEFF 		bl	__aeabi_f2d
- 1205              	.LVL63:
- 1206 00c8 CDE90001 		strd	r0, [sp]
- 1207 00cc 2246     		mov	r2, r4
- 1208 00ce 7449     		ldr	r1, .L92+64
- 1209 00d0 29A8     		add	r0, sp, #164
- 1210 00d2 FFF7FEFF 		bl	sprintf
+ 1203 00c0 FFF7FEFF 		bl	HAL_GetTick
+ 1204              	.LVL63:
+ 153:Core/Src/main.c ****         HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), 10);
+ 1205              		.loc 1 153 9 view .LVU377
+ 1206 00c4 774B     		ldr	r3, .L92+60
+ 1207 00c6 A3FB0034 		umull	r3, r4, r3, r0
+ 1208 00ca 6409     		lsrs	r4, r4, #5
+ 1209 00cc 2846     		mov	r0, r5	@ float
+ 1210 00ce FFF7FEFF 		bl	__aeabi_f2d
  1211              	.LVL64:
+ 1212 00d2 CDE90001 		strd	r0, [sp]
+ 1213 00d6 2246     		mov	r2, r4
+ 1214 00d8 7349     		ldr	r1, .L92+64
+ 1215 00da 29A8     		add	r0, sp, #164
+ 1216 00dc FFF7FEFF 		bl	sprintf
+ 1217              	.LVL65:
  154:Core/Src/main.c ****         flag_sensor = 0;
- 1212              		.loc 1 154 9 is_stmt 1 view .LVU377
+ 1218              		.loc 1 154 9 is_stmt 1 view .LVU378
  154:Core/Src/main.c ****         flag_sensor = 0;
- 1213              		.loc 1 154 53 is_stmt 0 view .LVU378
- 1214 00d6 29A8     		add	r0, sp, #164
- 1215 00d8 FFF7FEFF 		bl	strlen
- 1216              	.LVL65:
+ 1219              		.loc 1 154 53 is_stmt 0 view .LVU379
+ 1220 00e0 29A8     		add	r0, sp, #164
+ 1221 00e2 FFF7FEFF 		bl	strlen
+ 1222              	.LVL66:
  154:Core/Src/main.c ****         flag_sensor = 0;
- 1217              		.loc 1 154 9 view .LVU379
- 1218 00dc 0A23     		movs	r3, #10
- 1219 00de 82B2     		uxth	r2, r0
- 1220 00e0 29A9     		add	r1, sp, #164
- 1221 00e2 7048     		ldr	r0, .L92+68
- 1222 00e4 FFF7FEFF 		bl	HAL_UART_Transmit
- 1223              	.LVL66:
+ 1223              		.loc 1 154 9 view .LVU380
+ 1224 00e6 0A23     		movs	r3, #10
+ 1225 00e8 82B2     		uxth	r2, r0
+ 1226 00ea 29A9     		add	r1, sp, #164
+ 1227 00ec 6F48     		ldr	r0, .L92+68
+ 1228 00ee FFF7FEFF 		bl	HAL_UART_Transmit
+ 1229              	.LVL67:
  155:Core/Src/main.c ****         }
- 1224              		.loc 1 155 9 is_stmt 1 view .LVU380
+ 1230              		.loc 1 155 9 is_stmt 1 view .LVU381
  155:Core/Src/main.c ****         }
- 1225              		.loc 1 155 21 is_stmt 0 view .LVU381
- 1226 00e8 6F4B     		ldr	r3, .L92+72
- 1227 00ea 0022     		movs	r2, #0
- 1228 00ec 1A60     		str	r2, [r3]
- 1229 00ee 36E0     		b	.L75
- 1230              	.LVL67:
- 1231              	.L91:
+ 1231              		.loc 1 155 21 is_stmt 0 view .LVU382
+ 1232 00f2 6F4B     		ldr	r3, .L92+72
+ 1233 00f4 0022     		movs	r2, #0
+ 1234 00f6 1A60     		str	r2, [r3]
+ 1235 00f8 37E0     		b	.L75
+ 1236              	.LVL68:
+ 1237              	.L91:
  168:Core/Src/main.c ****           flag_undervoltage = 1;
- 1232              		.loc 1 168 11 is_stmt 1 view .LVU382
+ 1238              		.loc 1 168 11 is_stmt 1 view .LVU383
  168:Core/Src/main.c ****           flag_undervoltage = 1;
- 1233              		.loc 1 168 17 is_stmt 0 view .LVU383
- 1234 00f0 654B     		ldr	r3, .L92+40
- 1235 00f2 0422     		movs	r2, #4
- 1236 00f4 1A70     		strb	r2, [r3]
+ 1239              		.loc 1 168 17 is_stmt 0 view .LVU384
+ 1240 00fa 654B     		ldr	r3, .L92+40
+ 1241 00fc 0422     		movs	r2, #4
+ 1242 00fe 1A70     		strb	r2, [r3]
  169:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_SET); //enable undervoltage led
- 1237              		.loc 1 169 11 is_stmt 1 view .LVU384
+ 1243              		.loc 1 169 11 is_stmt 1 view .LVU385
  169:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_SET); //enable undervoltage led
- 1238              		.loc 1 169 29 is_stmt 0 view .LVU385
- 1239 00f6 0122     		movs	r2, #1
- 1240 00f8 6C4B     		ldr	r3, .L92+76
- 1241 00fa 1A60     		str	r2, [r3]
+ 1244              		.loc 1 169 29 is_stmt 0 view .LVU386
+ 1245 0100 0122     		movs	r2, #1
+ 1246 0102 6C4B     		ldr	r3, .L92+76
+ 1247 0104 1A60     		str	r2, [r3]
  170:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //disable overvoltage led
- 1242              		.loc 1 170 11 is_stmt 1 view .LVU386
- 1243 00fc 6C4C     		ldr	r4, .L92+80
- 1244 00fe 4FF40061 		mov	r1, #2048
- 1245 0102 2046     		mov	r0, r4
- 1246 0104 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1247              	.LVL68:
- 171:Core/Src/main.c ****         } else if (raw_tension_volt > 2.7){
- 1248              		.loc 1 171 11 view .LVU387
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 42
+ 1248              		.loc 1 170 11 is_stmt 1 view .LVU387
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 42
 
 
- 1249 0108 0022     		movs	r2, #0
- 1250 010a 4FF48051 		mov	r1, #4096
- 1251 010e 2046     		mov	r0, r4
- 1252 0110 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1249 0106 6C4C     		ldr	r4, .L92+80
+ 1250 0108 4FF40061 		mov	r1, #2048
+ 1251 010c 2046     		mov	r0, r4
+ 1252 010e FFF7FEFF 		bl	HAL_GPIO_WritePin
  1253              	.LVL69:
- 1254 0114 11E0     		b	.L79
- 1255              	.L88:
+ 171:Core/Src/main.c ****         } else if (raw_voltage_volt > 2.7){
+ 1254              		.loc 1 171 11 view .LVU388
+ 1255 0112 0022     		movs	r2, #0
+ 1256 0114 4FF48051 		mov	r1, #4096
+ 1257 0118 2046     		mov	r0, r4
+ 1258 011a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1259              	.LVL70:
+ 1260 011e 11E0     		b	.L79
+ 1261              	.L88:
  178:Core/Src/main.c ****           flag_overvoltage = 0;
- 1256              		.loc 1 178 11 view .LVU388
+ 1262              		.loc 1 178 11 view .LVU389
  178:Core/Src/main.c ****           flag_overvoltage = 0;
- 1257              		.loc 1 178 29 is_stmt 0 view .LVU389
- 1258 0116 0024     		movs	r4, #0
- 1259 0118 644B     		ldr	r3, .L92+76
- 1260 011a 1C60     		str	r4, [r3]
+ 1263              		.loc 1 178 29 is_stmt 0 view .LVU390
+ 1264 0120 0024     		movs	r4, #0
+ 1265 0122 644B     		ldr	r3, .L92+76
+ 1266 0124 1C60     		str	r4, [r3]
  179:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_RESET); //disable undervoltage led
- 1261              		.loc 1 179 11 is_stmt 1 view .LVU390
+ 1267              		.loc 1 179 11 is_stmt 1 view .LVU391
  179:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_RESET); //disable undervoltage led
- 1262              		.loc 1 179 28 is_stmt 0 view .LVU391
- 1263 011c 654B     		ldr	r3, .L92+84
- 1264 011e 1C60     		str	r4, [r3]
+ 1268              		.loc 1 179 28 is_stmt 0 view .LVU392
+ 1269 0126 654B     		ldr	r3, .L92+84
+ 1270 0128 1C60     		str	r4, [r3]
  180:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //disable overvoltage led
- 1265              		.loc 1 180 11 is_stmt 1 view .LVU392
- 1266 0120 634D     		ldr	r5, .L92+80
- 1267 0122 2246     		mov	r2, r4
- 1268 0124 4FF40061 		mov	r1, #2048
- 1269 0128 2846     		mov	r0, r5
- 1270 012a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1271              	.LVL70:
- 181:Core/Src/main.c ****         }
- 1272              		.loc 1 181 11 view .LVU393
- 1273 012e 2246     		mov	r2, r4
- 1274 0130 4FF48051 		mov	r1, #4096
- 1275 0134 2846     		mov	r0, r5
- 1276 0136 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1271              		.loc 1 180 11 is_stmt 1 view .LVU393
+ 1272 012a 634D     		ldr	r5, .L92+80
+ 1273 012c 2246     		mov	r2, r4
+ 1274 012e 4FF40061 		mov	r1, #2048
+ 1275 0132 2846     		mov	r0, r5
+ 1276 0134 FFF7FEFF 		bl	HAL_GPIO_WritePin
  1277              	.LVL71:
- 1278              	.L79:
+ 181:Core/Src/main.c ****         }
+ 1278              		.loc 1 181 11 view .LVU394
+ 1279 0138 2246     		mov	r2, r4
+ 1280 013a 4FF48051 		mov	r1, #4096
+ 1281 013e 2846     		mov	r0, r5
+ 1282 0140 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1283              	.LVL72:
+ 1284              	.L79:
  183:Core/Src/main.c ****       }
- 1279              		.loc 1 183 9 view .LVU394
+ 1285              		.loc 1 183 9 view .LVU395
  183:Core/Src/main.c ****       }
- 1280              		.loc 1 183 22 is_stmt 0 view .LVU395
- 1281 013a 5F4B     		ldr	r3, .L92+88
- 1282 013c 0022     		movs	r2, #0
- 1283 013e 1A60     		str	r2, [r3]
- 1284              	.L76:
+ 1286              		.loc 1 183 22 is_stmt 0 view .LVU396
+ 1287 0144 5E4B     		ldr	r3, .L92+88
+ 1288 0146 0022     		movs	r2, #0
+ 1289 0148 1A60     		str	r2, [r3]
+ 1290              	.L76:
  186:Core/Src/main.c **** 
- 1285              		.loc 1 186 7 is_stmt 1 view .LVU396
+ 1291              		.loc 1 186 7 is_stmt 1 view .LVU397
  186:Core/Src/main.c **** 
- 1286              		.loc 1 186 13 is_stmt 0 view .LVU397
- 1287 0140 514B     		ldr	r3, .L92+40
- 1288 0142 0122     		movs	r2, #1
- 1289 0144 1A70     		strb	r2, [r3]
+ 1292              		.loc 1 186 13 is_stmt 0 view .LVU398
+ 1293 014a 514B     		ldr	r3, .L92+40
+ 1294 014c 0122     		movs	r2, #1
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 43
+
+
+ 1295 014e 1A70     		strb	r2, [r3]
  188:Core/Src/main.c **** 
- 1290              		.loc 1 188 7 is_stmt 1 view .LVU398
- 1291              	.L74:
+ 1296              		.loc 1 188 7 is_stmt 1 view .LVU399
+ 1297              	.L74:
  137:Core/Src/main.c ****   { 
- 1292              		.loc 1 137 3 view .LVU399
+ 1298              		.loc 1 137 3 view .LVU400
  140:Core/Src/main.c ****     {
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 43
-
-
- 1293              		.loc 1 140 5 view .LVU400
- 1294 0146 504B     		ldr	r3, .L92+40
- 1295 0148 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 1296 014a 032B     		cmp	r3, #3
- 1297 014c 51D0     		beq	.L72
- 1298 014e 042B     		cmp	r3, #4
- 1299 0150 5DD0     		beq	.L73
- 1300 0152 022B     		cmp	r3, #2
- 1301 0154 F7D1     		bne	.L74
+ 1299              		.loc 1 140 5 view .LVU401
+ 1300 0150 4F4B     		ldr	r3, .L92+40
+ 1301 0152 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1302 0154 032B     		cmp	r3, #3
+ 1303 0156 52D0     		beq	.L72
+ 1304 0158 042B     		cmp	r3, #4
+ 1305 015a 5ED0     		beq	.L73
+ 1306 015c 022B     		cmp	r3, #2
+ 1307 015e F7D1     		bne	.L74
  144:Core/Src/main.c ****       
- 1302              		.loc 1 144 7 view .LVU401
+ 1308              		.loc 1 144 7 view .LVU402
  144:Core/Src/main.c ****       
- 1303              		.loc 1 144 22 is_stmt 0 view .LVU402
- 1304 0156 544B     		ldr	r3, .L92+72
- 1305 0158 1B68     		ldr	r3, [r3]
+ 1309              		.loc 1 144 22 is_stmt 0 view .LVU403
+ 1310 0160 534B     		ldr	r3, .L92+72
+ 1311 0162 1B68     		ldr	r3, [r3]
  144:Core/Src/main.c ****       
- 1306              		.loc 1 144 9 view .LVU403
- 1307 015a 012B     		cmp	r3, #1
- 1308 015c 84D0     		beq	.L90
- 1309              	.L75:
- 159:Core/Src/main.c ****         //read tension
- 1310              		.loc 1 159 7 is_stmt 1 view .LVU404
- 159:Core/Src/main.c ****         //read tension
- 1311              		.loc 1 159 23 is_stmt 0 view .LVU405
- 1312 015e 564B     		ldr	r3, .L92+88
- 1313 0160 1B68     		ldr	r3, [r3]
- 159:Core/Src/main.c ****         //read tension
- 1314              		.loc 1 159 9 view .LVU406
- 1315 0162 012B     		cmp	r3, #1
- 1316 0164 ECD1     		bne	.L76
+ 1312              		.loc 1 144 9 view .LVU404
+ 1313 0164 012B     		cmp	r3, #1
+ 1314 0166 3FF47FAF 		beq	.L90
+ 1315              	.L75:
+ 159:Core/Src/main.c ****         //read voltage
+ 1316              		.loc 1 159 7 is_stmt 1 view .LVU405
+ 159:Core/Src/main.c ****         //read voltage
+ 1317              		.loc 1 159 23 is_stmt 0 view .LVU406
+ 1318 016a 554B     		ldr	r3, .L92+88
+ 1319 016c 1B68     		ldr	r3, [r3]
+ 159:Core/Src/main.c ****         //read voltage
+ 1320              		.loc 1 159 9 view .LVU407
+ 1321 016e 012B     		cmp	r3, #1
+ 1322 0170 EBD1     		bne	.L76
  161:Core/Src/main.c ****         HAL_ADC_PollForConversion(&hadc2, 1); 
- 1317              		.loc 1 161 9 is_stmt 1 view .LVU407
- 1318 0166 554C     		ldr	r4, .L92+92
- 1319 0168 2046     		mov	r0, r4
- 1320 016a FFF7FEFF 		bl	HAL_ADC_Start
- 1321              	.LVL72:
- 162:Core/Src/main.c ****         raw_tension = HAL_ADC_GetValue(&hadc2);
- 1322              		.loc 1 162 9 view .LVU408
- 1323 016e 0121     		movs	r1, #1
- 1324 0170 2046     		mov	r0, r4
- 1325 0172 FFF7FEFF 		bl	HAL_ADC_PollForConversion
- 1326              	.LVL73:
- 163:Core/Src/main.c ****         raw_tension_volt = (raw_tension * 3.3) / 4095; //convert to volt
- 1327              		.loc 1 163 9 view .LVU409
- 163:Core/Src/main.c ****         raw_tension_volt = (raw_tension * 3.3) / 4095; //convert to volt
- 1328              		.loc 1 163 23 is_stmt 0 view .LVU410
- 1329 0176 2046     		mov	r0, r4
- 1330 0178 FFF7FEFF 		bl	HAL_ADC_GetValue
- 1331              	.LVL74:
- 164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
- 1332              		.loc 1 164 9 is_stmt 1 view .LVU411
- 164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
- 1333              		.loc 1 164 41 is_stmt 0 view .LVU412
- 1334 017c 80B2     		uxth	r0, r0
- 164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
- 1335              		.loc 1 164 41 view .LVU413
- 1336 017e FFF7FEFF 		bl	__aeabi_i2d
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 44
-
-
+ 1323              		.loc 1 161 9 is_stmt 1 view .LVU408
+ 1324 0172 544C     		ldr	r4, .L92+92
+ 1325 0174 2046     		mov	r0, r4
+ 1326 0176 FFF7FEFF 		bl	HAL_ADC_Start
+ 1327              	.LVL73:
+ 162:Core/Src/main.c ****         raw_voltage = HAL_ADC_GetValue(&hadc2);
+ 1328              		.loc 1 162 9 view .LVU409
+ 1329 017a 0121     		movs	r1, #1
+ 1330 017c 2046     		mov	r0, r4
+ 1331 017e FFF7FEFF 		bl	HAL_ADC_PollForConversion
+ 1332              	.LVL74:
+ 163:Core/Src/main.c ****         raw_voltage_volt = (raw_voltage * 3.3) / 4095; //convert to volt
+ 1333              		.loc 1 163 9 view .LVU410
+ 163:Core/Src/main.c ****         raw_voltage_volt = (raw_voltage * 3.3) / 4095; //convert to volt
+ 1334              		.loc 1 163 23 is_stmt 0 view .LVU411
+ 1335 0182 2046     		mov	r0, r4
+ 1336 0184 FFF7FEFF 		bl	HAL_ADC_GetValue
  1337              	.LVL75:
  164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
- 1338              		.loc 1 164 41 view .LVU414
- 1339 0182 37A3     		adr	r3, .L92
- 1340 0184 D3E90023 		ldrd	r2, [r3]
- 1341 0188 FFF7FEFF 		bl	__aeabi_dmul
- 1342              	.LVL76:
- 164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
- 1343              		.loc 1 164 48 view .LVU415
- 1344 018c 36A3     		adr	r3, .L92+8
- 1345 018e D3E90023 		ldrd	r2, [r3]
- 1346 0192 FFF7FEFF 		bl	__aeabi_ddiv
- 1347              	.LVL77:
- 164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
- 1348              		.loc 1 164 26 view .LVU416
- 1349 0196 FFF7FEFF 		bl	__aeabi_d2f
- 1350              	.LVL78:
- 1351 019a 0546     		mov	r5, r0	@ float
- 1352              	.LVL79:
- 165:Core/Src/main.c ****         
- 1353              		.loc 1 165 9 is_stmt 1 view .LVU417
- 1354 019c 2046     		mov	r0, r4
- 1355              	.LVL80:
- 165:Core/Src/main.c ****         
- 1356              		.loc 1 165 9 is_stmt 0 view .LVU418
- 1357 019e FFF7FEFF 		bl	HAL_ADC_Stop
- 1358              	.LVL81:
- 167:Core/Src/main.c ****           state = DANGER_STATE;
- 1359              		.loc 1 167 9 is_stmt 1 view .LVU419
- 167:Core/Src/main.c ****           state = DANGER_STATE;
- 1360              		.loc 1 167 29 is_stmt 0 view .LVU420
- 1361 01a2 2846     		mov	r0, r5	@ float
- 1362 01a4 FFF7FEFF 		bl	__aeabi_f2d
- 1363              	.LVL82:
- 1364 01a8 0446     		mov	r4, r0
- 1365 01aa 0D46     		mov	r5, r1
- 1366              	.LVL83:
- 167:Core/Src/main.c ****           state = DANGER_STATE;
- 1367              		.loc 1 167 11 view .LVU421
- 1368 01ac 32A3     		adr	r3, .L92+24
- 1369 01ae D3E90023 		ldrd	r2, [r3]
- 1370 01b2 FFF7FEFF 		bl	__aeabi_dcmplt
- 1371              	.LVL84:
- 1372 01b6 0028     		cmp	r0, #0
- 1373 01b8 9AD1     		bne	.L91
- 172:Core/Src/main.c ****           state = DANGER_STATE;
- 1374              		.loc 1 172 16 is_stmt 1 view .LVU422
- 172:Core/Src/main.c ****           state = DANGER_STATE;
- 1375              		.loc 1 172 19 is_stmt 0 view .LVU423
- 1376 01ba 31A3     		adr	r3, .L92+32
- 1377 01bc D3E90023 		ldrd	r2, [r3]
- 1378 01c0 2046     		mov	r0, r4
- 1379 01c2 2946     		mov	r1, r5
- 1380 01c4 FFF7FEFF 		bl	__aeabi_dcmpgt
- 1381              	.LVL85:
- 1382 01c8 0028     		cmp	r0, #0
- 1383 01ca A4D0     		beq	.L88
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 45
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 44
 
 
+ 1338              		.loc 1 164 9 is_stmt 1 view .LVU412
+ 164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
+ 1339              		.loc 1 164 41 is_stmt 0 view .LVU413
+ 1340 0188 80B2     		uxth	r0, r0
+ 164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
+ 1341              		.loc 1 164 41 view .LVU414
+ 1342 018a FFF7FEFF 		bl	__aeabi_i2d
+ 1343              	.LVL76:
+ 164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
+ 1344              		.loc 1 164 41 view .LVU415
+ 1345 018e 36A3     		adr	r3, .L92
+ 1346 0190 D3E90023 		ldrd	r2, [r3]
+ 1347 0194 FFF7FEFF 		bl	__aeabi_dmul
+ 1348              	.LVL77:
+ 164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
+ 1349              		.loc 1 164 48 view .LVU416
+ 1350 0198 35A3     		adr	r3, .L92+8
+ 1351 019a D3E90023 		ldrd	r2, [r3]
+ 1352 019e FFF7FEFF 		bl	__aeabi_ddiv
+ 1353              	.LVL78:
+ 164:Core/Src/main.c ****         HAL_ADC_Stop(&hadc2);
+ 1354              		.loc 1 164 26 view .LVU417
+ 1355 01a2 FFF7FEFF 		bl	__aeabi_d2f
+ 1356              	.LVL79:
+ 1357 01a6 0546     		mov	r5, r0	@ float
+ 1358              	.LVL80:
+ 165:Core/Src/main.c ****         
+ 1359              		.loc 1 165 9 is_stmt 1 view .LVU418
+ 1360 01a8 2046     		mov	r0, r4
+ 1361              	.LVL81:
+ 165:Core/Src/main.c ****         
+ 1362              		.loc 1 165 9 is_stmt 0 view .LVU419
+ 1363 01aa FFF7FEFF 		bl	HAL_ADC_Stop
+ 1364              	.LVL82:
+ 167:Core/Src/main.c ****           state = DANGER_STATE;
+ 1365              		.loc 1 167 9 is_stmt 1 view .LVU420
+ 167:Core/Src/main.c ****           state = DANGER_STATE;
+ 1366              		.loc 1 167 29 is_stmt 0 view .LVU421
+ 1367 01ae 2846     		mov	r0, r5	@ float
+ 1368 01b0 FFF7FEFF 		bl	__aeabi_f2d
+ 1369              	.LVL83:
+ 1370 01b4 0446     		mov	r4, r0
+ 1371 01b6 0D46     		mov	r5, r1
+ 1372              	.LVL84:
+ 167:Core/Src/main.c ****           state = DANGER_STATE;
+ 1373              		.loc 1 167 11 view .LVU422
+ 1374 01b8 31A3     		adr	r3, .L92+24
+ 1375 01ba D3E90023 		ldrd	r2, [r3]
+ 1376 01be FFF7FEFF 		bl	__aeabi_dcmplt
+ 1377              	.LVL85:
+ 1378 01c2 0028     		cmp	r0, #0
+ 1379 01c4 99D1     		bne	.L91
+ 172:Core/Src/main.c ****           state = DANGER_STATE;
+ 1380              		.loc 1 172 16 is_stmt 1 view .LVU423
+ 172:Core/Src/main.c ****           state = DANGER_STATE;
+ 1381              		.loc 1 172 19 is_stmt 0 view .LVU424
+ 1382 01c6 30A3     		adr	r3, .L92+32
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 45
+
+
+ 1383 01c8 D3E90023 		ldrd	r2, [r3]
+ 1384 01cc 2046     		mov	r0, r4
+ 1385 01ce 2946     		mov	r1, r5
+ 1386 01d0 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 1387              	.LVL86:
+ 1388 01d4 0028     		cmp	r0, #0
+ 1389 01d6 A3D0     		beq	.L88
  173:Core/Src/main.c ****           flag_overvoltage = 1;
- 1384              		.loc 1 173 11 is_stmt 1 view .LVU424
+ 1390              		.loc 1 173 11 is_stmt 1 view .LVU425
  173:Core/Src/main.c ****           flag_overvoltage = 1;
- 1385              		.loc 1 173 17 is_stmt 0 view .LVU425
- 1386 01cc 2E4B     		ldr	r3, .L92+40
- 1387 01ce 0422     		movs	r2, #4
- 1388 01d0 1A70     		strb	r2, [r3]
+ 1391              		.loc 1 173 17 is_stmt 0 view .LVU426
+ 1392 01d8 2D4B     		ldr	r3, .L92+40
+ 1393 01da 0422     		movs	r2, #4
+ 1394 01dc 1A70     		strb	r2, [r3]
  174:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //enable overvoltage led
- 1389              		.loc 1 174 11 is_stmt 1 view .LVU426
+ 1395              		.loc 1 174 11 is_stmt 1 view .LVU427
  174:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //enable overvoltage led
- 1390              		.loc 1 174 28 is_stmt 0 view .LVU427
- 1391 01d2 0122     		movs	r2, #1
- 1392 01d4 374B     		ldr	r3, .L92+84
- 1393 01d6 1A60     		str	r2, [r3]
+ 1396              		.loc 1 174 28 is_stmt 0 view .LVU428
+ 1397 01de 0122     		movs	r2, #1
+ 1398 01e0 364B     		ldr	r3, .L92+84
+ 1399 01e2 1A60     		str	r2, [r3]
  175:Core/Src/main.c ****           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_RESET); //disable undervoltage led
- 1394              		.loc 1 175 11 is_stmt 1 view .LVU428
- 1395 01d8 354C     		ldr	r4, .L92+80
- 1396 01da 4FF48051 		mov	r1, #4096
- 1397 01de 2046     		mov	r0, r4
- 1398 01e0 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 1399              	.LVL86:
- 176:Core/Src/main.c ****         } else {
- 1400              		.loc 1 176 11 view .LVU429
- 1401 01e4 0022     		movs	r2, #0
- 1402 01e6 4FF40061 		mov	r1, #2048
+ 1400              		.loc 1 175 11 is_stmt 1 view .LVU429
+ 1401 01e4 344C     		ldr	r4, .L92+80
+ 1402 01e6 4FF48051 		mov	r1, #4096
  1403 01ea 2046     		mov	r0, r4
  1404 01ec FFF7FEFF 		bl	HAL_GPIO_WritePin
  1405              	.LVL87:
- 1406 01f0 A3E7     		b	.L79
- 1407              	.L72:
+ 176:Core/Src/main.c ****         } else {
+ 1406              		.loc 1 176 11 view .LVU430
+ 1407 01f0 0022     		movs	r2, #0
+ 1408 01f2 4FF40061 		mov	r1, #2048
+ 1409 01f6 2046     		mov	r0, r4
+ 1410 01f8 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1411              	.LVL88:
+ 1412 01fc A2E7     		b	.L79
+ 1413              	.L72:
  194:Core/Src/main.c ****         HAL_UART_Transmit(&hlpuart1, (uint8_t*)waiting_message, sizeof(waiting_message), 10);
- 1408              		.loc 1 194 7 view .LVU430
+ 1414              		.loc 1 194 7 view .LVU431
  194:Core/Src/main.c ****         HAL_UART_Transmit(&hlpuart1, (uint8_t*)waiting_message, sizeof(waiting_message), 10);
- 1409              		.loc 1 194 31 is_stmt 0 view .LVU431
- 1410 01f2 334B     		ldr	r3, .L92+96
- 1411 01f4 1B68     		ldr	r3, [r3]
+ 1415              		.loc 1 194 31 is_stmt 0 view .LVU432
+ 1416 01fe 324B     		ldr	r3, .L92+96
+ 1417 0200 1B68     		ldr	r3, [r3]
  194:Core/Src/main.c ****         HAL_UART_Transmit(&hlpuart1, (uint8_t*)waiting_message, sizeof(waiting_message), 10);
- 1412              		.loc 1 194 9 view .LVU432
- 1413 01f6 012B     		cmp	r3, #1
- 1414 01f8 A5D1     		bne	.L74
+ 1418              		.loc 1 194 9 view .LVU433
+ 1419 0202 012B     		cmp	r3, #1
+ 1420 0204 A4D1     		bne	.L74
  195:Core/Src/main.c ****         flag_waiting_message = 0;
- 1415              		.loc 1 195 9 is_stmt 1 view .LVU433
- 1416 01fa 0A23     		movs	r3, #10
- 1417 01fc 6422     		movs	r2, #100
- 1418 01fe 03A9     		add	r1, sp, #12
- 1419 0200 2848     		ldr	r0, .L92+68
- 1420 0202 FFF7FEFF 		bl	HAL_UART_Transmit
- 1421              	.LVL88:
+ 1421              		.loc 1 195 9 is_stmt 1 view .LVU434
+ 1422 0206 0A23     		movs	r3, #10
+ 1423 0208 6422     		movs	r2, #100
+ 1424 020a 03A9     		add	r1, sp, #12
+ 1425 020c 2748     		ldr	r0, .L92+68
+ 1426 020e FFF7FEFF 		bl	HAL_UART_Transmit
+ 1427              	.LVL89:
  196:Core/Src/main.c ****       }
- 1422              		.loc 1 196 9 view .LVU434
- 196:Core/Src/main.c ****       }
- 1423              		.loc 1 196 30 is_stmt 0 view .LVU435
- 1424 0206 2E4B     		ldr	r3, .L92+96
- 1425 0208 0022     		movs	r2, #0
- 1426 020a 1A60     		str	r2, [r3]
- 1427 020c 9BE7     		b	.L74
- 1428              	.L73:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 46
+ 1428              		.loc 1 196 9 view .LVU435
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 46
 
 
+ 196:Core/Src/main.c ****       }
+ 1429              		.loc 1 196 30 is_stmt 0 view .LVU436
+ 1430 0212 2D4B     		ldr	r3, .L92+96
+ 1431 0214 0022     		movs	r2, #0
+ 1432 0216 1A60     		str	r2, [r3]
+ 1433 0218 9AE7     		b	.L74
+ 1434              	.L73:
  202:Core/Src/main.c ****           sprintf(danger_message, "DANGER STATE: undervoltage\r\n"); //TODO: controllare che funzio
- 1429              		.loc 1 202 9 is_stmt 1 view .LVU436
+ 1435              		.loc 1 202 9 is_stmt 1 view .LVU437
  202:Core/Src/main.c ****           sprintf(danger_message, "DANGER STATE: undervoltage\r\n"); //TODO: controllare che funzio
- 1430              		.loc 1 202 13 is_stmt 0 view .LVU437
- 1431 020e 274B     		ldr	r3, .L92+76
- 1432 0210 1B68     		ldr	r3, [r3]
+ 1436              		.loc 1 202 13 is_stmt 0 view .LVU438
+ 1437 021a 264B     		ldr	r3, .L92+76
+ 1438 021c 1B68     		ldr	r3, [r3]
  202:Core/Src/main.c ****           sprintf(danger_message, "DANGER STATE: undervoltage\r\n"); //TODO: controllare che funzio
- 1433              		.loc 1 202 12 view .LVU438
- 1434 0212 ABB1     		cbz	r3, .L83
+ 1439              		.loc 1 202 12 view .LVU439
+ 1440 021e ABB1     		cbz	r3, .L83
  203:Core/Src/main.c ****         } else if (flag_overvoltage){
- 1435              		.loc 1 203 11 is_stmt 1 view .LVU439
- 1436 0214 0DF1700C 		add	ip, sp, #112
- 1437 0218 2A4C     		ldr	r4, .L92+100
- 1438 021a 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
- 1439 021c ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
- 1440 0220 94E80F00 		ldm	r4, {r0, r1, r2, r3}
- 1441 0224 ACE80700 		stmia	ip!, {r0, r1, r2}
- 1442 0228 8CF80030 		strb	r3, [ip]
- 1443              	.L84:
+ 1441              		.loc 1 203 11 is_stmt 1 view .LVU440
+ 1442 0220 0DF1700C 		add	ip, sp, #112
+ 1443 0224 294C     		ldr	r4, .L92+100
+ 1444 0226 0FCC     		ldmia	r4!, {r0, r1, r2, r3}
+ 1445 0228 ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 1446 022c 94E80F00 		ldm	r4, {r0, r1, r2, r3}
+ 1447 0230 ACE80700 		stmia	ip!, {r0, r1, r2}
+ 1448 0234 8CF80030 		strb	r3, [ip]
+ 1449              	.L84:
  207:Core/Src/main.c ****       break;
- 1444              		.loc 1 207 9 view .LVU440
+ 1450              		.loc 1 207 9 view .LVU441
  207:Core/Src/main.c ****       break;
- 1445              		.loc 1 207 64 is_stmt 0 view .LVU441
- 1446 022c 1CA8     		add	r0, sp, #112
- 1447 022e FFF7FEFF 		bl	strlen
- 1448              	.LVL89:
+ 1451              		.loc 1 207 64 is_stmt 0 view .LVU442
+ 1452 0238 1CA8     		add	r0, sp, #112
+ 1453 023a FFF7FEFF 		bl	strlen
+ 1454              	.LVL90:
  207:Core/Src/main.c ****       break;
- 1449              		.loc 1 207 9 view .LVU442
- 1450 0232 0A23     		movs	r3, #10
- 1451 0234 82B2     		uxth	r2, r0
- 1452 0236 1CA9     		add	r1, sp, #112
- 1453 0238 1A48     		ldr	r0, .L92+68
- 1454 023a FFF7FEFF 		bl	HAL_UART_Transmit
- 1455              	.LVL90:
+ 1455              		.loc 1 207 9 view .LVU443
+ 1456 023e 0A23     		movs	r3, #10
+ 1457 0240 82B2     		uxth	r2, r0
+ 1458 0242 1CA9     		add	r1, sp, #112
+ 1459 0244 1948     		ldr	r0, .L92+68
+ 1460 0246 FFF7FEFF 		bl	HAL_UART_Transmit
+ 1461              	.LVL91:
  208:Core/Src/main.c **** 
- 1456              		.loc 1 208 7 is_stmt 1 view .LVU443
- 1457 023e 82E7     		b	.L74
- 1458              	.L83:
+ 1462              		.loc 1 208 7 is_stmt 1 view .LVU444
+ 1463 024a 81E7     		b	.L74
+ 1464              	.L83:
  204:Core/Src/main.c ****           sprintf(danger_message, "DANGER STATE: overvoltage\r\n"); //TODO: controllare che funzion
- 1459              		.loc 1 204 16 view .LVU444
+ 1465              		.loc 1 204 16 view .LVU445
  204:Core/Src/main.c ****           sprintf(danger_message, "DANGER STATE: overvoltage\r\n"); //TODO: controllare che funzion
- 1460              		.loc 1 204 20 is_stmt 0 view .LVU445
- 1461 0240 1C4B     		ldr	r3, .L92+84
- 1462 0242 1B68     		ldr	r3, [r3]
+ 1466              		.loc 1 204 20 is_stmt 0 view .LVU446
+ 1467 024c 1B4B     		ldr	r3, .L92+84
+ 1468 024e 1B68     		ldr	r3, [r3]
  204:Core/Src/main.c ****           sprintf(danger_message, "DANGER STATE: overvoltage\r\n"); //TODO: controllare che funzion
- 1463              		.loc 1 204 19 view .LVU446
- 1464 0244 002B     		cmp	r3, #0
- 1465 0246 F1D0     		beq	.L84
+ 1469              		.loc 1 204 19 view .LVU447
+ 1470 0250 002B     		cmp	r3, #0
+ 1471 0252 F1D0     		beq	.L84
  205:Core/Src/main.c ****         }
- 1466              		.loc 1 205 11 is_stmt 1 view .LVU447
- 1467 0248 1CAC     		add	r4, sp, #112
- 1468 024a 1F4D     		ldr	r5, .L92+104
- 1469 024c 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
- 1470 024e 0FC4     		stmia	r4!, {r0, r1, r2, r3}
- 1471 0250 95E80700 		ldm	r5, {r0, r1, r2}
- 1472 0254 84E80700 		stm	r4, {r0, r1, r2}
- 1473 0258 E8E7     		b	.L84
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 47
+ 1472              		.loc 1 205 11 is_stmt 1 view .LVU448
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 47
 
 
- 1474              	.L93:
- 1475 025a 00BFAFF3 		.align	3
- 1475      0080
- 1476              	.L92:
- 1477 0260 66666666 		.word	1717986918
- 1478 0264 66660A40 		.word	1074423398
- 1479 0268 00000000 		.word	0
- 1480 026c 00FEAF40 		.word	1085275648
- 1481 0270 9A999999 		.word	-1717986918
- 1482 0274 9999F93F 		.word	1073322393
- 1483 0278 CDCCCCCC 		.word	-858993459
- 1484 027c CCCCFC3F 		.word	1073532108
- 1485 0280 9A999999 		.word	-1717986918
- 1486 0284 99990540 		.word	1074108825
- 1487 0288 00000000 		.word	.LANCHOR3
- 1488 028c 5C000000 		.word	.LC0
- 1489 0290 00000000 		.word	.LANCHOR8
- 1490 0294 00000000 		.word	.LANCHOR7
- 1491 0298 00408F40 		.word	1083129856
- 1492 029c 1F85EB51 		.word	1374389535
- 1493 02a0 00000000 		.word	.LC1
- 1494 02a4 00000000 		.word	.LANCHOR6
- 1495 02a8 00000000 		.word	.LANCHOR2
- 1496 02ac 00000000 		.word	.LANCHOR10
- 1497 02b0 00080048 		.word	1207961600
- 1498 02b4 00000000 		.word	.LANCHOR11
- 1499 02b8 00000000 		.word	.LANCHOR4
- 1500 02bc 00000000 		.word	.LANCHOR9
- 1501 02c0 00000000 		.word	.LANCHOR5
- 1502 02c4 20000000 		.word	.LC2
- 1503 02c8 40000000 		.word	.LC3
- 1504              		.cfi_endproc
- 1505              	.LFE332:
- 1507              		.global	state
- 1508              		.global	flag_overvoltage
- 1509              		.global	flag_undervoltage
- 1510              		.global	flag_waiting_message
- 1511              		.global	flag_button
- 1512              		.global	flag_tension
- 1513              		.global	flag_sensor
- 1514              		.global	timer_lap
- 1515              		.global	htim6
- 1516              		.global	hlpuart1
- 1517              		.global	hadc2
- 1518              		.global	hadc1
- 1519              		.section	.bss.flag_button,"aw",%nobits
- 1520              		.align	2
- 1521              		.set	.LANCHOR1,. + 0
- 1524              	flag_button:
- 1525 0000 00000000 		.space	4
- 1526              		.section	.bss.flag_overvoltage,"aw",%nobits
- 1527              		.align	2
- 1528              		.set	.LANCHOR11,. + 0
- 1531              	flag_overvoltage:
- 1532 0000 00000000 		.space	4
- 1533              		.section	.bss.flag_sensor,"aw",%nobits
- 1534              		.align	2
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 48
+ 1473 0254 1CAC     		add	r4, sp, #112
+ 1474 0256 1E4D     		ldr	r5, .L92+104
+ 1475 0258 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 1476 025a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 1477 025c 95E80700 		ldm	r5, {r0, r1, r2}
+ 1478 0260 84E80700 		stm	r4, {r0, r1, r2}
+ 1479 0264 E8E7     		b	.L84
+ 1480              	.L93:
+ 1481 0266 00BF     		.align	3
+ 1482              	.L92:
+ 1483 0268 66666666 		.word	1717986918
+ 1484 026c 66660A40 		.word	1074423398
+ 1485 0270 00000000 		.word	0
+ 1486 0274 00FEAF40 		.word	1085275648
+ 1487 0278 9A999999 		.word	-1717986918
+ 1488 027c 9999F93F 		.word	1073322393
+ 1489 0280 CDCCCCCC 		.word	-858993459
+ 1490 0284 CCCCFC3F 		.word	1073532108
+ 1491 0288 9A999999 		.word	-1717986918
+ 1492 028c 99990540 		.word	1074108825
+ 1493 0290 00000000 		.word	.LANCHOR3
+ 1494 0294 60000000 		.word	.LC0
+ 1495 0298 00000000 		.word	.LANCHOR8
+ 1496 029c 00000000 		.word	.LANCHOR7
+ 1497 02a0 00408F40 		.word	1083129856
+ 1498 02a4 1F85EB51 		.word	1374389535
+ 1499 02a8 00000000 		.word	.LC1
+ 1500 02ac 00000000 		.word	.LANCHOR6
+ 1501 02b0 00000000 		.word	.LANCHOR2
+ 1502 02b4 00000000 		.word	.LANCHOR10
+ 1503 02b8 00080048 		.word	1207961600
+ 1504 02bc 00000000 		.word	.LANCHOR11
+ 1505 02c0 00000000 		.word	.LANCHOR4
+ 1506 02c4 00000000 		.word	.LANCHOR9
+ 1507 02c8 00000000 		.word	.LANCHOR5
+ 1508 02cc 24000000 		.word	.LC2
+ 1509 02d0 44000000 		.word	.LC3
+ 1510              		.cfi_endproc
+ 1511              	.LFE332:
+ 1513              		.global	state
+ 1514              		.global	flag_overvoltage
+ 1515              		.global	flag_undervoltage
+ 1516              		.global	flag_waiting_message
+ 1517              		.global	flag_button
+ 1518              		.global	flag_voltage
+ 1519              		.global	flag_sensor
+ 1520              		.global	timer_lap
+ 1521              		.global	htim6
+ 1522              		.global	hlpuart1
+ 1523              		.global	hadc2
+ 1524              		.global	hadc1
+ 1525              		.section	.bss.flag_button,"aw",%nobits
+ 1526              		.align	2
+ 1527              		.set	.LANCHOR1,. + 0
+ 1530              	flag_button:
+ 1531 0000 00000000 		.space	4
+ 1532              		.section	.bss.flag_overvoltage,"aw",%nobits
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 48
 
 
- 1535              		.set	.LANCHOR2,. + 0
- 1538              	flag_sensor:
- 1539 0000 00000000 		.space	4
- 1540              		.section	.bss.flag_tension,"aw",%nobits
- 1541              		.align	2
- 1542              		.set	.LANCHOR4,. + 0
- 1545              	flag_tension:
- 1546 0000 00000000 		.space	4
- 1547              		.section	.bss.flag_undervoltage,"aw",%nobits
- 1548              		.align	2
- 1549              		.set	.LANCHOR10,. + 0
- 1552              	flag_undervoltage:
- 1553 0000 00000000 		.space	4
- 1554              		.section	.bss.flag_waiting_message,"aw",%nobits
- 1555              		.align	2
- 1556              		.set	.LANCHOR5,. + 0
- 1559              	flag_waiting_message:
- 1560 0000 00000000 		.space	4
- 1561              		.section	.bss.hadc1,"aw",%nobits
- 1562              		.align	2
- 1563              		.set	.LANCHOR7,. + 0
- 1566              	hadc1:
- 1567 0000 00000000 		.space	108
- 1567      00000000 
- 1567      00000000 
- 1567      00000000 
- 1567      00000000 
- 1568              		.section	.bss.hadc2,"aw",%nobits
- 1569              		.align	2
- 1570              		.set	.LANCHOR9,. + 0
- 1573              	hadc2:
- 1574 0000 00000000 		.space	108
- 1574      00000000 
- 1574      00000000 
- 1574      00000000 
- 1574      00000000 
- 1575              		.section	.bss.hlpuart1,"aw",%nobits
- 1576              		.align	2
- 1577              		.set	.LANCHOR6,. + 0
- 1580              	hlpuart1:
- 1581 0000 00000000 		.space	144
- 1581      00000000 
- 1581      00000000 
- 1581      00000000 
- 1581      00000000 
- 1582              		.section	.bss.htim6,"aw",%nobits
- 1583              		.align	2
- 1584              		.set	.LANCHOR8,. + 0
- 1587              	htim6:
- 1588 0000 00000000 		.space	76
- 1588      00000000 
- 1588      00000000 
- 1588      00000000 
- 1588      00000000 
- 1589              		.section	.bss.state,"aw",%nobits
- 1590              		.set	.LANCHOR3,. + 0
- 1593              	state:
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 49
+ 1533              		.align	2
+ 1534              		.set	.LANCHOR11,. + 0
+ 1537              	flag_overvoltage:
+ 1538 0000 00000000 		.space	4
+ 1539              		.section	.bss.flag_sensor,"aw",%nobits
+ 1540              		.align	2
+ 1541              		.set	.LANCHOR2,. + 0
+ 1544              	flag_sensor:
+ 1545 0000 00000000 		.space	4
+ 1546              		.section	.bss.flag_undervoltage,"aw",%nobits
+ 1547              		.align	2
+ 1548              		.set	.LANCHOR10,. + 0
+ 1551              	flag_undervoltage:
+ 1552 0000 00000000 		.space	4
+ 1553              		.section	.bss.flag_voltage,"aw",%nobits
+ 1554              		.align	2
+ 1555              		.set	.LANCHOR4,. + 0
+ 1558              	flag_voltage:
+ 1559 0000 00000000 		.space	4
+ 1560              		.section	.bss.flag_waiting_message,"aw",%nobits
+ 1561              		.align	2
+ 1562              		.set	.LANCHOR5,. + 0
+ 1565              	flag_waiting_message:
+ 1566 0000 00000000 		.space	4
+ 1567              		.section	.bss.hadc1,"aw",%nobits
+ 1568              		.align	2
+ 1569              		.set	.LANCHOR7,. + 0
+ 1572              	hadc1:
+ 1573 0000 00000000 		.space	108
+ 1573      00000000 
+ 1573      00000000 
+ 1573      00000000 
+ 1573      00000000 
+ 1574              		.section	.bss.hadc2,"aw",%nobits
+ 1575              		.align	2
+ 1576              		.set	.LANCHOR9,. + 0
+ 1579              	hadc2:
+ 1580 0000 00000000 		.space	108
+ 1580      00000000 
+ 1580      00000000 
+ 1580      00000000 
+ 1580      00000000 
+ 1581              		.section	.bss.hlpuart1,"aw",%nobits
+ 1582              		.align	2
+ 1583              		.set	.LANCHOR6,. + 0
+ 1586              	hlpuart1:
+ 1587 0000 00000000 		.space	144
+ 1587      00000000 
+ 1587      00000000 
+ 1587      00000000 
+ 1587      00000000 
+ 1588              		.section	.bss.htim6,"aw",%nobits
+ 1589              		.align	2
+ 1590              		.set	.LANCHOR8,. + 0
+ 1593              	htim6:
+ 1594 0000 00000000 		.space	76
+ 1594      00000000 
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 49
 
 
- 1594 0000 00       		.space	1
- 1595              		.section	.bss.timer_lap,"aw",%nobits
- 1596              		.align	2
- 1597              		.set	.LANCHOR0,. + 0
- 1600              	timer_lap:
- 1601 0000 00000000 		.space	4
- 1602              		.text
- 1603              	.Letext0:
- 1604              		.file 3 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g474xx.h"
- 1605              		.file 4 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-fo
- 1606              		.file 5 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-fo
- 1607              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
- 1608              		.file 7 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-fo
- 1609              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 1610              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h"
- 1611              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h"
- 1612              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
- 1613              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
- 1614              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h"
- 1615              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
- 1616              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 1617              		.file 16 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h"
- 1618              		.file 17 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h"
- 1619              		.file 18 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h"
- 1620              		.file 19 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h"
- 1621              		.file 20 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-f
- 1622              		.file 21 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-f
- 1623              		.file 22 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
- 1624              		.file 23 "<built-in>"
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 50
+ 1594      00000000 
+ 1594      00000000 
+ 1594      00000000 
+ 1595              		.section	.bss.state,"aw",%nobits
+ 1596              		.set	.LANCHOR3,. + 0
+ 1599              	state:
+ 1600 0000 00       		.space	1
+ 1601              		.section	.bss.timer_lap,"aw",%nobits
+ 1602              		.align	2
+ 1603              		.set	.LANCHOR0,. + 0
+ 1606              	timer_lap:
+ 1607 0000 00000000 		.space	4
+ 1608              		.text
+ 1609              	.Letext0:
+ 1610              		.file 3 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g474xx.h"
+ 1611              		.file 4 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-fo
+ 1612              		.file 5 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-fo
+ 1613              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 1614              		.file 7 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-fo
+ 1615              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 1616              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h"
+ 1617              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h"
+ 1618              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 1619              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 1620              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h"
+ 1621              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 1622              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 1623              		.file 16 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h"
+ 1624              		.file 17 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h"
+ 1625              		.file 18 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h"
+ 1626              		.file 19 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h"
+ 1627              		.file 20 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-f
+ 1628              		.file 21 "/Users/riccardobenevelli/Library/Application Support/Code/User/globalStorage/bmd.stm32-f
+ 1629              		.file 22 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 1630              		.file 23 "<built-in>"
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 50
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:20     .text.MX_GPIO_Init:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:25     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:193    .text.MX_GPIO_Init:00000000000000c8 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:199    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:205    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:305    .text.HAL_TIM_PeriodElapsedCallback:000000000000007c $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:318    .text.HAL_GPIO_EXTI_Callback:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:324    .text.HAL_GPIO_EXTI_Callback:0000000000000000 HAL_GPIO_EXTI_Callback
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:379    .text.HAL_GPIO_EXTI_Callback:0000000000000034 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:386    .text.Error_Handler:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:392    .text.Error_Handler:0000000000000000 Error_Handler
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:424    .text.MX_LPUART1_UART_Init:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:429    .text.MX_LPUART1_UART_Init:0000000000000000 MX_LPUART1_UART_Init
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:524    .text.MX_LPUART1_UART_Init:0000000000000058 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:530    .text.MX_ADC1_Init:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:535    .text.MX_ADC1_Init:0000000000000000 MX_ADC1_Init
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:684    .text.MX_ADC1_Init:0000000000000090 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:690    .text.MX_TIM6_Init:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:695    .text.MX_TIM6_Init:0000000000000000 MX_TIM6_Init
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:770    .text.MX_TIM6_Init:0000000000000048 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:776    .text.MX_ADC2_Init:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:781    .text.MX_ADC2_Init:0000000000000000 MX_ADC2_Init
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:908    .text.MX_ADC2_Init:0000000000000078 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:915    .text.SystemClock_Config:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:921    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1042   .rodata.main.str1.4:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1059   .text.main:0000000000000000 $t
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1065   .text.main:0000000000000000 main
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1477   .text.main:0000000000000260 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1593   .bss.state:0000000000000000 state
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1531   .bss.flag_overvoltage:0000000000000000 flag_overvoltage
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1552   .bss.flag_undervoltage:0000000000000000 flag_undervoltage
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1559   .bss.flag_waiting_message:0000000000000000 flag_waiting_message
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1524   .bss.flag_button:0000000000000000 flag_button
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1545   .bss.flag_tension:0000000000000000 flag_tension
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1538   .bss.flag_sensor:0000000000000000 flag_sensor
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1600   .bss.timer_lap:0000000000000000 timer_lap
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1587   .bss.htim6:0000000000000000 htim6
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1580   .bss.hlpuart1:0000000000000000 hlpuart1
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1573   .bss.hadc2:0000000000000000 hadc2
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1566   .bss.hadc1:0000000000000000 hadc1
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1520   .bss.flag_button:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1527   .bss.flag_overvoltage:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1534   .bss.flag_sensor:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1541   .bss.flag_tension:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1548   .bss.flag_undervoltage:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1555   .bss.flag_waiting_message:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1562   .bss.hadc1:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1569   .bss.hadc2:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1576   .bss.hlpuart1:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1583   .bss.htim6:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1594   .bss.state:0000000000000000 $d
-/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s:1596   .bss.timer_lap:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:20     .text.MX_GPIO_Init:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:25     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:193    .text.MX_GPIO_Init:00000000000000c8 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:199    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:205    .text.HAL_TIM_PeriodElapsedCallback:0000000000000000 HAL_TIM_PeriodElapsedCallback
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:305    .text.HAL_TIM_PeriodElapsedCallback:000000000000007c $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:318    .text.HAL_GPIO_EXTI_Callback:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:324    .text.HAL_GPIO_EXTI_Callback:0000000000000000 HAL_GPIO_EXTI_Callback
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:379    .text.HAL_GPIO_EXTI_Callback:0000000000000034 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:386    .text.Error_Handler:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:392    .text.Error_Handler:0000000000000000 Error_Handler
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:424    .text.MX_LPUART1_UART_Init:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:429    .text.MX_LPUART1_UART_Init:0000000000000000 MX_LPUART1_UART_Init
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:524    .text.MX_LPUART1_UART_Init:0000000000000058 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:530    .text.MX_ADC1_Init:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:535    .text.MX_ADC1_Init:0000000000000000 MX_ADC1_Init
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:684    .text.MX_ADC1_Init:0000000000000090 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:690    .text.MX_TIM6_Init:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:695    .text.MX_TIM6_Init:0000000000000000 MX_TIM6_Init
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:770    .text.MX_TIM6_Init:0000000000000048 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:776    .text.MX_ADC2_Init:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:781    .text.MX_ADC2_Init:0000000000000000 MX_ADC2_Init
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:908    .text.MX_ADC2_Init:0000000000000078 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:915    .text.SystemClock_Config:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:921    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1043   .rodata.main.str1.4:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1060   .text.main:0000000000000000 $t
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1066   .text.main:0000000000000000 main
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1483   .text.main:0000000000000268 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1599   .bss.state:0000000000000000 state
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1537   .bss.flag_overvoltage:0000000000000000 flag_overvoltage
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1551   .bss.flag_undervoltage:0000000000000000 flag_undervoltage
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1565   .bss.flag_waiting_message:0000000000000000 flag_waiting_message
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1530   .bss.flag_button:0000000000000000 flag_button
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1558   .bss.flag_voltage:0000000000000000 flag_voltage
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1544   .bss.flag_sensor:0000000000000000 flag_sensor
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1606   .bss.timer_lap:0000000000000000 timer_lap
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1593   .bss.htim6:0000000000000000 htim6
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1586   .bss.hlpuart1:0000000000000000 hlpuart1
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1579   .bss.hadc2:0000000000000000 hadc2
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1572   .bss.hadc1:0000000000000000 hadc1
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1526   .bss.flag_button:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1533   .bss.flag_overvoltage:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1540   .bss.flag_sensor:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1547   .bss.flag_undervoltage:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1554   .bss.flag_voltage:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1561   .bss.flag_waiting_message:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1568   .bss.hadc1:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1575   .bss.hadc2:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1582   .bss.hlpuart1:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1589   .bss.htim6:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1600   .bss.state:0000000000000000 $d
+/var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s:1602   .bss.timer_lap:0000000000000000 $d
 
 UNDEFINED SYMBOLS
-ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//ccppBqU6.s 			page 51
+ARM GAS  /var/folders/v4/thyb7fs93y7cf8_ncbsg8d0c0000gn/T//cc50bsPL.s 			page 51
 
 
 HAL_GPIO_WritePin
@@ -2994,6 +3000,7 @@ HAL_RCC_ClockConfig
 __aeabi_i2d
 __aeabi_dmul
 __aeabi_ddiv
+__aeabi_dsub
 __aeabi_d2f
 __aeabi_f2d
 __aeabi_dcmplt

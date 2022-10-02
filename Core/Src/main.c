@@ -146,11 +146,11 @@ int main(void)
         HAL_ADC_Start(&hadc1);
         HAL_ADC_PollForConversion(&hadc1, 1); 
         raw = HAL_ADC_GetValue(&hadc1);
-        raw_to_gauss = ((raw * 3.3*1000) / 4095)/1.6; //convert to gauss
+        raw_to_gauss = (((raw * 3.3)/ 4095) - 1.60)*1000/1.6; //TODO: change sensibility according to alimentation
         HAL_ADC_Stop(&hadc1);
 
         // Convert to string and print
-        sprintf(msg, "(%lu) Hall sensor:  %.4f [GS]\r\n", HAL_GetTick()/100, raw_to_gauss);
+        sprintf(msg, "(%lu) Hall sensor:  %4.2f [GS]\r\n", HAL_GetTick()/100, raw_to_gauss);
         HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), 10);
         flag_sensor = 0;
         }
