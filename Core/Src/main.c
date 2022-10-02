@@ -41,6 +41,7 @@
 
 /* Private variables ---------------------------------------------------------*/
  ADC_HandleTypeDef hadc1;
+ADC_HandleTypeDef hadc2;
 
 UART_HandleTypeDef hlpuart1;
 
@@ -51,6 +52,10 @@ TIM_HandleTypeDef htim6;
 int timer_lap = 0;
 int flag_sensor = 0;
 int flag_tension = 0;
+int flag_button = 0;
+int flag_waiting_message = 0;
+int flag_undervoltage = 0;
+int flag_overvoltage = 0;
 
 /* USER CODE END PV */
 
@@ -60,13 +65,20 @@ static void MX_GPIO_Init(void);
 static void MX_LPUART1_UART_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM6_Init(void);
+static void MX_ADC2_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+enum state_machine {
+    INIT_STATE,
+    RUNNING_STATE,
+    READING_STATE,
+    WAITING_STATE,
+    DANGER_STATE
+} state;
 /* USER CODE END 0 */
 
 /**
@@ -79,7 +91,14 @@ int main(void)
   
   uint16_t raw;
   char msg[50];
-  float raw_to_volt;
+  char danger_message[50];
+  float raw_to_gauss;
+  state = INIT_STATE;
+
+  uint16_t raw_tension;
+  float raw_tension_volt;
+
+  uint8_t waiting_message[100] = "Board in waiting state - please press the emergency button\r\n";
 
   /* USER CODE END 1 */
 
@@ -104,6 +123,7 @@ int main(void)
   MX_LPUART1_UART_Init();
   MX_ADC1_Init();
   MX_TIM6_Init();
+  MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
 
 
@@ -117,31 +137,79 @@ int main(void)
   while (1)
   { 
     
-    //check flag sensor
-    if(flag_sensor == 1){
+    switch (state)
+    {
+    case READING_STATE:
+      //check if sensor is to be read
+      if(flag_sensor == 1){
       
-      HAL_ADC_Start(&hadc1);
-      HAL_ADC_PollForConversion(&hadc1, 1); 
-      raw = HAL_ADC_GetValue(&hadc1);
-      raw_to_volt = (raw * 3.3) / 4095;
-      HAL_ADC_Stop(&hadc1);
+        HAL_ADC_Start(&hadc1);
+        HAL_ADC_PollForConversion(&hadc1, 1); 
+        raw = HAL_ADC_GetValue(&hadc1);
+        raw_to_gauss = ((raw * 3.3*1000) / 4095)/1.6; //convert to gauss
+        HAL_ADC_Stop(&hadc1);
 
-      // Convert to string and print
-      sprintf(msg, "(%lu) Hall sensor:  %.4f [V]\r\n", HAL_GetTick()/100, raw_to_volt);
-      HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), 10);
-      flag_sensor = 0;
-    }
-    
-    //check flag tension
-    if(flag_tension == 1){
-      //read tension
-      HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_SET); //enable undervoltage led
-      HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //enable overvoltage led
-      flag_tension = 0;
-    }
-    
+        // Convert to string and print
+        sprintf(msg, "(%lu) Hall sensor:  %.4f [GS]\r\n", HAL_GetTick()/100, raw_to_gauss);
+        HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), 10);
+        flag_sensor = 0;
+        }
+        
+      //check if tension is to be read
+      if(flag_tension == 1){
+        //read tension
+        HAL_ADC_Start(&hadc2);
+        HAL_ADC_PollForConversion(&hadc2, 1); 
+        raw_tension = HAL_ADC_GetValue(&hadc2);
+        raw_tension_volt = (raw_tension * 3.3) / 4095; //convert to volt
+        HAL_ADC_Stop(&hadc2);
+        
+        if(raw_tension_volt < 1.8){
+          state = DANGER_STATE;
+          flag_undervoltage = 1;
+          HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_SET); //enable undervoltage led
+          HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //disable overvoltage led
+        } else if (raw_tension_volt > 2.7){
+          state = DANGER_STATE;
+          flag_overvoltage = 1;
+          HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //enable overvoltage led
+          HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_RESET); //disable undervoltage led
+        } else {
+          flag_undervoltage = 0;
+          flag_overvoltage = 0;
+          HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_RESET); //disable undervoltage led
+          HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //disable overvoltage led
+        }
+        flag_tension = 0;
+      }
 
-    HAL_Delay(1);
+      state = RUNNING_STATE;
+
+      break;
+
+    case RUNNING_STATE:
+      break;
+
+    case WAITING_STATE:
+      if(flag_waiting_message == 1){
+        HAL_UART_Transmit(&hlpuart1, (uint8_t*)waiting_message, sizeof(waiting_message), 10);
+        flag_waiting_message = 0;
+      }
+
+      break;
+
+    case DANGER_STATE:
+        if (flag_undervoltage){
+          sprintf(danger_message, "DANGER STATE: undervoltage\r\n"); //TODO: controllare che funzioni
+        } else if (flag_overvoltage){
+          sprintf(danger_message, "DANGER STATE: overvoltage\r\n"); //TODO: controllare che funzioni
+        }
+        HAL_UART_Transmit(&hlpuart1, (uint8_t*)danger_message, strlen(danger_message), 10); 
+      break;
+
+    default:
+      break;
+    }
       
     /* USER CODE END WHILE */
 
@@ -266,6 +334,65 @@ static void MX_ADC1_Init(void)
   /* USER CODE BEGIN ADC1_Init 2 */
 
   /* USER CODE END ADC1_Init 2 */
+
+}
+
+/**
+  * @brief ADC2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC2_Init(void)
+{
+
+  /* USER CODE BEGIN ADC2_Init 0 */
+
+  /* USER CODE END ADC2_Init 0 */
+
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC2_Init 1 */
+
+  /* USER CODE END ADC2_Init 1 */
+
+  /** Common config
+  */
+  hadc2.Instance = ADC2;
+  hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+  hadc2.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc2.Init.GainCompensation = 0;
+  hadc2.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc2.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc2.Init.LowPowerAutoWait = DISABLE;
+  hadc2.Init.ContinuousConvMode = DISABLE;
+  hadc2.Init.NbrOfConversion = 1;
+  hadc2.Init.DiscontinuousConvMode = DISABLE;
+  hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc2.Init.DMAContinuousRequests = DISABLE;
+  hadc2.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc2.Init.OversamplingMode = DISABLE;
+  if (HAL_ADC_Init(&hadc2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_2;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+  sConfig.SingleDiff = ADC_SINGLE_ENDED;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC2_Init 2 */
+
+  /* USER CODE END ADC2_Init 2 */
 
 }
 
@@ -406,28 +533,30 @@ static void MX_GPIO_Init(void)
 //function that is called every 50 ms
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-  //toggle a pin 
-  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_10);
-  if (htim->Instance == TIM6)
-  {
+  //toggle a pin for checking if the timer works
+  // HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_10); 
+  if (htim->Instance == TIM6){
     timer_lap += 1;
 
-    if ((timer_lap % 4) == 0)
-    {
+    if (((timer_lap % 4) == 0) && flag_button == 0){
       flag_sensor = 1; //flag for checking the sensor
-    }  else if ((timer_lap % 7) == 0)
-    {
+      state = READING_STATE;
+    }  else if (((timer_lap % 7) == 0) && flag_button == 0){
       flag_tension = 1; //flag for checking the tension
+      state = READING_STATE;
+    } else if (flag_button == 1 && ((timer_lap % 10) == 0)){
+      flag_waiting_message = 1; //flag for sending the waiting message
     }
   }
 }
 
 //button interrupt
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-    if(GPIO_Pin == GPIO_PIN_13) 
-    { //TODO: set the correct value of flag and delete led toggle
-    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); // Toggle The Output (LED) Pin 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+    if(GPIO_Pin == GPIO_PIN_13) {
+      HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); 
+      flag_button = !flag_button;
+      timer_lap = 0;
+      state = flag_button ? WAITING_STATE : RUNNING_STATE;
     }
 }
 
