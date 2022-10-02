@@ -51,7 +51,7 @@ TIM_HandleTypeDef htim6;
 
 int timer_lap = 0;
 int flag_sensor = 0;
-int flag_tension = 0;
+int flag_voltage = 0;
 int flag_button = 0;
 int flag_waiting_message = 0;
 int flag_undervoltage = 0;
@@ -95,8 +95,8 @@ int main(void)
   float raw_to_gauss;
   state = INIT_STATE;
 
-  uint16_t raw_tension;
-  float raw_tension_volt;
+  uint16_t raw_voltage;
+  float raw_voltage_volt;
 
   uint8_t waiting_message[100] = "Board in waiting state - please press the emergency button\r\n";
 
@@ -155,21 +155,21 @@ int main(void)
         flag_sensor = 0;
         }
         
-      //check if tension is to be read
-      if(flag_tension == 1){
-        //read tension
+      //check if voltage is to be read
+      if(flag_voltage == 1){
+        //read voltage
         HAL_ADC_Start(&hadc2);
         HAL_ADC_PollForConversion(&hadc2, 1); 
-        raw_tension = HAL_ADC_GetValue(&hadc2);
-        raw_tension_volt = (raw_tension * 3.3) / 4095; //convert to volt
+        raw_voltage = HAL_ADC_GetValue(&hadc2);
+        raw_voltage_volt = (raw_voltage * 3.3) / 4095; //convert to volt
         HAL_ADC_Stop(&hadc2);
         
-        if(raw_tension_volt < 1.8){
+        if(raw_voltage_volt < 1.8){
           state = DANGER_STATE;
           flag_undervoltage = 1;
           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_SET); //enable undervoltage led
           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //disable overvoltage led
-        } else if (raw_tension_volt > 2.7){
+        } else if (raw_voltage_volt > 2.7){
           state = DANGER_STATE;
           flag_overvoltage = 1;
           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //enable overvoltage led
@@ -180,7 +180,7 @@ int main(void)
           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_RESET); //disable undervoltage led
           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //disable overvoltage led
         }
-        flag_tension = 0;
+        flag_voltage = 0;
       }
 
       state = RUNNING_STATE;
@@ -542,7 +542,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       flag_sensor = 1; //flag for checking the sensor
       state = READING_STATE;
     }  else if (((timer_lap % 7) == 0) && flag_button == 0){
-      flag_tension = 1; //flag for checking the tension
+      flag_voltage = 1; //flag for checking the voltage
       state = READING_STATE;
     } else if (flag_button == 1 && ((timer_lap % 10) == 0)){
       flag_waiting_message = 1; //flag for sending the waiting message
