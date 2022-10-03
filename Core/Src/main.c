@@ -73,12 +73,16 @@ static void MX_ADC2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 enum state_machine {
-    INIT_STATE,
+    INIT_STATE = 0U,
     RUNNING_STATE,
     READING_STATE,
     WAITING_STATE,
-    DANGER_STATE
+    DANGER_STATE,
+    STATE_LENGTH
 } state;
+
+char* state_names[STATE_LENGTH];
+// volatile uint8_t state;
 /* USER CODE END 0 */
 
 /**
@@ -89,8 +93,12 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
   
+  state_names[INIT_STATE] = "INIT_STATE";
+  state_names[READING_STATE] = "READING STATE";
+  char state_msg [30];
   uint16_t raw;
   char msg[50];
+  char msg_voltage[50];
   char danger_message[50];
   float raw_to_gauss;
   state = INIT_STATE;
@@ -98,7 +106,8 @@ int main(void)
   uint16_t raw_voltage;
   float raw_voltage_volt;
 
-  uint8_t waiting_message[100] = "Board in waiting state - please press the emergency button\r\n";
+  // uint8_t waiting_message[100] = "(%lu)Board in waiting state - please press the emergency button\r\n";
+  char waiting_message[100];
 
   /* USER CODE END 1 */
 
@@ -136,10 +145,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   { 
-    
+    // HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_SET);
     switch (state)
     {
     case READING_STATE:
+
+      sprintf(state_msg,"\nState: %s \r\n", state_names[READING_STATE]);
+      HAL_UART_Transmit(&hlpuart1, (uint8_t*)state_msg, strlen(state_msg), 10);
+
       //check if sensor is to be read
       if(flag_sensor == 1){
       
@@ -150,7 +163,7 @@ int main(void)
         HAL_ADC_Stop(&hadc1);
 
         // Convert to string and print
-        sprintf(msg, "(%lu) Hall sensor:  %4.2f [GS]\r\n", HAL_GetTick()/100, raw_to_gauss);
+        sprintf(msg, "(%lu) Hall sensor:  %4.2f [GS]\r\n", HAL_GetTick()/10, raw_to_gauss);
         HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg, strlen(msg), 10);
         flag_sensor = 0;
         }
@@ -164,16 +177,25 @@ int main(void)
         raw_voltage_volt = (raw_voltage * 3.3) / 4095; //convert to volt
         HAL_ADC_Stop(&hadc2);
         
+        sprintf(msg_voltage, "(%lu) Voltage:  %.3f [V]\r\n", HAL_GetTick()/10, raw_voltage_volt);
+        HAL_UART_Transmit(&hlpuart1, (uint8_t*)msg_voltage, strlen(msg_voltage), 10);
+
         if(raw_voltage_volt < 1.8){
           state = DANGER_STATE;
           flag_undervoltage = 1;
           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_SET); //enable undervoltage led
           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //disable overvoltage led
-        } else if (raw_voltage_volt > 2.7){
+          sprintf(danger_message, "DANGER STATE: undervoltage\r\n");
+          HAL_UART_Transmit(&hlpuart1, (uint8_t*)danger_message, strlen(danger_message), 10); 
+
+        } else if (raw_voltage_volt > 2.2){
           state = DANGER_STATE;
           flag_overvoltage = 1;
           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //enable overvoltage led
           HAL_GPIO_WritePin(GPIOC, GPIO_PIN_11, GPIO_PIN_RESET); //disable undervoltage led
+          sprintf(danger_message, "DANGER STATE: overvoltage\r\n");
+          HAL_UART_Transmit(&hlpuart1, (uint8_t*)danger_message, strlen(danger_message), 10);
+
         } else {
           flag_undervoltage = 0;
           flag_overvoltage = 0;
@@ -188,11 +210,14 @@ int main(void)
       break;
 
     case RUNNING_STATE:
+      // sprintf(state_msg,"\nState: %s \r\n", state_names[RUNNING_STATE]);
+      // HAL_UART_Transmit(&hlpuart1, (uint8_t*)state_msg, strlen(state_msg), 10);
       break;
 
     case WAITING_STATE:
       if(flag_waiting_message == 1){
-        HAL_UART_Transmit(&hlpuart1, (uint8_t*)waiting_message, sizeof(waiting_message), 10);
+        sprintf(waiting_message, "(%lu)Board in waiting state - please press the emergency button\r\n", HAL_GetTick()/100);
+        HAL_UART_Transmit(&hlpuart1, (uint8_t*)waiting_message, strlen(waiting_message), 10);
         flag_waiting_message = 0;
       }
 
@@ -536,17 +561,19 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   //toggle a pin for checking if the timer works
   // HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_10); 
   if (htim->Instance == TIM6){
-    timer_lap += 1;
 
-    if (((timer_lap % 4) == 0) && flag_button == 0){
+    if (((timer_lap % 4) == 0) && flag_button == 0 && (timer_lap != 0) ){ //&& (flag_undervoltage || flag_overvoltage)
       flag_sensor = 1; //flag for checking the sensor
       state = READING_STATE;
-    }  else if (((timer_lap % 7) == 0) && flag_button == 0){
+    }
+    if (((timer_lap % 7) == 0) && flag_button == 0 && (timer_lap != 0) ){ //&& (flag_undervoltage || flag_overvoltage)
       flag_voltage = 1; //flag for checking the voltage
       state = READING_STATE;
-    } else if (flag_button == 1 && ((timer_lap % 10) == 0)){
+    }
+    if (flag_button == 1 && ((timer_lap % 10) == 0)){
       flag_waiting_message = 1; //flag for sending the waiting message
     }
+    timer_lap += 1;
   }
 }
 
